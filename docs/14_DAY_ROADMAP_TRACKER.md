@@ -2,7 +2,7 @@
 
 > **Project**: Optimization Techniques — Lab Assignment 8  
 > **Cycle Duration**: 14 Days (Two Weeks)  
-> **Status**: Days 1–3 In Progress (Setup & Architecture Complete)  
+> **Status**: Day 1 Complete (Setup, Governance, Environment & RISC-V Toolchain Verified)  
 
 ---
 
@@ -10,10 +10,11 @@
 
 ```
 +---------------------------------------------------------------------------------------------------------+
-| DAYS 1–3: DISCOVER & FORMULATE                                                                          |
-| • Track E Railway problem formulation, data generation, Dijkstra baseline.                              |
-| • WSL2, QEMU, RISC-V toolchain verification & environment setup.                                        |
-| • Project scaffolding, AI tools register, and prompt logging structure established.                     |
+| DAYS 1–3: DISCOVER & FORMULATE (Day 1 Complete)                                                         |
+| • [COMPLETE] Project scaffolding, AI tools register, and prompt logging structure established.         |
+| • [COMPLETE] WSL2, QEMU RISC-V (10.2.1), gcc-riscv64 (15.2.0), make (4.4.1), gdb installed & verified. |
+| • [COMPLETE] Initial root commit (39b3913) recorded and verified.                                       |
+| • [NEXT: Day 2-3] Track E Railway problem formulation, data generation, Dijkstra baseline.              |
 +---------------------------------------------------------------------------------------------------------+
                                                      │
                                                      ▼
@@ -54,19 +55,23 @@
 ## 2. Granular Task Checklist & Pacing Schedule
 
 ### Phase 1: Days 1–3 — Discover & Formulate
-* [x] **Setup & Verification**:
-  * [x] Verify host environment (Python 3.13, NumPy, SciPy, Matplotlib, GCC 16, Git).
-  * [x] Verify WSL2 & Ubuntu status; identify missing RISC-V QEMU toolchain.
-  * [x] Document environment verification and provide installation commands.
-* [x] **Project Architecture & Governance**:
+* [x] **Day 1: Setup, Governance & Toolchain Verification**:
+  * [x] Verify host environment (Python 3.13.3, NumPy, SciPy HiGHS MILP, Matplotlib, GCC 16, Git).
+  * [x] Verify WSL2 & Ubuntu 26.04 LTS subsystem.
+  * [x] Provision approved xv6 RISC-V toolchain (`build-essential`, `gdb-multiarch`, `qemu-system-misc`, `qemu-system-riscv`, `gcc-riscv64-linux-gnu`, `binutils-riscv64-linux-gnu`).
+  * [x] Formally verify all 5 xv6 tools (`gcc 15.2.0`, `make 4.4.1`, `qemu-system-riscv64 10.2.1`, `riscv64-linux-gnu-gcc 15.2.0`, `gdb-multiarch 17.1`).
   * [x] Create project directory layout (`prompts/`, `docs/`, `report/`, `track_a_continuous/` through `track_j_software_eng/`).
   * [x] Author comprehensive `README.md` with AI Tools Register and commit conventions.
-  * [x] Author `PROJECT_PLAN.md` incorporating all specific user decisions.
+  * [x] Author `PROJECT_PLAN.md` incorporating approved Railway (Track E), xv6 (Track G), and Mini-compiler (Track F) decisions.
   * [x] Author `docs/CHAPTER_6_COVERAGE_CHECKLIST.md` mapping 100% Chapter 6 syllabus.
-* [ ] **Track E Formulation & Baseline**:
+  * [x] Establish Git history and commit traceability standard.
+  * [x] Audit failure logs: 4 genuine observed AI engineering issues documented; future cases reserved as pending templates.
+  * [x] Audit AI tools register: Antigravity AI recorded as active; Claude and Copilot scheduled for subsequent phases.
+* [ ] **Days 2–3: Track E Formulation & Baseline**:
   * [ ] Generate realistic railway timetable network dataset (`data/railway_network.json`).
   * [ ] Implement Dijkstra shortest path static baseline.
   * [ ] Formulate mathematical model (decision variables, multi-objective function, flow & buffer constraints).
+  * [ ] Clone `xv6-riscv` source tree into `track_g_xv6/` and verify stock QEMU boot.
 
 ### Phase 2: Days 4–7 — Core Chapter 6 Methods Implementation
 * [ ] **Track A (Continuous)**:
@@ -132,7 +137,7 @@
 * [ ] **Vibe-Coding Disclosures**:
   * [ ] Finalize `prompts/` subdirectories with complete prompts, AI responses, and git commits.
   * [ ] Finalize `prompts/failure_log.md` with $\ge 3$ documented AI failure cases, fixes, and lessons.
-  * [ ] Finalize `prompts/tool_comparison.md` comparing Antigravity AI vs. Claude/Copilot.
+  * [ ] Finalize `prompts/tool_comparison.md` comparing Antigravity AI vs. secondary assistants.
 * [ ] **Reproducibility & Publication**:
   * [ ] Run end-to-end verification script (`scripts/run_all_benchmarks.py`).
   * [ ] Verify clean, reproducible execution from a fresh checkout.

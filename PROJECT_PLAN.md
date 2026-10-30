@@ -204,3 +204,4 @@ A fully self-contained, modular mini-compiler implemented in clean, dependency-f
    * Compiler: Executing unoptimized vs optimized code on diverse test vectors.
    * DBMS: Comparing query output hashes between unindexed and indexed runs.
    * xv6: Standard test harness execution (`usertests`).
+

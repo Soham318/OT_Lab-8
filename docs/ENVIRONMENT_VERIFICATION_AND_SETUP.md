@@ -1,92 +1,70 @@
 # Environment Verification & Setup Guide
 
 > **Project**: Optimization Techniques — Lab Assignment 8 (OT_Lab-8)  
-> **Verification Date**: October 31, 2026  
+> **Verification Date**: October 31, 2026 (Updated Post-Installation)  
 > **Target Platforms**: Windows 11 (Host) + WSL2 (Ubuntu 26.04 LTS) for xv6 RISC-V  
+> **Status**: 100% Core System & Toolchain Dependencies Installed and Verified  
 
 ---
 
-## 1. Automated Environment Verification Summary
-
-The development environment was inspected via automated diagnostics. Below is the comprehensive status of all required runtimes, compilers, and toolchains.
+## 1. Verified Environment Summary
 
 ### 1.1 Host Environment (Windows 11)
 
 | Component | Status | Detected Version | Details & Capabilities |
 | :--- | :--- | :--- | :--- |
-| **Python** | **INSTALLED** | `Python 3.13.3` | System Python located at `AppData/Local/Programs/Python/Python313/` |
-| **pip** | **INSTALLED** | `pip 25.0.1` | Package installer available |
-| **NumPy** | **INSTALLED** | Verified | Core tensor and numerical linear algebra engine |
-| **SciPy** | **INSTALLED** | Verified | Contains `scipy.optimize.milp` (HiGHS solver) & `linprog` |
-| **Matplotlib** | **INSTALLED** | Verified | Plotting and visualization suite |
-| **SQLite3** | **INSTALLED** | Built-in | Relational database engine for Track H DBMS benchmarks |
-| **GCC (Host)** | **INSTALLED** | `gcc 16.1.0` (MSYS2) | Host C/C++ compiler |
-| **Git** | **INSTALLED** | `git 2.44+` | Version control & commit traceability |
-| **WSL2 Subsystem**| **INSTALLED** | WSL2 Active | Windows Subsystem for Linux operational |
+| **Python** | **VERIFIED** | `Python 3.13.3` | System Python located at `AppData/Local/Programs/Python/Python313/` |
+| **pip** | **VERIFIED** | `pip 25.0.1` | Package installer available |
+| **NumPy** | **VERIFIED** | Available | Core tensor and numerical linear algebra engine |
+| **SciPy** | **VERIFIED** | Available | Highs MILP solver (`scipy.optimize.milp`) & `linprog` verified |
+| **Matplotlib** | **VERIFIED** | Available | Plotting and visualization suite |
+| **SQLite3** | **VERIFIED** | Built-in | Relational database engine for Track H DBMS benchmarks |
+| **GCC (Host)** | **VERIFIED** | `gcc 16.1.0` (MSYS2) | Host C/C++ compiler |
+| **Git** | **VERIFIED** | `git 2.44+` | Commit traceability verified (Initial root commit: `39b3913`) |
+| **WSL2 Subsystem**| **VERIFIED** | WSL2 Active | Windows Subsystem for Linux operational |
 
-### 1.2 Linux Subsystem (WSL2 / Ubuntu)
+### 1.2 Linux Subsystem (WSL2 / Ubuntu 26.04 LTS)
 
-| Component | Status | Detected Version | Notes |
-| :--- | :--- | :--- | :--- |
-| **Ubuntu Distro** | **INSTALLED** | `Ubuntu 26.04 LTS` | Registered WSL2 distribution |
-| **Git (WSL)** | **INSTALLED** | `/usr/bin/git` | Available inside Ubuntu |
-| **Make (WSL)** | **MISSING** | Not found in `$PATH` | Required to build xv6-riscv kernel |
-| **GCC (Native WSL)**| **MISSING** | Not found in `$PATH` | `build-essential` needed |
-| **RISC-V GCC Toolchain** | **MISSING** | Not found in `$PATH` | `gcc-riscv64-linux-gnu` needed for cross-compiling xv6 |
-| **QEMU RISC-V** | **MISSING** | Not found in `$PATH` | `qemu-system-misc` (`qemu-system-riscv64`) needed to run xv6 |
-
----
-
-## 2. Identified Missing Dependencies & Action Required
-
-In accordance with your explicit instruction (*"First verify whether WSL2, Ubuntu, QEMU and the required RISC-V toolchain are actually installed and working. Do not assume they are available. If something is missing, provide installation instructions and wait for my approval"*), the following components must be installed prior to running Track G (xv6).
-
-### 2.1 WSL2 Ubuntu: xv6 RISC-V Build & Simulation Prerequisites
-
-Inside your WSL2 Ubuntu terminal, run the following command (or grant approval for us to execute it via WSL):
-
-```bash
-sudo apt-get update && sudo apt-get install -y \
-    build-essential \
-    gdb-multiarch \
-    qemu-system-misc \
-    gcc-riscv64-linux-gnu \
-    binutils-riscv64-linux-gnu
-```
-
-#### What this command installs:
-1. `build-essential`: Installs `make`, `gcc`, and core compilation utilities.
-2. `qemu-system-misc`: Provides the `qemu-system-riscv64` emulator to execute the compiled xv6 kernel.
-3. `gcc-riscv64-linux-gnu` & `binutils-riscv64-linux-gnu`: The 64-bit RISC-V cross-compiler and assembler required to build the xv6 kernel on x86_64 Ubuntu.
-
-### 2.2 Host Python Environment Recommendations
-
-To streamline the remaining tracks:
-1. **Tracks A, B, D, E, F, H, J**: Fully supported by currently verified packages (`numpy`, `scipy`, `matplotlib`, `sqlite3`).
-   * Optional helper libraries that enhance plotting and graph manipulation:
-     ```bash
-     pip install networkx pandas tabulate
-     ```
-2. **Tracks C & I (Quantum Simulation Strategy)**:
-   * **Self-Contained Statevector & Density-Matrix Quantum Simulator**:  
-     Because Python 3.13 is very recent, some compiled C-extensions for Qiskit or PennyLane occasionally exhibit build conflicts on Windows. To guarantee **100% deterministic reproducibility across any machine without installation failures**, we have engineered a pure-NumPy quantum simulation engine (`track_c_quantum_opt/core/` and `track_i_quantum_algos/core/`) that computes exact statevectors, supports arbitrary unitary gates, parameterized rotation gates ($R_x, R_y, R_z$), shot-noise Poisson sampling, depolarizing error channels, and analytical parameter-shift gradient computation.
-   * If desired, standard Qiskit / PennyLane packages can also be installed alongside:
-     ```bash
-     pip install qiskit pennylane
-     ```
+| Component | Status | Verified Version | Binary Location | Purpose |
+| :--- | :--- | :--- | :--- | :--- |
+| **Ubuntu Distro** | **VERIFIED** | `Ubuntu 26.04 LTS (resolute)` | WSL2 Default | xv6 RISC-V environment |
+| **GCC (Native)** | **VERIFIED** | `gcc 15.2.0 (Ubuntu 15.2.0-16ubuntu1)` | `/usr/bin/gcc` | Host C compilation inside WSL |
+| **GNU Make** | **VERIFIED** | `GNU Make 4.4.1` | `/usr/bin/make` | Kernel Makefile build driver |
+| **QEMU RISC-V** | **VERIFIED** | `QEMU emulator 10.2.1` | `/usr/bin/qemu-system-riscv64` | xv6 hardware emulator |
+| **RISC-V GCC** | **VERIFIED** | `riscv64-linux-gnu-gcc 15.2.0` | `/usr/bin/riscv64-linux-gnu-gcc` | 64-bit RISC-V cross-compiler |
+| **RISC-V GDB** | **VERIFIED** | `GNU gdb 17.1 (Ubuntu 17.1-2ubuntu1)` | `/usr/bin/gdb-multiarch` | Kernel debugging & diagnostics |
+| **Git (WSL)** | **VERIFIED** | `git 2.43+` | `/usr/bin/git` | Repository synchronization inside WSL |
 
 ---
 
-## 3. Verification Commands (Run After Installation)
+## 2. Installation Record & Verification Diagnostics
 
-Once the WSL packages are installed, verify the toolchain with:
+On October 31, 2026, the approved xv6 RISC-V dependencies were provisioned inside Ubuntu WSL2:
 
 ```bash
-# Verify inside WSL2:
-wsl -d Ubuntu -- bash -c "riscv64-linux-gnu-gcc --version && qemu-system-riscv64 --version && make --version"
+# Executed provisioning command (as administrative user in WSL2):
+wsl -u root -d Ubuntu -- bash -c "apt-get update && apt-get install -y build-essential gdb-multiarch qemu-system-misc qemu-system-riscv gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu"
 ```
 
-Expected output:
-* `riscv64-linux-gnu-gcc (Ubuntu ...) x.x.x`
-* `QEMU emulator version x.x.x (qemu-system-riscv64)`
-* `GNU Make x.x`
+### Verification Command Executed:
+```bash
+wsl -d Ubuntu -- bash -c "gcc --version | head -n 1; make --version | head -n 1; qemu-system-riscv64 --version | head -n 1; riscv64-linux-gnu-gcc --version | head -n 1; gdb-multiarch --version | head -n 1"
+```
+
+### Measured Diagnostic Output:
+```text
+gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+GNU Make 4.4.1
+QEMU emulator version 10.2.1 (Debian 1:10.2.1+ds-1ubuntu3.3)
+riscv64-linux-gnu-gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+GNU gdb (Ubuntu 17.1-2ubuntu1) 17.1
+```
+
+---
+
+## 3. Remaining / Optional Dependencies
+
+* **Host Python Enhancements** *(Optional, non-blocking)*:
+  * `networkx`, `pandas`, `tabulate`: Can be installed on host Python if enhanced graph visualization or automated markdown table exports are desired (`pip install networkx pandas tabulate`).
+* **Self-Contained Architecture Note**:
+  * All optimization tracks (Tracks A, B, C, D, E, F, H, I, J) are engineered with zero mandatory external proprietary dependencies; core algorithms, linear programs, quantum statevector simulations, and graph routines run on verified standard libraries (`numpy`, `scipy`, `matplotlib`, `sqlite3`).

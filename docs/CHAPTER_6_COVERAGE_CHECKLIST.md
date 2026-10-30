@@ -78,3 +78,4 @@ Every method, algorithm, and theoretical concept taught in Chapter 6 is explicit
 | **Track H** | DBMS query plan & index selection | Full table scan / unindexed | Knapsack/ILP Index Selection, Greedy Selection | Identical query result row counts & checksums |
 | **Track I** | Quantum algorithms & QML advantage | Classical Linear Search / Classical MLP | Grover's Search, Deutsch-Jozsa, Variational QNN | Statevector fidelity, gate counts vs classical steps |
 | **Track J** | Software engineering optimization | Full sequential test execution | Minimum Set Cover ILP & Greedy Test Selection | 100% statement coverage preservation check |
+

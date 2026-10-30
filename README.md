@@ -31,11 +31,11 @@ As mandated by Section 8 of the specification, all substantial code implementati
 
 ### AI Tools Register
 
-| Tool Name | Model Version | Dates Active | Assigned Tracks | Scope of Work |
-| :--- | :--- | :--- | :--- | :--- |
-| **Antigravity AI (Gemini)** | Gemini 3.8 Flash (High) / Pro | Oct 30 – Nov 13, 2026 | Tracks A–J | Architectural design, formulation, code generation, test harness, documentation |
-| **Claude / Anthropic** | Claude 3.7 Sonnet | Oct 31 – Nov 05, 2026 | Tracks E, F, I | Cross-validation, prompt comparison, edge-case vulnerability testing |
-| **GitHub Copilot** | GPT-4o / Codex engine | Nov 01 – Nov 10, 2026 | Tracks G, H, J | In-editor autocompletion, kernel patch verification, SQL query plan synthesis |
+| Tool Name | Model & Engine | Active Period | Assigned Tracks | Scope of Work | Current Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Antigravity AI** | Gemini 3.8 Flash (High) / Pro | Oct 30 – Present | Tracks A–J | Architecture, environment verification, planning, checklists, test harness, code generation | **Active & Verified** |
+| **Claude** | Claude 3.7 Sonnet | Scheduled (Phase 2) | Track E | Cross-validation, prompt comparison, edge-case vulnerability testing | *Pending Execution* |
+| **GitHub Copilot** | GPT-4o / Codex engine | Scheduled (Phase 3) | Tracks G, H | In-editor autocompletion, kernel patch verification, SQL query plan synthesis | *Pending Execution* |
 
 ### Commit Traceability Convention
 * `[AI:antigravity]` — Implementation generated via Antigravity assistant prompt.
@@ -46,12 +46,28 @@ As mandated by Section 8 of the specification, all substantial code implementati
 ### Prompt Logs & Traceability Files
 * Full logs of prompts, model responses, revisions, and verification notes are located in [`prompts/`](prompts/):
   * Per-track prompt history: [`prompts/track_a/`](prompts/track_a/) through [`prompts/track_j/`](prompts/track_j/)
-  * Failure Log (Minimum 3 documented AI errors, fixes, and lessons): [`prompts/failure_log.md`](prompts/failure_log.md)
-  * Two-Tool Comparison (Correctness, hallucinations, iterations, speed): [`prompts/tool_comparison.md`](prompts/tool_comparison.md)
+  * Failure Log (Actual observed errors, verified fixes & engineering lessons): [`prompts/failure_log.md`](prompts/failure_log.md)
+  * Two-Tool Comparison Protocol & Baseline: [`prompts/tool_comparison.md`](prompts/tool_comparison.md)
 
 ---
 
-## 3. Repository Directory Structure
+## 3. Verified System & Environment Status
+
+The development environment has been fully inspected and provisioned:
+* **Host Platform (Windows 11)**:
+  * Python `3.13.3` with verified `numpy`, `scipy` (including `scipy.optimize.milp` HiGHS solver), `matplotlib`, and `sqlite3`.
+  * Host C Compiler: `gcc 16.1.0` (MSYS2).
+  * Version Control: `git 2.44+` (Active repository, verified commits).
+* **Linux Subsystem (WSL2 / Ubuntu 26.04 LTS)**:
+  * Native GCC: `gcc 15.2.0`
+  * Build Driver: `GNU Make 4.4.1`
+  * Hardware Emulator: `qemu-system-riscv64 10.2.1`
+  * Cross-Compiler: `riscv64-linux-gnu-gcc 15.2.0`
+  * Cross-Debugger: `gdb-multiarch 17.1`
+
+---
+
+## 4. Repository Directory Structure
 
 ```text
 OT_Lab-8/
@@ -61,14 +77,11 @@ OT_Lab-8/
 │   ├── CHAPTER_6_COVERAGE_CHECKLIST.md          # 100% Chapter 6 syllabus mapping
 │   ├── ENVIRONMENT_VERIFICATION_AND_SETUP.md    # Environment verification & toolchain guide
 │   └── 14_DAY_ROADMAP_TRACKER.md                # 14-day execution tracker and milestone sign-offs
-├── report/
-│   ├── TECHNICAL_REPORT.md                      # Comprehensive final report
-│   ├── Final_Questions_Answers.md               # Answers to the 10 compulsory questions
-│   └── assets/                                  # Plots, charts, and benchmark figures
 ├── prompts/                                     # Complete vibe-coding prompt transcripts
 │   ├── failure_log.md                           # Documented AI bugs, hallucinations & fixes
 │   ├── tool_comparison.md                       # Empirical comparison of two AI tools
 │   └── track_{a..j}/                            # Prompts and responses per track
+├── report/                                  # Comprehensive technical report workspace
 ├── track_a_continuous/                          # Track A: Continuous Optimization
 ├── track_b_discrete/                            # Track B: Discrete Optimization & QUBO
 ├── track_c_quantum_opt/                         # Track C: Quantum Optimization (QAOA, VQE)
@@ -86,7 +99,7 @@ OT_Lab-8/
 
 ---
 
-## 4. Key Links & Documentation
+## 5. Key Links & Documentation
 
 * **Architecture & Formulation**: [`PROJECT_PLAN.md`](PROJECT_PLAN.md)
 * **Chapter 6 Syllabus Coverage Checklist**: [`docs/CHAPTER_6_COVERAGE_CHECKLIST.md`](docs/CHAPTER_6_COVERAGE_CHECKLIST.md)
@@ -97,7 +110,7 @@ OT_Lab-8/
 
 ---
 
-## 5. Verification & Academic Integrity Notice
+## 6. Verification & Academic Integrity Notice
 
 In strict adherence to Section 10 of the assignment specification:
 1. No optimization claim is made unless supported by measured empirical data.
