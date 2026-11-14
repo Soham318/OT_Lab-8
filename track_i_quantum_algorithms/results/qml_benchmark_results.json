@@ -1,0 +1,33 @@
+{
+  "dataset": "Iris (Setosa vs. Versicolor, 2 features)",
+  "train_samples": 70,
+  "test_samples": 30,
+  "classical": {
+    "model": "Classical Logistic Regression",
+    "train_accuracy": 1.0,
+    "test_accuracy": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "test_f1": 1.0,
+    "training_time_ms": 3.32,
+    "parameters_count": 3
+  },
+  "quantum": {
+    "model": "Quantum Variational Classifier (VQC)",
+    "train_accuracy": 0.9714285714285714,
+    "test_accuracy": 0.9333333333333333,
+    "test_precision": 1.0,
+    "test_recall": 0.8666666666666667,
+    "test_f1": 0.9285714285714286,
+    "training_time_s": 0.938,
+    "training_time_ms": 938.0,
+    "parameters_count": 8,
+    "circuit_depth": 9,
+    "num_qubits": 2,
+    "total_gates": 14,
+    "optimizer_iterations": 35,
+    "total_circuit_evaluations": 2450,
+    "final_train_loss": 0.1876
+  },
+  "comparison_analysis": "Both Classical Logistic Regression and the Quantum VQC achieved 100.0% and 93.3% test accuracy on the linearly separable Iris subset. However, the classical model trained in 3.32 ms, whereas simulating the quantum circuit on CPU required 938.00 ms (282.5x slower). This empirically demonstrates that classical simulation of quantum machine learning incurs substantial computational overhead without conferring a computational advantage on small tabular datasets."
+}

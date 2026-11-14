@@ -232,9 +232,22 @@ The following entries are reserved templates and will be populated upon encounte
 
 ---
 
-### [PENDING TEMPLATE] Case 16: Track I — Quantum Circuit Synthesis Phase Gate Sign Inversion
-* **Status**: Awaiting Track I implementation.
-* **Target Issue**: Audit for Grover diffusion operator phase reflection sign errors or Deutsch-Jozsa oracle phase kickback discrepancies.
-* **Observed Output**: *(To be recorded upon actual run)*
-* **Verified Fix**: *(To be recorded)*
-* **Lesson Learned**: *(To be recorded)*
+### Case 16: Track I — Grover Iteration Float Rounding Over-Rotation & Qiskit 2+ UnitaryGate Keyword Mismatch
+* **Date**: November 14, 2026
+* **Context**: Synthesizing manual elementary Grover search circuits and modular exponentiation unitaries in Qiskit 2.6.2.
+* **Initial AI Action / Command**:
+  1. In `src/grover_search.py`, calculated Grover iteration count using: `iterations = max(1, round((math.pi / 4.0) * math.sqrt(2**num_qubits)))`.
+  2. In `src/shor_factoring.py`, instantiated modular multiplication gates with: `UnitaryGate(U_mat, name=f'{a}^{2**j} mod {N}')`.
+* **Observed Error Encountered**:
+  ```text
+  1. 2-Qubit Grover (target 10): 00 Success rate: 0.2412 Counts: {'11': 262, '01': 247, '10': 247, '00': 268}
+  2. TypeError: UnitaryGate.__init__() got an unexpected keyword argument 'name'
+     at shor_factoring.py: gate = UnitaryGate(U_mat, name=...)
+  ```
+* **Root Cause**:
+  1. For $N = 4$ ($n = 2$ qubits), the analytical continuous rotation angle yields $\frac{\pi}{4} \sqrt{4} = 1.57079$. Using Python's `round()` rounded $1.57079$ up to $2$ iterations. At $R = 2$, Grover's geometric rotation completes angle $(2(2) + 1) \times 30^\circ = 150^\circ$, over-rotating the state vector past the target state back to $|\langle \omega | \psi \rangle|^2 = \sin^2(150^\circ) = 0.25$, degrading search probability to uniform noise!
+  2. In modern Qiskit 2+, `UnitaryGate` accepts custom gate annotations via keyword argument `label`, not `name`.
+* **Verified Fix**:
+  1. Replaced `round()` with `math.floor()`: `iterations = max(1, math.floor((math.pi / 4.0) * math.sqrt(2**num_qubits)))`. This strictly selects $R = 1$ for $N = 4$ ($100.0\%$ target success) and $R = 2$ for $N = 8$ ($94.43\%$ target success).
+  2. Updated `UnitaryGate` call to pass `label=f"*{a_power} mod {N}"`.
+* **Engineering Lesson**: Grover's search rotates the quantum state vector periodically in a 2D plane; rounding up can over-rotate past the target axis. Always use the mathematical lower floor bound $\lfloor \frac{\pi}{4}\sqrt{N/M} \rfloor$ for unstructured amplitude amplification.

@@ -1,0 +1,8 @@
+Algorithm,Problem / Purpose,Complexity,Qubits Used,Verification Metric,Status
+Deutsch-Jozsa,Constant/Balanced Classification,Exact 1 query,3 qubits,Deterministic,PASS
+Bernstein-Vazirani,Hidden String Recovery,Exact 1 query,4 qubits (1101),Deterministic (100%),PASS
+Grover Search,Unstructured Search,O(sqrt(N)) queries,3 qubits (N=8),94.4% Success,PASS
+QFT & IQFT,Fourier Transform Reversibility,O(n^2) gates,3 qubits,Norm Error: 5.00e-16,PASS
+Quantum Phase Estimation,Eigenvalue Phase Estimation,O(t^2 + t*U),4 qubits (3 count + 1 target),Exact Match (0.375),PASS
+Shor's Algorithm,Integer Factorization (N=15),O((log N)^3) quantum,7 qubits (3 count + 4 target),"Factors: [3, 5]",PASS
+QUBO / Ising Model,Combinatorial Energy Minimization,Exact vs Simulated Annealing,4 variables / spins,Ground State: 1001,PASS
