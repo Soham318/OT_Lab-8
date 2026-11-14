@@ -1,0 +1,801 @@
+{
+  "metadata": {
+    "experiment": "Track E 20-Query Comparative Benchmark",
+    "total_queries": 20,
+    "repetitions": 5,
+    "weights": {
+      "alpha": 1.0,
+      "beta": 1.5,
+      "gamma": 30.0
+    },
+    "date": "2026-11-14"
+  },
+  "aggregate_summary": {
+    "dijkstra": {
+      "avg_latency_ms": 0.276,
+      "avg_journey_dur_min": 273.9,
+      "avg_wait_min": 56.0,
+      "avg_transfers": 0.95,
+      "avg_objective_value": 323.9,
+      "avg_optimality_gap_pct": 20.58
+    },
+    "greedy": {
+      "avg_latency_ms": 2.044,
+      "avg_journey_dur_min": 277.3,
+      "avg_wait_min": 48.9,
+      "avg_transfers": 0.7,
+      "avg_objective_value": 315.2,
+      "avg_optimality_gap_pct": 15.81
+    },
+    "ilp": {
+      "avg_latency_ms": 547.285,
+      "avg_journey_dur_min": 246.9,
+      "avg_wait_min": 30.9,
+      "avg_transfers": 0.6,
+      "avg_objective_value": 273.1,
+      "proven_optimal_count": 20
+    }
+  },
+  "query_results": [
+    {
+      "query_id": 1,
+      "query_name": "Mainline Short Hub",
+      "corridor": "Mainline Trunk",
+      "od_pair": "STN_01 -> STN_04",
+      "departure_hhmm": "06:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 56,
+        "in_vehicle_min": 56,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 56.0,
+        "latency_ms": 0.027,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 56,
+        "in_vehicle_min": 56,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 56.0,
+        "latency_ms": 0.06,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 56,
+        "in_vehicle_min": 56,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 56.0,
+        "latency_ms": 262.49,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 2,
+      "query_name": "Mainline Mid City",
+      "corridor": "Mainline Trunk",
+      "od_pair": "STN_01 -> STN_06",
+      "departure_hhmm": "06:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 132,
+        "in_vehicle_min": 127,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 127.0,
+        "latency_ms": 0.073,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 132,
+        "in_vehicle_min": 127,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 127.0,
+        "latency_ms": 0.084,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 132,
+        "in_vehicle_min": 127,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 127.0,
+        "latency_ms": 370.737,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 3,
+      "query_name": "Mainline Full Express",
+      "corridor": "Mainline Trunk",
+      "od_pair": "STN_01 -> STN_10",
+      "departure_hhmm": "06:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 323,
+        "in_vehicle_min": 303,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 303.0,
+        "latency_ms": 0.212,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 323,
+        "in_vehicle_min": 303,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 303.0,
+        "latency_ms": 0.705,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 323,
+        "in_vehicle_min": 303,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 303.0,
+        "latency_ms": 364.072,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 4,
+      "query_name": "Mainline Reverse Mid",
+      "corridor": "Mainline Trunk",
+      "od_pair": "STN_08 -> STN_03",
+      "departure_hhmm": "08:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 324,
+        "in_vehicle_min": 233,
+        "wait_min": 91,
+        "transfers": 3,
+        "objective_value": 459.5,
+        "latency_ms": 0.343,
+        "optimality_gap_pct": 47.28
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 324,
+        "in_vehicle_min": 312,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 312.0,
+        "latency_ms": 0.409,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 324,
+        "in_vehicle_min": 312,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 312.0,
+        "latency_ms": 378.683,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 5,
+      "query_name": "Coast to Metro Hub",
+      "corridor": "Western to Central",
+      "od_pair": "STN_11 -> STN_06",
+      "departure_hhmm": "06:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 233,
+        "in_vehicle_min": 199,
+        "wait_min": 28,
+        "transfers": 1,
+        "objective_value": 271.0,
+        "latency_ms": 0.075,
+        "optimality_gap_pct": 64.24
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 173,
+        "in_vehicle_min": 165,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 165.0,
+        "latency_ms": 0.2,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 173,
+        "in_vehicle_min": 165,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 165.0,
+        "latency_ms": 313.744,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 6,
+      "query_name": "Coast to River Jct",
+      "corridor": "Western to Central",
+      "od_pair": "STN_12 -> STN_04",
+      "departure_hhmm": "07:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 154,
+        "in_vehicle_min": 148,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 148.0,
+        "latency_ms": 0.053,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 154,
+        "in_vehicle_min": 148,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 148.0,
+        "latency_ms": 0.071,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 154,
+        "in_vehicle_min": 148,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 148.0,
+        "latency_ms": 214.761,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 7,
+      "query_name": "Oceanview to Highland",
+      "corridor": "Western to North",
+      "od_pair": "STN_13 -> STN_07",
+      "departure_hhmm": "08:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 176,
+        "in_vehicle_min": 148,
+        "wait_min": 24,
+        "transfers": 1,
+        "objective_value": 214.0,
+        "latency_ms": 0.084,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 176,
+        "in_vehicle_min": 148,
+        "wait_min": 24,
+        "transfers": 1,
+        "objective_value": 214.0,
+        "latency_ms": 0.133,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 176,
+        "in_vehicle_min": 148,
+        "wait_min": 24,
+        "transfers": 1,
+        "objective_value": 214.0,
+        "latency_ms": 344.062,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 8,
+      "query_name": "Dune to South Central",
+      "corridor": "Western to South",
+      "od_pair": "STN_14 -> STN_01",
+      "departure_hhmm": "09:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 187,
+        "in_vehicle_min": 114,
+        "wait_min": 73,
+        "transfers": 1,
+        "objective_value": 253.5,
+        "latency_ms": 0.124,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 187,
+        "in_vehicle_min": 114,
+        "wait_min": 73,
+        "transfers": 1,
+        "objective_value": 253.5,
+        "latency_ms": 0.194,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 187,
+        "in_vehicle_min": 114,
+        "wait_min": 73,
+        "transfers": 1,
+        "objective_value": 253.5,
+        "latency_ms": 229.37,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 9,
+      "query_name": "Eastport to Metro",
+      "corridor": "Eastern to Central",
+      "od_pair": "STN_15 -> STN_06",
+      "departure_hhmm": "06:30",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 166,
+        "in_vehicle_min": 160,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 160.0,
+        "latency_ms": 0.032,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 166,
+        "in_vehicle_min": 160,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 160.0,
+        "latency_ms": 0.05,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 166,
+        "in_vehicle_min": 160,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 160.0,
+        "latency_ms": 173.552,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 10,
+      "query_name": "Eastport to Highland",
+      "corridor": "Eastern to North",
+      "od_pair": "STN_15 -> STN_07",
+      "departure_hhmm": "06:30",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 270,
+        "in_vehicle_min": 203,
+        "wait_min": 61,
+        "transfers": 1,
+        "objective_value": 324.5,
+        "latency_ms": 0.066,
+        "optimality_gap_pct": 15.89
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 270,
+        "in_vehicle_min": 203,
+        "wait_min": 61,
+        "transfers": 1,
+        "objective_value": 324.5,
+        "latency_ms": 0.16,
+        "optimality_gap_pct": 15.89
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 241,
+        "in_vehicle_min": 205,
+        "wait_min": 30,
+        "transfers": 1,
+        "objective_value": 280.0,
+        "latency_ms": 486.349,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 11,
+      "query_name": "Coalfields to River Jct",
+      "corridor": "Eastern to Central",
+      "od_pair": "STN_18 -> STN_04",
+      "departure_hhmm": "09:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 382,
+        "in_vehicle_min": 228,
+        "wait_min": 151,
+        "transfers": 2,
+        "objective_value": 514.5,
+        "latency_ms": 0.133,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 382,
+        "in_vehicle_min": 228,
+        "wait_min": 151,
+        "transfers": 2,
+        "objective_value": 514.5,
+        "latency_ms": 0.331,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 382,
+        "in_vehicle_min": 228,
+        "wait_min": 151,
+        "transfers": 2,
+        "objective_value": 514.5,
+        "latency_ms": 142.29,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 12,
+      "query_name": "Powergate to South Central",
+      "corridor": "Eastern to South",
+      "od_pair": "STN_19 -> STN_01",
+      "departure_hhmm": "10:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 505,
+        "in_vehicle_min": 334,
+        "wait_min": 163,
+        "transfers": 2,
+        "objective_value": 638.5,
+        "latency_ms": 0.155,
+        "optimality_gap_pct": 21.5
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 473,
+        "in_vehicle_min": 314,
+        "wait_min": 154,
+        "transfers": 2,
+        "objective_value": 605.0,
+        "latency_ms": 0.56,
+        "optimality_gap_pct": 15.13
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 480,
+        "in_vehicle_min": 404,
+        "wait_min": 61,
+        "transfers": 1,
+        "objective_value": 525.5,
+        "latency_ms": 119.057,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 13,
+      "query_name": "Lakeside to River Jct",
+      "corridor": "South Ring to Trunk",
+      "od_pair": "STN_20 -> STN_04",
+      "departure_hhmm": "06:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 291,
+        "in_vehicle_min": 215,
+        "wait_min": 70,
+        "transfers": 1,
+        "objective_value": 350.0,
+        "latency_ms": 0.103,
+        "optimality_gap_pct": 80.88
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 291,
+        "in_vehicle_min": 215,
+        "wait_min": 70,
+        "transfers": 1,
+        "objective_value": 350.0,
+        "latency_ms": 0.301,
+        "optimality_gap_pct": 80.88
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 146,
+        "in_vehicle_min": 111,
+        "wait_min": 35,
+        "transfers": 1,
+        "objective_value": 193.5,
+        "latency_ms": 709.376,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 14,
+      "query_name": "Forest Edge to Metro",
+      "corridor": "South Ring to Central",
+      "od_pair": "STN_21 -> STN_06",
+      "departure_hhmm": "07:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 232,
+        "in_vehicle_min": 220,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 220.0,
+        "latency_ms": 1.049,
+        "optimality_gap_pct": 89.66
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 232,
+        "in_vehicle_min": 220,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 220.0,
+        "latency_ms": 0.463,
+        "optimality_gap_pct": 89.66
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 121,
+        "in_vehicle_min": 116,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 116.0,
+        "latency_ms": 1174.698,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 15,
+      "query_name": "Greenfield to Highland",
+      "corridor": "South Ring to North",
+      "od_pair": "STN_24 -> STN_07",
+      "departure_hhmm": "08:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 83,
+        "in_vehicle_min": 78,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 78.0,
+        "latency_ms": 0.161,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 83,
+        "in_vehicle_min": 78,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 78.0,
+        "latency_ms": 0.333,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 83,
+        "in_vehicle_min": 78,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 78.0,
+        "latency_ms": 1103.325,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 16,
+      "query_name": "Delta Marsh to Alpine",
+      "corridor": "South Ring to Peak",
+      "od_pair": "STN_25 -> STN_10",
+      "departure_hhmm": "06:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 402,
+        "in_vehicle_min": 251,
+        "wait_min": 141,
+        "transfers": 2,
+        "objective_value": 522.5,
+        "latency_ms": 0.55,
+        "optimality_gap_pct": 55.04
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 402,
+        "in_vehicle_min": 251,
+        "wait_min": 141,
+        "transfers": 2,
+        "objective_value": 522.5,
+        "latency_ms": 2.823,
+        "optimality_gap_pct": 55.04
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 291,
+        "in_vehicle_min": 229,
+        "wait_min": 52,
+        "transfers": 1,
+        "objective_value": 337.0,
+        "latency_ms": 2189.239,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 17,
+      "query_name": "Highland to Canyon Pass",
+      "corridor": "Northern Spur",
+      "od_pair": "STN_07 -> STN_28",
+      "departure_hhmm": "07:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 276,
+        "in_vehicle_min": 270,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 270.0,
+        "latency_ms": 0.227,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 276,
+        "in_vehicle_min": 270,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 270.0,
+        "latency_ms": 0.338,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 276,
+        "in_vehicle_min": 270,
+        "wait_min": 0,
+        "transfers": 0,
+        "objective_value": 270.0,
+        "latency_ms": 968.986,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 18,
+      "query_name": "Coast to Mountain Spur",
+      "corridor": "Cross Network",
+      "od_pair": "STN_12 -> STN_28",
+      "departure_hhmm": "06:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 656,
+        "in_vehicle_min": 475,
+        "wait_min": 172,
+        "transfers": 3,
+        "objective_value": 823.0,
+        "latency_ms": 1.384,
+        "optimality_gap_pct": 9.37
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 776,
+        "in_vehicle_min": 613,
+        "wait_min": 145,
+        "transfers": 2,
+        "objective_value": 890.5,
+        "latency_ms": 31.678,
+        "optimality_gap_pct": 18.34
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 656,
+        "in_vehicle_min": 532,
+        "wait_min": 107,
+        "transfers": 2,
+        "objective_value": 752.5,
+        "latency_ms": 858.023,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 19,
+      "query_name": "Midland Inter-Corridor",
+      "corridor": "Cross Network",
+      "od_pair": "STN_11 -> STN_05",
+      "departure_hhmm": "11:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 339,
+        "in_vehicle_min": 223,
+        "wait_min": 108,
+        "transfers": 1,
+        "objective_value": 415.0,
+        "latency_ms": 0.339,
+        "optimality_gap_pct": 27.69
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 378,
+        "in_vehicle_min": 249,
+        "wait_min": 120,
+        "transfers": 1,
+        "objective_value": 459.0,
+        "latency_ms": 1.437,
+        "optimality_gap_pct": 41.23
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 279,
+        "in_vehicle_min": 223,
+        "wait_min": 48,
+        "transfers": 1,
+        "objective_value": 325.0,
+        "latency_ms": 429.739,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    },
+    {
+      "query_id": 20,
+      "query_name": "Evening Peak Trunk",
+      "corridor": "Evening Peak",
+      "od_pair": "STN_01 -> STN_08",
+      "departure_hhmm": "17:00",
+      "dijkstra": {
+        "found": true,
+        "journey_dur_min": 292,
+        "in_vehicle_min": 244,
+        "wait_min": 38,
+        "transfers": 1,
+        "objective_value": 331.0,
+        "latency_ms": 0.321,
+        "optimality_gap_pct": 0.0
+      },
+      "greedy": {
+        "found": true,
+        "journey_dur_min": 292,
+        "in_vehicle_min": 244,
+        "wait_min": 38,
+        "transfers": 1,
+        "objective_value": 331.0,
+        "latency_ms": 0.546,
+        "optimality_gap_pct": 0.0
+      },
+      "ilp": {
+        "found": true,
+        "journey_dur_min": 292,
+        "in_vehicle_min": 244,
+        "wait_min": 38,
+        "transfers": 1,
+        "objective_value": 331.0,
+        "latency_ms": 113.15,
+        "status": "Globally optimal itinerary proved by HiGHS",
+        "is_proven_optimal": true
+      }
+    }
+  ]
+}

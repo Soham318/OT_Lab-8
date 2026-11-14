@@ -1,0 +1,283 @@
+[
+  {
+    "query": {
+      "orig": "STN_11",
+      "dest": "STN_06",
+      "dep": 360,
+      "desc": "Westport Bay to Metro Interchange"
+    },
+    "profiles": [
+      {
+        "profile_name": "Pure Duration Minimizer",
+        "weights": {
+          "alpha": 1.0,
+          "beta": 0.5,
+          "gamma": 0.0
+        },
+        "found": true,
+        "departure_hhmm": "18:00",
+        "arrival_hhmm": "20:53",
+        "total_journey_min": 173,
+        "travel_time_min": 165,
+        "waiting_time_min": 0,
+        "num_transfers": 0,
+        "service_sequence": [
+          "Western Harbor Express (Up #5)",
+          "Western Harbor Express (Up #5)",
+          "Western Harbor Express (Up #5)"
+        ]
+      },
+      {
+        "profile_name": "Standard Balanced",
+        "weights": {
+          "alpha": 1.0,
+          "beta": 1.5,
+          "gamma": 30.0
+        },
+        "found": true,
+        "departure_hhmm": "18:00",
+        "arrival_hhmm": "20:53",
+        "total_journey_min": 173,
+        "travel_time_min": 165,
+        "waiting_time_min": 0,
+        "num_transfers": 0,
+        "service_sequence": [
+          "Western Harbor Express (Up #5)",
+          "Western Harbor Express (Up #5)",
+          "Western Harbor Express (Up #5)"
+        ]
+      },
+      {
+        "profile_name": "Transfer-Averse (Luggage)",
+        "weights": {
+          "alpha": 1.0,
+          "beta": 2.0,
+          "gamma": 75.0
+        },
+        "found": true,
+        "departure_hhmm": "18:00",
+        "arrival_hhmm": "20:53",
+        "total_journey_min": 173,
+        "travel_time_min": 165,
+        "waiting_time_min": 0,
+        "num_transfers": 0,
+        "service_sequence": [
+          "Western Harbor Express (Up #5)",
+          "Western Harbor Express (Up #5)",
+          "Western Harbor Express (Up #5)"
+        ]
+      },
+      {
+        "profile_name": "Fast Speed Commuter",
+        "weights": {
+          "alpha": 2.0,
+          "beta": 0.5,
+          "gamma": 10.0
+        },
+        "found": true,
+        "departure_hhmm": "18:00",
+        "arrival_hhmm": "20:53",
+        "total_journey_min": 173,
+        "travel_time_min": 165,
+        "waiting_time_min": 0,
+        "num_transfers": 0,
+        "service_sequence": [
+          "Western Harbor Express (Up #5)",
+          "Western Harbor Express (Up #5)",
+          "Western Harbor Express (Up #5)"
+        ]
+      }
+    ]
+  },
+  {
+    "query": {
+      "orig": "STN_15",
+      "dest": "STN_07",
+      "dep": 390,
+      "desc": "Eastport to Highland Junction"
+    },
+    "profiles": [
+      {
+        "profile_name": "Pure Duration Minimizer",
+        "weights": {
+          "alpha": 1.0,
+          "beta": 0.5,
+          "gamma": 0.0
+        },
+        "found": true,
+        "departure_hhmm": "08:30",
+        "arrival_hhmm": "12:31",
+        "total_journey_min": 241,
+        "travel_time_min": 205,
+        "waiting_time_min": 30,
+        "num_transfers": 1,
+        "service_sequence": [
+          "Industrial Commuter (Up #2)",
+          "Industrial Commuter (Up #2)",
+          "Industrial Commuter (Up #2)",
+          "Midland Inter-Corridor Express (Up #2)"
+        ]
+      },
+      {
+        "profile_name": "Standard Balanced",
+        "weights": {
+          "alpha": 1.0,
+          "beta": 1.5,
+          "gamma": 30.0
+        },
+        "found": true,
+        "departure_hhmm": "14:30",
+        "arrival_hhmm": "18:31",
+        "total_journey_min": 241,
+        "travel_time_min": 205,
+        "waiting_time_min": 30,
+        "num_transfers": 1,
+        "service_sequence": [
+          "Industrial Commuter (Up #5)",
+          "Industrial Commuter (Up #5)",
+          "Industrial Commuter (Up #5)",
+          "Midland Inter-Corridor Express (Up #4)"
+        ]
+      },
+      {
+        "profile_name": "Transfer-Averse (Luggage)",
+        "weights": {
+          "alpha": 1.0,
+          "beta": 2.0,
+          "gamma": 75.0
+        },
+        "found": true,
+        "departure_hhmm": "08:30",
+        "arrival_hhmm": "12:31",
+        "total_journey_min": 241,
+        "travel_time_min": 205,
+        "waiting_time_min": 30,
+        "num_transfers": 1,
+        "service_sequence": [
+          "Industrial Commuter (Up #2)",
+          "Industrial Commuter (Up #2)",
+          "Industrial Commuter (Up #2)",
+          "Midland Inter-Corridor Express (Up #2)"
+        ]
+      },
+      {
+        "profile_name": "Fast Speed Commuter",
+        "weights": {
+          "alpha": 2.0,
+          "beta": 0.5,
+          "gamma": 10.0
+        },
+        "found": true,
+        "departure_hhmm": "08:30",
+        "arrival_hhmm": "12:31",
+        "total_journey_min": 241,
+        "travel_time_min": 205,
+        "waiting_time_min": 30,
+        "num_transfers": 1,
+        "service_sequence": [
+          "Industrial Commuter (Up #2)",
+          "Industrial Commuter (Up #2)",
+          "Industrial Commuter (Up #2)",
+          "Midland Inter-Corridor Express (Up #2)"
+        ]
+      }
+    ]
+  },
+  {
+    "query": {
+      "orig": "STN_01",
+      "dest": "STN_08",
+      "dep": 1020,
+      "desc": "South Central to Northgate City"
+    },
+    "profiles": [
+      {
+        "profile_name": "Pure Duration Minimizer",
+        "weights": {
+          "alpha": 1.0,
+          "beta": 0.5,
+          "gamma": 0.0
+        },
+        "found": true,
+        "departure_hhmm": "17:00",
+        "arrival_hhmm": "21:52",
+        "total_journey_min": 292,
+        "travel_time_min": 244,
+        "waiting_time_min": 38,
+        "num_transfers": 1,
+        "service_sequence": [
+          "Deccan Superfast Express (Up #5)",
+          "Deccan Superfast Express (Up #5)",
+          "Deccan Superfast Express (Up #5)",
+          "Central All-Station Passenger (Up #6)"
+        ]
+      },
+      {
+        "profile_name": "Standard Balanced",
+        "weights": {
+          "alpha": 1.0,
+          "beta": 1.5,
+          "gamma": 30.0
+        },
+        "found": true,
+        "departure_hhmm": "17:00",
+        "arrival_hhmm": "21:52",
+        "total_journey_min": 292,
+        "travel_time_min": 244,
+        "waiting_time_min": 38,
+        "num_transfers": 1,
+        "service_sequence": [
+          "Deccan Superfast Express (Up #5)",
+          "Deccan Superfast Express (Up #5)",
+          "Deccan Superfast Express (Up #5)",
+          "Central All-Station Passenger (Up #6)"
+        ]
+      },
+      {
+        "profile_name": "Transfer-Averse (Luggage)",
+        "weights": {
+          "alpha": 1.0,
+          "beta": 2.0,
+          "gamma": 75.0
+        },
+        "found": true,
+        "departure_hhmm": "17:30",
+        "arrival_hhmm": "23:52",
+        "total_journey_min": 382,
+        "travel_time_min": 364,
+        "waiting_time_min": 0,
+        "num_transfers": 0,
+        "service_sequence": [
+          "Central All-Station Passenger (Up #7)",
+          "Central All-Station Passenger (Up #7)",
+          "Central All-Station Passenger (Up #7)",
+          "Central All-Station Passenger (Up #7)",
+          "Central All-Station Passenger (Up #7)",
+          "Central All-Station Passenger (Up #7)",
+          "Central All-Station Passenger (Up #7)"
+        ]
+      },
+      {
+        "profile_name": "Fast Speed Commuter",
+        "weights": {
+          "alpha": 2.0,
+          "beta": 0.5,
+          "gamma": 10.0
+        },
+        "found": true,
+        "departure_hhmm": "17:00",
+        "arrival_hhmm": "21:52",
+        "total_journey_min": 292,
+        "travel_time_min": 244,
+        "waiting_time_min": 38,
+        "num_transfers": 1,
+        "service_sequence": [
+          "Deccan Superfast Express (Up #5)",
+          "Deccan Superfast Express (Up #5)",
+          "Deccan Superfast Express (Up #5)",
+          "Central All-Station Passenger (Up #6)"
+        ]
+      }
+    ]
+  }
+]

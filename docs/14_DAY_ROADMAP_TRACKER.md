@@ -67,17 +67,21 @@
   * [x] Establish Git history and commit traceability standard.
   * [x] Audit failure logs: 4 genuine observed AI engineering issues documented; future cases reserved as pending templates.
   * [x] Audit AI tools register: Antigravity AI recorded as active; Claude and Copilot scheduled for subsequent phases.
-* [x] **Day 2: Track E Railway Dataset, Formulation, Baseline & Benchmarks**:
+* [x] **Day 2 & 3: Track E Railway Dataset, Formulation, Optimizers & Benchmarks**:
   * [x] Generate realistic 28-station, 130-service, 551-connection timetable dataset (`data/railway_stations.csv`, `data/train_connections.csv`, `data/railway_network.json`).
   * [x] Author comprehensive mathematical problem formulation (`track_e_case_study/docs/problem_formulation.md`).
   * [x] Author dataset description and network corridor breakdown (`track_e_case_study/docs/dataset_description.md`).
   * [x] Implement Time-Dependent Earliest-Arrival Dijkstra router with transfer buffer validation (`track_e_case_study/src/dijkstra_baseline.py`).
   * [x] Implement Static Topological Dijkstra comparative baseline (`track_e_case_study/src/dijkstra_baseline.py`).
-  * [x] Implement automated test suite covering 9 operational scenarios (`track_e_case_study/tests/test_dijkstra_baseline.py`) — 100% pass.
-  * [x] Implement benchmarking suite and execute 10 query scenarios over 50 repetitions (`track_e_case_study/results/baseline_benchmark_results.json`).
-  * [x] Generate 3 publication-ready Matplotlib visualizations (topology, route highlight, time breakdown).
-  * [x] Author Track E documentation (`track_e_case_study/README.md`) and Day 2 prompt log.
-* [ ] **Day 3: xv6 RISC-V Stock Clone & Verification**:
+  * [x] Implement Multi-Objective Greedy Railway Optimizer heuristic with remaining-time estimate and cycle prevention (`track_e_case_study/src/greedy_optimizer.py`).
+  * [x] Implement Exact Binary Integer Linear Programming (ILP) optimizer using `scipy.optimize.milp` HiGHS (`track_e_case_study/src/ilp_optimizer.py`).
+  * [x] Implement automated test suite covering 19 unit tests (9 baseline + 10 edge cases & optimality checks) — 100% pass rate (`track_e_case_study/tests/`).
+  * [x] Implement and execute 20-query comparative benchmark across Dijkstra vs Greedy vs ILP (`track_e_case_study/results/comparative_benchmark_results.json`).
+  * [x] Implement multi-objective weight sensitivity analysis across 4 passenger profiles (`track_e_case_study/results/weight_sensitivity_results.json`).
+  * [x] Generate 7 publication-ready Matplotlib visualizations (topology, route highlight, duration, latency, wait times, optimality gap).
+  * [x] Author comprehensive documentation (`greedy_methodology.md`, `ilp_formulation.md`, `comparative_analysis.md`, `viva_questions.md`).
+  * [x] Author Day 2 and Day 3 prompt logs.
+* [ ] **Day 3 (Next Step): xv6 RISC-V Stock Clone & Verification**:
   * [ ] Clone `xv6-riscv` source tree into `track_g_xv6/`.
   * [ ] Verify stock QEMU boot and execution of `usertests` in WSL2 Ubuntu.
 
