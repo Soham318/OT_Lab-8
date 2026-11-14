@@ -119,3 +119,25 @@ class CurvatureApproximations:
         g_minus = grad_fn(x - h * v)
         return (g_plus - g_minus) / (2.0 * h)
 
+    @staticmethod
+    def numerical_hessian(
+        grad_fn: Callable[[np.ndarray], np.ndarray],
+        x: np.ndarray,
+        eps: float = 1e-5
+    ) -> np.ndarray:
+        """
+        Computes the complete numerical Hessian matrix via centered differences of the gradient:
+            H_{:, j} = (grad(x + eps * e_j) - grad(x - eps * e_j)) / (2 * eps)
+        Used for rigorous numerical verification of analytical Hessians and HVP.
+        """
+        d = len(x)
+        H_num = np.zeros((d, d), dtype=np.float64)
+        for j in range(d):
+            e_j = np.zeros(d)
+            e_j[j] = eps
+            g_plus = grad_fn(x + e_j)
+            g_minus = grad_fn(x - e_j)
+            H_num[:, j] = (g_plus - g_minus) / (2.0 * eps)
+        return 0.5 * (H_num + H_num.T)
+
+

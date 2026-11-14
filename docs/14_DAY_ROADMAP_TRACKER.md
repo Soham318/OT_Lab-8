@@ -97,10 +97,16 @@
   * [x] Generate 6 publication-ready figures in `track_a_continuous_optimization/plots/`.
   * [x] Author comprehensive documentation (`methodology.md`, `experimental_analysis.md`, `viva_questions.md` with 16 Q&As, `README.md`).
   * [x] Complete automated unit test suite with 100% pass rate (11/11 tests passing).
-* [ ] **Track B (Discrete & QUBO)**:
-  * [ ] Implement Greedy combinatorial solver, Branch-and-Bound, and Dynamic Programming.
-  * [ ] Implement ILP solver using SciPy HiGHS.
-  * [ ] Derive and implement Max-Cut QUBO and Ising spin formulation with constraint penalties.
+* [x] **Day 5: Track B (Discrete Optimization & QUBO)**:
+  * [x] Implement Greedy value-to-weight density heuristic with formal $27.27\%$ suboptimality counterexample.
+  * [x] Implement exact Integer Linear Programming (ILP) using SciPy HiGHS (`milp`), scaling to $N=200$.
+  * [x] Implement transparent Branch-and-Bound with Dantzig continuous LP relaxation upper bounds.
+  * [x] Implement exact 2D Dynamic Programming table with backtracking item reconstruction ($\mathcal{O}(nW)$).
+  * [x] Formulate QUBO with binary slack variables, derive Ising spin conversion ($s_i = 2x_i - 1$), and prove penalty threshold $P > \max v_i$.
+  * [x] Benchmark across 9 problem scales ($N \in [3, 200]$) and conduct critical penalty phase transition study.
+  * [x] Generate 4 publication-ready figures in `track_b_discrete_optimization/plots/`.
+  * [x] Author comprehensive documentation (`methodology.md`, `experimental_analysis.md`, `viva_questions.md` with 16 Q&As, `README.md`).
+  * [x] Complete automated unit test suite with 100% pass rate (7/7 tests passing).
 * [ ] **Track C (Quantum Optimization)**:
   * [ ] Implement QAOA on the Track B Max-Cut QUBO model.
   * [ ] Implement VQE for Hamiltonian ground state energy estimation.

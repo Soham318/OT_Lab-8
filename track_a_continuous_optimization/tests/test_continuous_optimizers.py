@@ -170,7 +170,7 @@ class TestContinuousOptimizers(unittest.TestCase):
         self.assertTrue(np.all(np.diag(D) > 0))
 
     def test_10_hessian_vector_product_accuracy(self):
-        """Verify Pearlmutter's HVP matches exact H @ v multiplication."""
+        """Verify Pearlmutter's HVP and Numerical Hessian match exact analytical Hessian."""
         landscape = StronglyConvexQuadratic(dim=5, seed=42)
         x = self.rng.randn(5)
         v = self.rng.randn(5)
@@ -182,6 +182,11 @@ class TestContinuousOptimizers(unittest.TestCase):
 
         rel_err = np.linalg.norm(exact_hv - approx_hv) / (np.linalg.norm(exact_hv) + 1e-10)
         self.assertLess(rel_err, 1e-4, f"HVP error too high: {rel_err}")
+
+        # Check full numerical Hessian against analytical Hessian
+        H_num = CurvatureApproximations.numerical_hessian(landscape.gradient, x, eps=1e-5)
+        num_err = np.linalg.norm(H - H_num, ord="fro") / (np.linalg.norm(H, ord="fro") + 1e-10)
+        self.assertLess(num_err, 1e-5, f"Numerical Hessian error too high: {num_err}")
 
     def test_11_invalid_inputs_handling(self):
         """Verify that invalid hyperparameters raise appropriate ValueError exceptions."""

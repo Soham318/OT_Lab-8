@@ -34,13 +34,13 @@ Every method, algorithm, and theoretical concept taught in Chapter 6 is explicit
 | | Convergence: Convex vs. Strongly Convex vs. Non-Convex | Track A | `track_a_continuous_optimization/experiments/run_landscape_comparison.py` | Theoretical rate check ($\mathcal{O}(1/k)$, $\mathcal{O}(e^{-ck})$) | Log-linear convergence plots |
 | | Step-size and optimizer tuning | Track A | `track_a_continuous_optimization/experiments/run_sensitivity_study.py` | Learning rate grid sweep ($\eta \in [10^{-4}, 1.0]$) | Hyperparameter sensitivity surface |
 | | Noisy objectives | Track A | `track_a_continuous_optimization/experiments/run_noisy_study.py` | Additive Gaussian gradient noise | Robustness and asymptotic error bounds |
-| **Discrete Optimization** | Greedy Methods | Track B | `track_b_discrete/greedy_solver.py` | Suboptimal trap verification | Approximation ratio vs. exact optimum |
-| | Integer Linear Programming (ILP) | Track B | `track_b_discrete/ilp_solver.py` | Exact solver via HiGHS (`scipy.optimize.milp`) | Optimal objective, execution time, relaxation gap |
-| | Branch-and-Bound | Track B | `track_b_discrete/branch_and_bound.py` | Custom B&B tree search with LP relaxation bounds | Tree depth, pruned nodes count |
-| | Dynamic Programming | Track B | `track_b_discrete/dp_solver.py` | Exact memoized DP on Knapsack benchmark | State space size, runtime scaling |
-| | Combinatorial Application: Max-Cut | Track B | `track_b_discrete/max_cut.py` | Graph cut verification | Cut value, edge partition verification |
-| | QUBO & Ising Formulation | Track B | `track_b_discrete/qubo_ising.py` | Binary-to-spin mapping $x_i = \frac{1 - s_i}{2}$ | Energy spectrum identity between QUBO and Ising |
-| | Penalty Terms for Constraints | Track B | `track_b_discrete/penalty_terms.py` | Lagrange / quadratic penalty multipliers | Feasibility check on unconstrained minimizer |
+| **Discrete Optimization** | Greedy Methods | Track B | `track_b_discrete_optimization/src/greedy_solver.py` | Suboptimal trap verification (27.27% gap) | Approximation ratio vs. exact optimum |
+| | Integer Linear Programming (ILP) | Track B | `track_b_discrete_optimization/src/ilp_solver.py` | Exact solver via HiGHS (`scipy.optimize.milp`) | Optimal objective, execution time, relaxation gap |
+| | Branch-and-Bound | Track B | `track_b_discrete_optimization/src/branch_and_bound.py` | Custom B&B tree search with LP relaxation bounds | Tree depth, pruned nodes count |
+| | Dynamic Programming | Track B | `track_b_discrete_optimization/src/dp_solver.py` | Exact memoized DP on Knapsack benchmark | State space size, runtime scaling |
+| | Combinatorial Application: Knapsack | Track B | `track_b_discrete_optimization/src/problem.py` | Capacity constraint satisfaction | Value, weight, capacity utilization |
+| | QUBO & Ising Formulation | Track B | `track_b_discrete_optimization/src/qubo_ising.py` | Binary-to-spin mapping $s_i = 2x_i - 1$ | Energy spectrum identity between QUBO and Ising |
+| | Penalty Terms for Constraints | Track B | `track_b_discrete_optimization/src/qubo_ising.py` | Slack variable expansion & penalty multiplier $P > \max v_i$ | Phase transition check on unconstrained minimizer |
 | **Quantum Optimization** | QAOA (Quantum Approx. Opt. Algorithm) | Track C | `track_c_quantum_opt/qaoa.py` | Solving Track B Max-Cut QUBO | Approximation ratio vs. circuit depth $p$ |
 | | VQE (Variational Quantum Eigensolver) | Track C | `track_c_quantum_opt/vqe.py` | Ground state energy of Heisenberg/Ising chain | Energy error against exact diagonalized eigenvalue |
 | | PQCs & Quantum Neural Networks (QNNs) | Track C | `track_c_quantum_opt/pqc_qnn.py` | Unitary parameter expressibility check | Output state distribution |
@@ -69,7 +69,7 @@ Every method, algorithm, and theoretical concept taught in Chapter 6 is explicit
 | Track | Primary Objective | Baseline Method | Optimized Method(s) | Correctness Verification |
 | :--- | :--- | :--- | :--- | :--- |
 | **Track A** | Continuous optimization comparisons | Standard Gradient Descent | Adam, Newton, Gauss-Newton, NAG, RMSProp | **VERIFIED COMPLETE**: 11/11 unit tests passing, 8 first-order + 2 second-order optimizers, 5 landscapes, decoupled 2-layer MLP backpropagation (gradient check error $4.00 \times 10^{-12}$), 6 publication plots, 16 viva Q&As |
-| **Track B** | Combinatorial optimization & QUBO | Naive Greedy Selection | Branch-and-Bound, ILP, QUBO Ising model | Exact brute-force comparison on small graphs |
+| **Track B** | Combinatorial optimization & QUBO | Naive Greedy Selection | Branch-and-Bound, ILP, DP, QUBO Ising model | **VERIFIED COMPLETE**: 7/7 unit tests passing, Greedy 27.27% gap counterexample, Dantzig LP Branch-and-Bound, 2D DP backtracking, SciPy HiGHS ILP (N=200), classical QUBO with slack variables, 4 publication plots, 16 viva Q&As |
 | **Track C** | Quantum optimization on QUBO | Classical Exact / Greedy | QAOA ($p=1, 2$), VQE, QNG | Statevector simulation vs. analytical minimum |
 | **Track D** | Submodular, parallel, distributed | Single-thread static run | Work-stealing multiprocessing, FedAvg, MGDA | Bound check $(1 - 1/e)$, convergence to centralized |
 | **Track E** | Railway route & transfer optimization | Static Dijkstra Shortest Path | Earliest-Arrival Greedy, Multi-Objective ILP (HiGHS) | **VERIFIED COMPLETE**: 19/19 tests pass, 20-query benchmark, 7 plots, ILP proven optimal (100%), sensitivity analysis |

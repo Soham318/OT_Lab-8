@@ -61,13 +61,14 @@ def run_noise_study() -> Dict[str, Any]:
         grad_norms = []
         grad_variances = []
         for rep in range(num_reps):
-            # Compute empirical gradient variance at x0 over 100 samples
+            # Compute empirical gradient variance at x0 over 200 distinct mini-batches
+            # Each mini-batch is formed by drawing B individual independent noise realizations
             grads = []
             true_grad = landscape.gradient(x0)
-            for _ in range(100):
-                # Mini-batch gradient has noise ~ N(0, sigma^2 / B)
-                noise_vec = np.random.normal(0.0, fixed_sigma / np.sqrt(b), size=landscape.dim)
-                grads.append(true_grad + noise_vec)
+            for _ in range(200):
+                individual_samples = np.random.normal(0.0, fixed_sigma, size=(b, landscape.dim))
+                batch_sample_noise = np.mean(individual_samples, axis=0)
+                grads.append(true_grad + batch_sample_noise)
             grads = np.array(grads)
             emp_var = np.mean(np.var(grads, axis=0))
             grad_variances.append(float(emp_var))

@@ -1,0 +1,149 @@
+{
+  "instance": "QUBOPenaltyInstance",
+  "results": [
+    {
+      "alpha": 0.05,
+      "penalty_P": 2.75,
+      "is_feasible": false,
+      "weight_violation": 2.0,
+      "decoded_value": 115.0,
+      "decoded_weight": 11.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": false,
+      "ground_state_energy": -104.0
+    },
+    {
+      "alpha": 0.1,
+      "penalty_P": 5.5,
+      "is_feasible": false,
+      "weight_violation": 1.0,
+      "decoded_value": 100.0,
+      "decoded_weight": 10.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": false,
+      "ground_state_energy": -94.5
+    },
+    {
+      "alpha": 0.25,
+      "penalty_P": 13.75,
+      "is_feasible": false,
+      "weight_violation": 1.0,
+      "decoded_value": 100.0,
+      "decoded_weight": 10.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": false,
+      "ground_state_energy": -86.25
+    },
+    {
+      "alpha": 0.5,
+      "penalty_P": 27.5,
+      "is_feasible": true,
+      "weight_violation": 0.0,
+      "decoded_value": 85.0,
+      "decoded_weight": 9.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": true,
+      "ground_state_energy": -85.0
+    },
+    {
+      "alpha": 0.75,
+      "penalty_P": 41.25,
+      "is_feasible": true,
+      "weight_violation": 0.0,
+      "decoded_value": 85.0,
+      "decoded_weight": 9.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": true,
+      "ground_state_energy": -85.0
+    },
+    {
+      "alpha": 0.9,
+      "penalty_P": 49.5,
+      "is_feasible": true,
+      "weight_violation": 0.0,
+      "decoded_value": 85.0,
+      "decoded_weight": 9.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": true,
+      "ground_state_energy": -85.0
+    },
+    {
+      "alpha": 1.0,
+      "penalty_P": 55.0,
+      "is_feasible": true,
+      "weight_violation": 0.0,
+      "decoded_value": 85.0,
+      "decoded_weight": 9.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": true,
+      "ground_state_energy": -85.0
+    },
+    {
+      "alpha": 1.25,
+      "penalty_P": 68.75,
+      "is_feasible": true,
+      "weight_violation": 0.0,
+      "decoded_value": 85.0,
+      "decoded_weight": 9.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": true,
+      "ground_state_energy": -85.0
+    },
+    {
+      "alpha": 1.5,
+      "penalty_P": 82.5,
+      "is_feasible": true,
+      "weight_violation": 0.0,
+      "decoded_value": 85.0,
+      "decoded_weight": 9.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": true,
+      "ground_state_energy": -85.0
+    },
+    {
+      "alpha": 2.0,
+      "penalty_P": 110.0,
+      "is_feasible": true,
+      "weight_violation": 0.0,
+      "decoded_value": 85.0,
+      "decoded_weight": 9.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": true,
+      "ground_state_energy": -85.0
+    },
+    {
+      "alpha": 3.0,
+      "penalty_P": 165.0,
+      "is_feasible": true,
+      "weight_violation": 0.0,
+      "decoded_value": 85.0,
+      "decoded_weight": 9.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": true,
+      "ground_state_energy": -85.0
+    },
+    {
+      "alpha": 5.0,
+      "penalty_P": 275.0,
+      "is_feasible": true,
+      "weight_violation": 0.0,
+      "decoded_value": 85.0,
+      "decoded_weight": 9.0,
+      "capacity": 9.0,
+      "true_optimal_value": 85.0,
+      "matches_optimal": true,
+      "ground_state_energy": -85.0
+    }
+  ]
+}
