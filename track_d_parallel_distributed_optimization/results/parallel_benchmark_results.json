@@ -1,0 +1,167 @@
+[
+  {
+    "worker_count": 1,
+    "mode": "sequential",
+    "num_chunks": 16,
+    "mean_time_sec": 0.6375812500009488,
+    "std_time_sec": 0.0042463499994482845,
+    "speedup": 1.0,
+    "efficiency": 1.0,
+    "result_parity_error": 0.0,
+    "problem_scale": "Small"
+  },
+  {
+    "worker_count": 1,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 16,
+    "mean_time_sec": 0.6367162000005919,
+    "std_time_sec": 0.011186600002474734,
+    "speedup": 1.0013586115766429,
+    "efficiency": 1.0013586115766429,
+    "result_parity_error": 0.0,
+    "problem_scale": "Small"
+  },
+  {
+    "worker_count": 2,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 16,
+    "mean_time_sec": 0.3586804000005941,
+    "std_time_sec": 0.006805299999541603,
+    "speedup": 1.777574827060226,
+    "efficiency": 0.888787413530113,
+    "result_parity_error": 0.0,
+    "problem_scale": "Small"
+  },
+  {
+    "worker_count": 4,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 16,
+    "mean_time_sec": 0.2579802500022197,
+    "std_time_sec": 0.013842350001141313,
+    "speedup": 2.471434344278149,
+    "efficiency": 0.6178585860695373,
+    "result_parity_error": 0.0,
+    "problem_scale": "Small"
+  },
+  {
+    "worker_count": 8,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 16,
+    "mean_time_sec": 0.21750744999917515,
+    "std_time_sec": 0.04130194999925152,
+    "speedup": 2.931307640282513,
+    "efficiency": 0.36641345503531414,
+    "result_parity_error": 0.0,
+    "problem_scale": "Small"
+  },
+  {
+    "worker_count": 1,
+    "mode": "sequential",
+    "num_chunks": 32,
+    "mean_time_sec": 1.316428950000045,
+    "std_time_sec": 0.026384750000943313,
+    "speedup": 1.0,
+    "efficiency": 1.0,
+    "result_parity_error": 0.0,
+    "problem_scale": "Medium"
+  },
+  {
+    "worker_count": 1,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 32,
+    "mean_time_sec": 1.4704543499992724,
+    "std_time_sec": 0.004345150000517606,
+    "speedup": 0.895253191641547,
+    "efficiency": 0.895253191641547,
+    "result_parity_error": 0.0,
+    "problem_scale": "Medium"
+  },
+  {
+    "worker_count": 2,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 32,
+    "mean_time_sec": 0.8319819000007556,
+    "std_time_sec": 0.002445100000841194,
+    "speedup": 1.5822807563468022,
+    "efficiency": 0.7911403781734011,
+    "result_parity_error": 0.0,
+    "problem_scale": "Medium"
+  },
+  {
+    "worker_count": 4,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 32,
+    "mean_time_sec": 0.4999862500008021,
+    "std_time_sec": 0.016900149999855785,
+    "speedup": 2.63293030557927,
+    "efficiency": 0.6582325763948175,
+    "result_parity_error": 0.0,
+    "problem_scale": "Medium"
+  },
+  {
+    "worker_count": 8,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 32,
+    "mean_time_sec": 0.3737281499998062,
+    "std_time_sec": 0.01866955000150483,
+    "speedup": 3.5224238527408964,
+    "efficiency": 0.44030298159261205,
+    "result_parity_error": 0.0,
+    "problem_scale": "Medium"
+  },
+  {
+    "worker_count": 1,
+    "mode": "sequential",
+    "num_chunks": 48,
+    "mean_time_sec": 2.137513100000433,
+    "std_time_sec": 0.06258920000072976,
+    "speedup": 1.0,
+    "efficiency": 1.0,
+    "result_parity_error": 0.0,
+    "problem_scale": "Large"
+  },
+  {
+    "worker_count": 1,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 48,
+    "mean_time_sec": 2.296401749999859,
+    "std_time_sec": 0.0055541499987157295,
+    "speedup": 0.9308097330968174,
+    "efficiency": 0.9308097330968174,
+    "result_parity_error": 0.0,
+    "problem_scale": "Large"
+  },
+  {
+    "worker_count": 2,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 48,
+    "mean_time_sec": 1.2118290999987948,
+    "std_time_sec": 0.026995300000635325,
+    "speedup": 1.7638733877595105,
+    "efficiency": 0.8819366938797553,
+    "result_parity_error": 0.0,
+    "problem_scale": "Large"
+  },
+  {
+    "worker_count": 4,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 48,
+    "mean_time_sec": 0.7367583499981265,
+    "std_time_sec": 0.03172524999899906,
+    "speedup": 2.901240413503109,
+    "efficiency": 0.7253101033757773,
+    "result_parity_error": 0.0,
+    "problem_scale": "Large"
+  },
+  {
+    "worker_count": 8,
+    "mode": "multiprocessing_pool",
+    "num_chunks": 48,
+    "mean_time_sec": 0.541923950000637,
+    "std_time_sec": 0.03288144999896758,
+    "speedup": 3.944304546787276,
+    "efficiency": 0.4930380683484095,
+    "result_parity_error": 0.0,
+    "problem_scale": "Large"
+  }
+]

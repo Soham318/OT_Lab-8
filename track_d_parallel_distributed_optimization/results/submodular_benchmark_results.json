@@ -1,0 +1,218 @@
+[
+  {
+    "name": "Tiny-10",
+    "universe_size": 20,
+    "num_subsets": 10,
+    "cardinality_k": 3,
+    "has_exact": true,
+    "greedy_coverage": 13,
+    "greedy_fraction": 0.65,
+    "greedy_runtime_ms": 0.018,
+    "exact_coverage": 14,
+    "exact_runtime_ms": 0.059,
+    "optimality_gap_pct": 7.14,
+    "theoretical_1_minus_1_over_e_bound": 8.85,
+    "bound_satisfied": true,
+    "marginal_gains": [
+      6,
+      4,
+      3
+    ],
+    "coverage_history": [
+      0,
+      6,
+      10,
+      13
+    ]
+  },
+  {
+    "name": "Small-14",
+    "universe_size": 40,
+    "num_subsets": 14,
+    "cardinality_k": 3,
+    "has_exact": true,
+    "greedy_coverage": 25,
+    "greedy_fraction": 0.625,
+    "greedy_runtime_ms": 0.017,
+    "exact_coverage": 25,
+    "exact_runtime_ms": 0.24,
+    "optimality_gap_pct": 0.0,
+    "theoretical_1_minus_1_over_e_bound": 15.8,
+    "bound_satisfied": true,
+    "marginal_gains": [
+      10,
+      8,
+      7
+    ],
+    "coverage_history": [
+      0,
+      10,
+      18,
+      25
+    ]
+  },
+  {
+    "name": "Medium-18",
+    "universe_size": 60,
+    "num_subsets": 18,
+    "cardinality_k": 4,
+    "has_exact": true,
+    "greedy_coverage": 49,
+    "greedy_fraction": 0.8167,
+    "greedy_runtime_ms": 0.04,
+    "exact_coverage": 49,
+    "exact_runtime_ms": 3.627,
+    "optimality_gap_pct": 0.0,
+    "theoretical_1_minus_1_over_e_bound": 30.97,
+    "bound_satisfied": true,
+    "marginal_gains": [
+      19,
+      12,
+      9,
+      9
+    ],
+    "coverage_history": [
+      0,
+      19,
+      31,
+      40,
+      49
+    ]
+  },
+  {
+    "name": "Borderline-20",
+    "universe_size": 80,
+    "num_subsets": 20,
+    "cardinality_k": 4,
+    "has_exact": true,
+    "greedy_coverage": 53,
+    "greedy_fraction": 0.6625,
+    "greedy_runtime_ms": 0.073,
+    "exact_coverage": 55,
+    "exact_runtime_ms": 6.981,
+    "optimality_gap_pct": 3.64,
+    "theoretical_1_minus_1_over_e_bound": 34.77,
+    "bound_satisfied": true,
+    "marginal_gains": [
+      21,
+      15,
+      10,
+      7
+    ],
+    "coverage_history": [
+      0,
+      21,
+      36,
+      46,
+      53
+    ]
+  },
+  {
+    "name": "Large-35",
+    "universe_size": 150,
+    "num_subsets": 35,
+    "cardinality_k": 6,
+    "has_exact": false,
+    "greedy_coverage": 122,
+    "greedy_fraction": 0.8133,
+    "greedy_runtime_ms": 0.189,
+    "exact_coverage": null,
+    "exact_runtime_ms": null,
+    "optimality_gap_pct": null,
+    "theoretical_1_minus_1_over_e_bound": null,
+    "bound_satisfied": null,
+    "marginal_gains": [
+      36,
+      27,
+      22,
+      15,
+      13,
+      9
+    ],
+    "coverage_history": [
+      0,
+      36,
+      63,
+      85,
+      100,
+      113,
+      122
+    ]
+  },
+  {
+    "name": "XLarge-50",
+    "universe_size": 300,
+    "num_subsets": 50,
+    "cardinality_k": 8,
+    "has_exact": false,
+    "greedy_coverage": 265,
+    "greedy_fraction": 0.8833,
+    "greedy_runtime_ms": 0.596,
+    "exact_coverage": null,
+    "exact_runtime_ms": null,
+    "optimality_gap_pct": null,
+    "theoretical_1_minus_1_over_e_bound": null,
+    "bound_satisfied": null,
+    "marginal_gains": [
+      62,
+      49,
+      41,
+      33,
+      25,
+      24,
+      17,
+      14
+    ],
+    "coverage_history": [
+      0,
+      62,
+      111,
+      152,
+      185,
+      210,
+      234,
+      251,
+      265
+    ]
+  },
+  {
+    "name": "Scale-80",
+    "universe_size": 500,
+    "num_subsets": 80,
+    "cardinality_k": 10,
+    "has_exact": false,
+    "greedy_coverage": 472,
+    "greedy_fraction": 0.944,
+    "greedy_runtime_ms": 2.152,
+    "exact_coverage": null,
+    "exact_runtime_ms": null,
+    "optimality_gap_pct": null,
+    "theoretical_1_minus_1_over_e_bound": null,
+    "bound_satisfied": null,
+    "marginal_gains": [
+      113,
+      87,
+      67,
+      53,
+      44,
+      33,
+      25,
+      21,
+      16,
+      13
+    ],
+    "coverage_history": [
+      0,
+      113,
+      200,
+      267,
+      320,
+      364,
+      397,
+      422,
+      443,
+      459,
+      472
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+Problem,Method,FinalX1,FinalX2,FinalF1,FinalF2,Iterations
+ConflictingQuadratics,MGDA,1.0,0.0,0.0,4.0,129
+ConflictingQuadratics,WeightedSum_0.50_0.50,0.0,0.0,1.0,1.0,130
+ConflictingQuadratics,WeightedSum_0.80_0.20,0.6,0.0,0.16,2.56,129
+ConflictingQuadratics,WeightedSum_0.20_0.80,-0.6,0.0,2.56,0.16,131
+ScaledConflicting,MGDA,2.3524,1.9999,59.3379,0.0124,250

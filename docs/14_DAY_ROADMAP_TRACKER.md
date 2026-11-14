@@ -2,7 +2,7 @@
 
 > **Project**: Optimization Techniques — Lab Assignment 8  
 > **Cycle Duration**: 14 Days (Two Weeks)  
-> **Status**: Day 6 Complete (Tracks A, B, C, and E Fully Implemented, Benchmarked, and Verified)  
+> **Status**: Day 7 Complete (Tracks A, B, C, D, and E Fully Implemented, Benchmarked, and Verified)  
 
 ---
 
@@ -119,11 +119,16 @@
   * [x] Generate 5 publication-ready figures in `track_c_quantum_optimization/plots/`.
   * [x] Author comprehensive documentation (`methodology.md`, `experimental_analysis.md`, `viva_questions.md` with 16 Q&As, `README.md`).
   * [x] Complete automated unit test suite with 100% pass rate (8/8 tests passing).
-* [ ] **Track D (Submodular, Parallel & Distributed)**:
-  * [ ] Implement submodular utility function; empirically test diminishing returns and $(1 - 1/e)$ bound.
-  * [ ] Implement multiprocessing parallel execution with work stealing; fit Amdahl's and Gustafson's Laws.
-  * [ ] Implement FedAvg distributed training across local epochs $E$ and communication rounds $R$.
-  * [ ] Implement MGDA and GradNorm on a two-task model.
+* [x] **Day 7: Track D (Submodular, Parallel & Distributed)**:
+  * [x] Implement submodular Maximum Coverage problem; verify diminishing returns and $(1 - 1/e) \approx 63.2\%$ approximation bound against exact brute-force search.
+  * [x] Implement compute-bound multiprocessing benchmark harness across worker counts $P \in [1, 2, 4, 8]$, measuring execution time, speedup ($3.94\times$ on 8 cores), and efficiency ($49.3\%$) with zero parity error.
+  * [x] Implement Amdahl's Law and Gustafson's Law modeling; fit empirical speedups via non-linear least squares ($\hat{P} = 85.64\%$, $\hat{s} = 14.36\%$, $R^2 = 0.9973$).
+  * [x] Implement simulated Federated Learning (FedAvg) across 5 clients, comparing Centralized ($0.0494$) vs. IID ($0.0495$) vs. Non-IID label skew (drift $0.0485$, $132.8$ KB payload).
+  * [x] Implement Multiple Gradient Descent Algorithm (MGDA) solving min-norm problem on the simplex, proving common descent to Pareto front at $(1.0, 0.0)$ vs. weighted sum baselines.
+  * [x] Implement GradNorm for multi-task learning, balancing task gradient norms to reduce error on the harder task by $14.1\%$ and total loss by $11.9\%$.
+  * [x] Generate 6 publication-ready figures in `track_d_parallel_distributed_optimization/plots/`.
+  * [x] Author comprehensive documentation (`methodology.md`, `experimental_analysis.md`, `viva_questions.md` with 16 Q&As, `README.md`).
+  * [x] Complete automated unit test suite with 100% pass rate (8/8 tests passing).
 * [ ] **Track F (Mini-Compiler First Passes)**:
   * [ ] Implement Lexer, AST Parser, and 3AC Intermediate Representation (IR).
   * [ ] Implement Constant Folding and Constant Propagation passes.

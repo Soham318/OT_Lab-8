@@ -91,6 +91,34 @@
 
 ---
 
+### Case 9: Multi-Task Prediction Chained Expression Assignment Syntax Error
+* **Date**: November 14, 2026
+* **Context**: Implementing the forward propagation method for `MultiTaskNetwork` in `track_d_parallel_distributed_optimization/src/gradnorm.py`.
+* **Initial AI Action / Command**: Generated expression assigning `y1_pred = h @ self.W1 + self1_b = h @ self.W1 + self.b1` due to an in-line editing typo.
+* **Observed Error Encountered**:
+  ```text
+  SyntaxError: cannot assign to expression
+  ```
+* **Root Cause**: In Python, chained assignment `target1 = target2 = value` requires valid l-value identifiers; assigning into an arithmetic expression `(h @ self.W1 + self1_b)` is illegal syntax.
+* **Verified Fix**: Corrected expression to direct assignment `y1_pred = h @ self.W1 + self.b1`.
+* **Engineering Lesson**: In multi-head neural network implementations with manual array operations, verify clean separation of head computations. Automated test discovery catches syntax defects immediately when executed before benchmark scripts.
+
+---
+
+### Case 10: Operating System Process Pool Spawn Latency Contention on Windows
+* **Date**: November 14, 2026
+* **Context**: Benchmarking multiprocessing speedup across worker counts $P \in [1, 2, 4, 8]$ in `track_d_parallel_distributed_optimization/src/parallel_compute.py`.
+* **Initial AI Action / Command**: The benchmarking harness recreated `with mp.Pool(processes=p) as pool:` inside each repeat trial iteration.
+* **Observed Error Encountered**:
+  ```text
+  Excessive benchmark runtime (> 45 seconds) due to repeated OS process creation latency.
+  ```
+* **Root Cause**: On Windows, multiprocessing uses `spawn` rather than `fork`. Each worker creation launches a fresh Python interpreter ($~0.35$s latency). Creating and destroying pools across 3 repeats and 3 problem scales spawned over 135 processes, measuring OS creation overhead rather than worker compute throughput.
+* **Verified Fix**: Refactored `benchmark_scaling()` to instantiate the worker pool once per worker count outside the repeat loop, warming up workers with a lightweight probe and reusing the active pool across trials.
+* **Engineering Lesson**: When measuring parallel speedup and efficiency on platforms using process spawning (Windows), worker pool lifecycle must be decoupled from measurement iterations to prevent operating system process creation latency from contaminating compute throughput timings.
+
+---
+
 ## 2. Pending Failure Case Templates (To be logged during Track Execution)
 
 The following entries are reserved templates and will be populated upon encountering actual bugs during algorithm implementation:
