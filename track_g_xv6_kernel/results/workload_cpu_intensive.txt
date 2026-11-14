@@ -1,0 +1,33 @@
+
+xv6 kernel is booting
+
+hart 1 starting
+hart 2 starting
+init: starting sh
+$ cpu_workload
+==================================================
+Workload 1: CPU-Intensive Workload Evaluation
+Timer Tick Frequency: ~10 Hz (approx. 100 ms per tick)
+==================================================
+
+--- Run 1 of 3 ---
+Stage 1 (10,000 iters): cputime = 2 ticks, elapsed wall = 2 ticks
+Stage 2 (20,000 iters): cputime = 2 ticks, elapsed wall = 2 ticks
+Stage 3 (30,000 iters): cputime = 3 ticks, elapsed wall = 3 ticks
+Total Execution: CPU runtime = 7 ticks, Wall-clock = 7 ticks (CPU duty = 100%)
+
+--- Run 2 of 3 ---
+Stage 1 (10,000 iters): cputime = 1 ticks, elapsed wall = 1 ticks
+Stage 2 (20,000 iters): cputime = 2 ticks, elapsed wall = 2 ticks
+Stage 3 (30,000 iters): cputime = 3 ticks, elapsed wall = 3 ticks
+Total Execution: CPU runtime = 6 ticks, Wall-clock = 6 ticks (CPU duty = 100%)
+
+--- Run 3 of 3 ---
+Stage 1 (10,000 iters): cputime = 1 ticks, elapsed wall = 1 ticks
+Stage 2 (20,000 iters): cputime = 2 ticks, elapsed wall = 2 ticks
+Stage 3 (30,000 iters): cputime = 3 ticks, elapsed wall = 3 ticks
+Total Execution: CPU runtime = 6 ticks, Wall-clock = 6 ticks (CPU duty = 100%)
+
+CPU-Intensive Workload Completed Successfully.
+$ QEMU: Terminated
+

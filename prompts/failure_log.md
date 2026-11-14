@@ -161,13 +161,66 @@
 
 ---
 
+### Case 5: GCC `-ffile-prefix-map` Command-Line Argument Splitting on Host Paths with Spaces
+* **Date**: November 14, 2026
+* **Context**: Compiling xv6-riscv kernel inside WSL from an NTFS Windows mount containing spaces (`/mnt/c/Users/Soham Umesh Chavan/...`).
+* **Initial AI Action / Command**: Invoked `make -j$(nproc)` using the unmodified xv6 Makefile.
+* **Observed Error Encountered**:
+  ```text
+  riscv64-linux-gnu-gcc -march=rv64gc -g -ffile-prefix-map=/mnt/c/Users/Soham Umesh Chavan/... -c -o kernel/entry.o kernel/entry.S
+  cc1: error: invalid argument ‘/mnt/c/Users/Soham’ to ‘-ffile-prefix-map’
+  ```
+* **Root Cause**: In xv6's `Makefile`, `DETFLAGS = -ffile-prefix-map=$(CURDIR)=.`. Because `$(CURDIR)` contained unquoted spaces, Make expanded it into multiple independent arguments to GCC (`/mnt/c/Users/Soham`, `Umesh`, `Chavan`), causing GCC's option parser to fail.
+* **Verified Fix**: Modified Makefile to inspect `$(findstring $(empty) $(empty),$(CURDIR))` and conditionally clear `DETFLAGS ?=` when spaces are detected in the build directory path, preserving deterministic debug prefixes on standard paths while allowing builds on paths with whitespace.
+* **Engineering Lesson**: Embedded and kernel toolchains often assume POSIX filesystem hierarchies without whitespace. Build drivers must guard directory variables against unquoted argument expansion.
+
+---
+
+### Case 13: xv6 Filesystem Directory Entry Buffer Overflow on Workload Binary Name (`DIRSIZ=14`)
+* **Date**: November 14, 2026
+* **Context**: Building xv6 filesystem image (`fs.img`) with newly compiled user workload binaries.
+* **Initial AI Action / Command**: Created user workload binary named `user/_concurrent_workload` and invoked `mkfs`.
+* **Observed Error Encountered**:
+  ```text
+  mkfs: mkfs/mkfs.c:154: main: Assertion `strlen(shortname) <= DIRSIZ' failed.
+  make: *** [Makefile:166: fs.img] Aborted
+  ```
+* **Root Cause**: In `kernel/fs.h`, xv6 directory entries are fixed 16-byte structs containing a 2-byte inode number and a 14-byte filename buffer (`#define DIRSIZ 14`). The binary name `concurrent_workload` was 19 characters, violating the filesystem schema assertion.
+* **Verified Fix**: Renamed the workload source and binary to `conc_workload` (13 characters $\le 14$), safely adhering to xv6 on-disk filesystem constraints.
+* **Engineering Lesson**: Legacy teaching operating system filesystems impose rigid static buffer limits on directory entry lengths that modern environments do not enforce. Always verify on-disk filesystem header specifications (`fs.h`) before registering new user binaries.
+
+---
+
+### Case 14: Serial Console Automation Command Echo Premature Termination Bug
+* **Date**: November 14, 2026
+* **Context**: Automating QEMU console interactions via Python subprocess driver `run_workload.py`.
+* **Initial AI Action / Command**: Monitored line stream with `if line.startswith("$ "): done_event.set()`.
+* **Observed Error Encountered**:
+  ```text
+  QEMU terminated prematurely while cpu_workload was still executing Stage 2; background task stalled.
+  ```
+* **Root Cause**: Over serial console PTYs and pipes, the interactive shell echoes user input back to stdout. Checking for `$ ` prefix triggered on the echoed command string (`$ cpu_workload`), misinterpreting the echoed input as the return of the shell prompt.
+* **Verified Fix**: Refactored console reader to check for strict standalone prompts (`line.strip() == "$"`) only after output lines have been emitted, or upon explicit workload completion tokens (`Completed Successfully`).
+* **Engineering Lesson**: Serial console automation must decouple local input echo from remote shell prompt return, either by stripping echoed command text or waiting for distinct process completion sentinels.
+
+---
+
 ## 2. Pending Failure Case Templates (To be logged during Track Execution)
 
 The following entries are reserved templates and will be populated upon encountering actual bugs during algorithm implementation:
 
-### [PENDING TEMPLATE] Case 5: Track G — xv6 Kernel Concurrency & Process Lock Invariant
-* **Status**: Awaiting Track G implementation.
-* **Target Issue**: Audit for lock acquisition ordering, race conditions, or unhandled priority inversion in `kernel/proc.c`.
+### [PENDING TEMPLATE] Case 15: Track H — Relational DBMS Query Plan Cache Contention
+* **Status**: Awaiting Track H implementation.
+* **Target Issue**: Audit for unindexed table scan cost models, query optimizer plan misestimates, or SQLite index lock contention.
+* **Observed Output**: *(To be recorded upon actual run)*
+* **Verified Fix**: *(To be recorded)*
+* **Lesson Learned**: *(To be recorded)*
+
+---
+
+### [PENDING TEMPLATE] Case 16: Track I — Quantum Circuit Synthesis Phase Gate Sign Inversion
+* **Status**: Awaiting Track I implementation.
+* **Target Issue**: Audit for Grover diffusion operator phase reflection sign errors or Deutsch-Jozsa oracle phase kickback discrepancies.
 * **Observed Output**: *(To be recorded upon actual run)*
 * **Verified Fix**: *(To be recorded)*
 * **Lesson Learned**: *(To be recorded)*

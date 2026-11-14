@@ -1,0 +1,20 @@
+
+xv6 kernel is booting
+
+hart 1 starting
+hart 2 starting
+init: starting sh
+$ test_cputime
+=== test_cputime: Starting CPU accounting validation ===
+Test 1 PASS: Initial cputime is valid non-negative value (0 ticks)
+Test 2 PASS: Monotonicity holds (t0=0 <= t1=0)
+Burning CPU cycles...
+Test 3 PASS: CPU runtime accumulated (t2=1 ticks, delta=1)
+Parent cputime: 1 ticks. Child initial: 0 ticks, Child final: 0 ticks
+Test 4 PASS: Child has independent runtime accounting (initial=0, final=0)
+Sleeping for 10 ticks via pause(10)...
+Elapsed wall-clock uptime: 10 ticks. Elapsed process cputime: 0 ticks.
+Test 5 PASS: Sleeping time is not attributed to active CPU runtime (cputime delta=0)
+=== ALL test_cputime VALIDATION CHECKS PASSED ===
+$ QEMU: Terminated
+

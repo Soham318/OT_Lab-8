@@ -1,0 +1,30 @@
+
+xv6 kernel is booting
+
+hart 1 starting
+hart 2 starting
+init: starting sh
+$ conc_workload
+==================================================
+Workload 3: Concurrent Multi-Process CPU Accounting
+Evaluating SMP Process Timesharing on 3 RISC-V Cores
+==================================================
+
+Spawning 4 concurrent worker processes...
+  [Worker 0 | PID 4] Workload: 15000 iters -> Start: 0 ticks, End: 2 ticks, CPU Time: 2 ticks
+  [Worker 1 | PID 5] Workload: 30000 iters -> Start: 0 ticks, End: 3 ticks, CPU Time: 3 ticks
+  [Worker 2 | PID 6] Workload: 45000 iters -> Start: 0 ticks, End: 4 ticks, CPU Time: 4 ticks
+  [Worker 3 | PID 7] Workload: 60000 iters -> Start: 0 ticks, End: 6 ticks, CPU Time: 6 ticks
+
+--- Concurrent Accounting Analysis ---
+Total worker processes: 4
+Sum of child CPU runtimes: 15 ticks
+Elapsed wall-clock time:  8 ticks
+Parallel execution ratio:  1.87 x (187% multicore utilization)
+
+Verification:
+1. Each process reported strictly independent runtime proportional to its workload.
+2. Aggregate CPU time exceeds single-core wall time, verifying parallel execution on SMP.
+Concurrent Workload Completed Successfully.
+$ QEMU: Terminated
+

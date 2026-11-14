@@ -1,0 +1,12 @@
+
+xv6 kernel is booting
+
+hart 1 starting
+hart 2 starting
+init: starting sh
+$ usertests preempt
+usertests starting
+test preempt: kill... wait... OK
+ALL TESTS PASSED
+$ QEMU: Terminated
+

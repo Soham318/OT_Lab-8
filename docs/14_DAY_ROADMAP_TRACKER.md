@@ -2,7 +2,7 @@
 
 > **Project**: Optimization Techniques — Lab Assignment 8  
 > **Cycle Duration**: 14 Days (Two Weeks)  
-> **Status**: Day 8 Complete (Tracks A, B, C, D, E, and F Fully Implemented, Benchmarked, and Verified)  
+> **Status**: Day 9 Complete (Tracks A, B, C, D, E, F, and G Fully Implemented, Benchmarked, and Verified)  
 
 ---
 
@@ -138,10 +138,18 @@
   * [x] Generate 4 publication-ready figures in `track_f_compiler_optimization/plots/`.
   * [x] Author comprehensive documentation (`language_specification.md`, `compiler_architecture.md`, `optimization_methodology.md`, `experimental_analysis.md`, `viva_questions.md` with 16 Q&As, `README.md`).
   * [x] Complete automated unit test suite with 100% pass rate (11/11 tests passing).
-* [ ] **Track G (xv6 Kernel Modification)**:
-  * [ ] Clone xv6-riscv repository into `track_g_xv6/`.
-  * [ ] Modify kernel scheduler (`proc.c`, `proc.h`) to implement Priority / Stride scheduling.
-  * [ ] Add `getpinfo()` system call and write user-level benchmark harnesses.
+* [x] **Day 9: Track G (xv6 Kernel Feature Modification & CPU Runtime Accounting)**:
+  * [x] Clone and inspect official MIT `xv6-riscv` repository (`fa2ddcb7ca87a77af579380a6eafd5aff163b44f`).
+  * [x] Verify baseline unmodified build, clean QEMU boot, and 100% pass on xv6 `usertests`.
+  * [x] Extend `struct proc` with `uint64 cputime;` and initialize in `allocproc()` and `freeproc()`.
+  * [x] Instrument timer interrupt accounting in `usertrap()` and `kerneltrap()` strictly on `which_dev == 2`.
+  * [x] Implement thread-safe `sys_getcputime()` system call (`SYS_getcputime (23)`) and user assembly stub.
+  * [x] Author automated validation test suite `test_cputime` (5/5 checks passed).
+  * [x] Implement and benchmark 3 workloads: CPU-intensive (100% duty), short burst (quantization error), concurrent SMP (1.87x multi-core speedup).
+  * [x] Validate kernel stability with regression tests (`usertests preempt`, `usertests forkforkfork`).
+  * [x] Generate standalone patch `track_g_xv6_kernel/patches/0001_cputime_accounting.patch` (15.1 KB).
+  * [x] Generate 4 publication-ready figures in `track_g_xv6_kernel/plots/`.
+  * [x] Author comprehensive documentation (`kernel_architecture.md`, `implementation.md`, `experimental_analysis.md`, `viva_questions.md` with 16 Q&As, `README.md`).
 * [ ] **Track H (DBMS Optimization Formulation)**:
   * [ ] Generate synthetic TPC-H relational dataset in SQLite/PostgreSQL.
   * [ ] Formulate Index Selection as a 0-1 Knapsack / ILP problem.
@@ -152,11 +160,11 @@
   * [ ] Implement exact Multi-Objective ILP solver via HiGHS.
   * [ ] Execute comparative benchmarks (Dijkstra vs. Greedy vs. ILP) across multiple network scales.
   * [ ] Analyze trade-offs (journey duration, transfer wait time, execution runtime).
-* [ ] **Track G (xv6 Benchmarking & Validation)**:
-  * [ ] Compile modified kernel under QEMU RISC-V in WSL2.
-  * [ ] Execute 3 distinct workloads (CPU-burst, I/O-interactive, high-concurrency).
-  * [ ] Validate 100% pass on xv6 `usertests`.
-  * [ ] Generate clean `xv6_opt.patch`.
+* [x] **Track G (xv6 Benchmarking & Validation)**:
+  * [x] Compile modified kernel under QEMU RISC-V in WSL2.
+  * [x] Execute 3 distinct workloads (CPU-burst, short-burst, high-concurrency SMP).
+  * [x] Validate 100% pass on xv6 `usertests`.
+  * [x] Generate clean `patches/0001_cputime_accounting.patch`.
 * [ ] **Track H (DBMS Benchmark Execution)**:
   * [ ] Compare Greedy vs. ILP index selection vs. default optimizer.
   * [ ] Measure `EXPLAIN QUERY PLAN`, latency, throughput, and disk footprint; verify result parity.

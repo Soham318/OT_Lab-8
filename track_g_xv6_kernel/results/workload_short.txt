@@ -1,0 +1,28 @@
+
+xv6 kernel is booting
+
+hart 2 starting
+hart 1 starting
+init: starting sh
+$ short_workload
+==================================================
+Workload 2: Short Workload & Granularity Analysis
+Evaluating timer-tick resolution on sub-quantum bursts
+==================================================
+Timer period: ~100 ms (1 tick).
+Executing 5 short tasks (< 1 ms compute each)...
+
+Trial 1: Process CPU ticks = 0, Wall ticks = 0 (Sub-tick execution: 0 ticks recorded)
+Trial 2: Process CPU ticks = 0, Wall ticks = 0 (Sub-tick execution: 0 ticks recorded)
+Trial 3: Process CPU ticks = 0, Wall ticks = 0 (Sub-tick execution: 0 ticks recorded)
+Trial 4: Process CPU ticks = 0, Wall ticks = 0 (Sub-tick execution: 0 ticks recorded)
+Trial 5: Process CPU ticks = 0, Wall ticks = 0 (Sub-tick execution: 0 ticks recorded)
+
+--- Granularity Findings ---
+Trials with 0 ticks: 5 / 5
+Trials with >= 1 tick: 0 / 5
+Conclusion: Because xv6 timer ticks fire every ~100ms, short bursts (<1ms)
+fall between timer interrupts and register as 0 ticks unless a timer interrupt
+coincides with the process execution window. This illustrates timer quantization.
+$ QEMU: Terminated
+
