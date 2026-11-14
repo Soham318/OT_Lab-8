@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Technical Report - Optimization Techniques</title>
+  
+<style>
+:root {
+  --primary: #1e3a8a;
+  --secondary: #0f766e;
+  --accent: #2563eb;
+  --text: #1f2937;
+  --text-light: #4b5563;
+  --bg: #ffffff;
+  --code-bg: #f8fafc;
+  --border: #e2e8f0;
+  --table-border: #cbd5e1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+  font-size: 10.5pt;
+  margin: 0;
+  padding: 30px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #0f172a;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 22pt;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 8px;
+  color: var(--primary);
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 15pt;
+  border-bottom: 1.5px solid var(--border);
+  padding-bottom: 5px;
+  color: #1e293b;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 12pt;
+  color: var(--secondary);
+  page-break-after: avoid;
+}
+
+h4 {
+  font-size: 11pt;
+  color: #334155;
+  page-break-after: avoid;
+}
+
+p, ul, ol {
+  margin-top: 0.4em;
+  margin-bottom: 0.7em;
+}
+
+ul, ol {
+  padding-left: 1.6em;
+}
+
+li {
+  margin-bottom: 0.3em;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.9em;
+  background-color: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+pre {
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 14px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.85em;
+  line-height: 1.45;
+  border: 1px solid #334155;
+  page-break-inside: avoid;
+}
+
+pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+  font-size: 1em;
+}
+
+blockquote {
+  border-left: 4px solid var(--accent);
+  margin: 1.2em 0;
+  padding: 8px 16px;
+  background-color: #f8fafc;
+  color: #334155;
+  font-style: italic;
+  border-radius: 0 4px 4px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+  font-size: 0.85em;
+  page-break-inside: avoid;
+}
+
+th, td {
+  border: 1px solid var(--table-border);
+  padding: 7px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #f1f5f9;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 2px solid #94a3b8;
+}
+
+tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+hr {
+  border: none;
+  border-top: 1.5px solid #cbd5e1;
+  margin: 1.8em 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media print {
+  body {
+    padding: 0;
+    max-width: 100%;
+    font-size: 9.5pt;
+    line-height: 1.45;
+  }
+  @page {
+    margin: 1.5cm 1.2cm 1.5cm 1.2cm;
+    size: letter portrait;
+  }
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  table, pre, blockquote {
+    page-break-inside: avoid;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+</style>
+
+</head>
+<body>
+  <h1>OPTIMIZE ANYTHING: The 14-Day Vibe-Coding Challenge</h1>
+<h2>Comprehensive Technical Report across All Ten Experimental Tracks (Tracks A through J)</h2>
+<blockquote>
+<p><strong>Course</strong>: Optimization Techniques — Lab Assignment 8<br />
+<strong>Student Author</strong>: Soham Umesh Chavan<br />
+<strong>Development Methodology</strong>: Strict AI-Assisted Vibe Coding (Documented, Validated, Reproducible)<br />
+<strong>Primary AI Assistant</strong>: Antigravity AI (Google DeepMind Gemini 3.8 Flash High / Pro)<br />
+<strong>Evaluation Date</strong>: November 14, 2026 (Day 14 Academic Submission)<br />
+<strong>Repository</strong>: <code>C:\Users\Soham Umesh Chavan\OT-8\OT_Lab-8</code> (Public GitHub Repository Ready)<br />
+<strong>Master Test Status</strong>: <strong>102 / 102 Automated Tests Passing (100% Pass Rate)</strong></p>
+</blockquote>
+<hr />
+<h2>Abstract</h2>
+<p>This technical report documents the complete engineering design, mathematical formulation, empirical benchmarking, and scientific analysis of <strong>Assignment 8: Optimize Anything (The 14-Day Vibe-Coding Challenge)</strong>. Rather than treating optimization as a collection of disjoint algorithms, this investigation treats optimization as an empirical science across diverse software systems and engineering domains.</p>
+<p>Across fourteen intensive development days, ten compulsory experimental tracks (<strong>Tracks A through J</strong>) were implemented and verified. The scope encompasses continuous machine learning optimization, combinatorial integer linear programming, hybrid quantum-classical algorithms, multiprocessing parallel scaling, timetable transit networks, mini-compiler optimization passes, operating-system kernel modification under xv6 RISC-V, relational DBMS index selection in SQLite, gate-based quantum algorithms and QML advantage limits, and large-scale enterprise workflow DAG scheduling. Every optimization was measured against a rigorously defined baseline under identical problem instances and constraints. In total, 44 publication-grade figures (300 DPI) were generated, 17 genuine AI failure cases were logged and corrected, and all 102 automated regression tests were confirmed passing with 100% reproducibility.</p>
+<hr />
+<h2>1. Introduction and Assignment Objectives</h2>
+<p>Modern software systems frequently suffer from severe inefficiencies: naive algorithmic loops that recompute invariant states, unindexed database tables requiring linear scans, unoptimized intermediate representations that bloat machine binaries, and operating-system kernels that lack execution time accounting.</p>
+<p>The primary learning outcome of this 14-day challenge is to master optimization as a systematic problem-solving process:</p>
+<ol>
+<li><strong>Discover the Inefficiency</strong>: Measure, profile, and isolate authentic computational or operational bottlenecks.</li>
+<li><strong>Formulate Mathematically</strong>: Define decision variables, objective functions, constraints, and formal success criteria.</li>
+<li><strong>Select Chapter 6 Methods</strong>: Choose appropriate continuous, discrete, submodular, parallel, or quantum optimization methods based on problem scale, linearity, and hardware constraints.</li>
+<li><strong>Vibe Code Responsibly</strong>: Utilize AI coding tools to draft and refine implementations while independently verifying correctness through automated tests and mathematical ground truth.</li>
+<li><strong>Prove the Improvement</strong>: Quantify gains using reproducible benchmarks (latency, throughput, makespan, memory footprint, speedup) under uniform experimental conditions.</li>
+</ol>
+<hr />
+<h2>2. Chapter 6 Optimization Techniques Overview</h2>
+<p>The assignment strictly implements and validates the theoretical syllabus of Chapter 6 across its core areas:</p>
+<pre><code>                               CHAPTER 6 OPTIMIZATION SYLLABUS
+                                              │
+         ┌───────────────────┬────────────────┼───────────────────┬───────────────────┐
+         ▼                   ▼                ▼                   ▼                   ▼
+    CONTINUOUS           DISCRETE         QUANTUM            SUBMODULAR          PARALLEL &amp;
+   OPTIMIZATION        OPTIMIZATION     OPTIMIZATION        OPTIMIZATION        DISTRIBUTED
+   (Track A)           (Tracks B, E)   (Tracks C, I)         (Track D)         (Tracks D, J)
+         │                   │                │                   │                   │
+  • GD, SGD, Mini-B   • Greedy Solver   • QAOA &amp; VQE        • Diminishing       • Multiprocessing
+  • Momentum, NAG     • Branch-&amp;-Bound  • PQC &amp; Ansatzes      Returns Check     • Amdahl/Gustafson
+  • AdaGrad, RMSProp  • Dynamic Prog.   • Param-Shift Rule  • Greedy Bound      • FedAvg (IID/Drift)
+  • Adam Optimizer    • Exact HiGHS ILP • SPSA &amp; QNG          (1 - 1/e)         • MGDA Pareto Front
+  • Newton &amp; GN       • QUBO &amp; Ising    • Barren Plateaus   • Maximum           • GradNorm Weights
+  • Backprop &amp; HVP    • Penalty Bounds  • Shot Noise (1/S)    Coverage          • Event Min-Heaps
+</code></pre>
+<hr />
+<h2>3. Methodology and Experimental Environment</h2>
+<p>All experiments were executed on an inspected and calibrated hardware/software environment:</p>
+<ul>
+<li><strong>Host OS</strong>: Windows 11 Enterprise (x86_64), build 26100.</li>
+<li><strong>Python Toolchain</strong>: Python 3.13.3 (64-bit) with NumPy 2.5.2, SciPy 1.18.1 (HiGHS MIP solver), Matplotlib 3.11.1, scikit-learn 1.6.1, and Qiskit 2.6.2.</li>
+<li><strong>Linux Subsystem (WSL2 / Ubuntu 26.04 LTS)</strong>: Native GCC 15.2.0, GNU Make 4.4.1, <code>qemu-system-riscv64 10.2.1</code>, <code>riscv64-linux-gnu-gcc 15.2.0</code>.</li>
+<li><strong>Database Engine</strong>: SQLite 3.45.1.</li>
+<li><strong>Experimental Protocol</strong>:<ul>
+<li>Deterministic random seeding (Seeds 42, 123, 789, 999) across all stochastic generators.</li>
+<li>Warm-up executions prior to timing to eliminate cold-cache and bytecode compilation anomalies.</li>
+<li>Multiple measured repetitions (3 to 20 runs) reporting mean, median, min, max, and standard deviation.</li>
+<li>Full cryptographic output parity checks (SHA-256 result hashing) and semantic invariance verification.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>4. Track-by-Track Experimental Analysis (Tracks A through J)</h2>
+<hr />
+<h3>Track A: Continuous Optimization</h3>
+<h4>1. Problem Statement</h4>
+<p>Continuous optimization lies at the foundation of machine learning, non-linear regression, and engineering physics. This track evaluates how first-order optimizers (with adaptive learning rates and momentum), second-order methods (incorporating Hessian curvature), and curvature approximations navigate diverse objective landscapes.</p>
+<h4>2. Mathematical Formulation</h4>
+<p>Given objective function $f: \mathbb{R}^d \to \mathbb{R}$:</p>
+<ul>
+<li><strong>Standard Gradient Descent</strong>: $x_{t+1} = x_t - \eta \nabla f(x_t)$</li>
+<li><strong>Momentum</strong>: $v_{t+1} = \gamma v_t + \eta \nabla f(x_t), \quad x_{t+1} = x_t - v_{t+1}$</li>
+<li><strong>Nesterov Accelerated Gradient (NAG)</strong>: $v_{t+1} = \gamma v_t + \eta \nabla f(x_t - \gamma v_t), \quad x_{t+1} = x_t - v_{t+1}$</li>
+<li><strong>Adam</strong>: Updates biased first ($m_t$) and second ($v_t$) moments with bias correction:
+$$\hat{m}_t = \frac{m_t}{1 - \beta_1^t}, \quad \hat{v}<em>t = \frac{v_t}{1 - \beta_2^t}, \quad x</em>{t+1} = x_t - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t$$</li>
+<li><strong>Newton's Method with Levenberg-Marquardt Spectral Regularization</strong>:
+$$x_{t+1} = x_t - [H(x_t) + \lambda I]^{-1} \nabla f(x_t)$$</li>
+<li><strong>Gauss-Newton Method</strong>: For non-linear least squares $f(x) = \frac{1}{2} |r(x)|<em>2^2$, approximates Hessian via Jacobian outer product $H \approx J^T J$:
+$$x</em>{t+1} = x_t - [J(x_t)^T J(x_t) + \lambda I]^{-1} J(x_t)^T r(x_t)$$</li>
+</ul>
+<h4>3. Empirical Benchmark Results</h4>
+<p>Evaluated across 5 objective landscapes (Convex Quadratic, Strongly Convex Quadratic, Rosenbrock valley, Rastrigin multimodal, and Non-Linear Least Squares):</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Optimizer</th>
+  <th style="text-align:left">Category</th>
+  <th style="text-align:left">Landscape</th>
+  <th style="text-align:center">Initial Loss</th>
+  <th style="text-align:center">Final Loss</th>
+  <th style="text-align:center">Iterations</th>
+  <th style="text-align:center">Runtime (ms)</th>
+  <th style="text-align:center">Convergence Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>Gradient Descent</strong></td>
+  <td style="text-align:left">First-Order</td>
+  <td style="text-align:left">Strongly Convex</td>
+  <td style="text-align:center">45.200</td>
+  <td style="text-align:center">0.1240</td>
+  <td style="text-align:center">100</td>
+  <td style="text-align:center">0.85 ms</td>
+  <td style="text-align:center">Converged (Linear)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Momentum ($\beta=0.9$)</strong></td>
+  <td style="text-align:left">First-Order</td>
+  <td style="text-align:left">Strongly Convex</td>
+  <td style="text-align:center">45.200</td>
+  <td style="text-align:center">0.0031</td>
+  <td style="text-align:center">100</td>
+  <td style="text-align:center">0.92 ms</td>
+  <td style="text-align:center">Fast Damping</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>NAG ($\beta=0.9$)</strong></td>
+  <td style="text-align:left">First-Order</td>
+  <td style="text-align:left">Strongly Convex</td>
+  <td style="text-align:center">45.200</td>
+  <td style="text-align:center">0.0018</td>
+  <td style="text-align:center">100</td>
+  <td style="text-align:center">0.95 ms</td>
+  <td style="text-align:center">Accelerated</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Adam</strong></td>
+  <td style="text-align:left">Adaptive</td>
+  <td style="text-align:left">Rosenbrock</td>
+  <td style="text-align:center">124.50</td>
+  <td style="text-align:center">0.0012</td>
+  <td style="text-align:center">150</td>
+  <td style="text-align:center">1.84 ms</td>
+  <td style="text-align:center">Deep Valley Traversal</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Newton (LM)</strong></td>
+  <td style="text-align:left">Second-Order</td>
+  <td style="text-align:left">Convex Quadratic</td>
+  <td style="text-align:center">68.400</td>
+  <td style="text-align:center"><strong>0.0000</strong></td>
+  <td style="text-align:center"><strong>1</strong></td>
+  <td style="text-align:center">0.12 ms</td>
+  <td style="text-align:center"><strong>Exact Machine Precision</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Gauss-Newton</strong></td>
+  <td style="text-align:left">Second-Order</td>
+  <td style="text-align:left">NLLS Fit</td>
+  <td style="text-align:center">34.120</td>
+  <td style="text-align:center">0.0004</td>
+  <td style="text-align:center">6</td>
+  <td style="text-align:center">0.65 ms</td>
+  <td style="text-align:center">Quadratic Rate</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Decoupled Backpropagation Check</strong>: Analytical backpropagation on a 2-layer MLP ($10 \to 16 \to 1$) matched numerical finite differences to machine precision:
+$$| \nabla_{\text{analytical}} - \nabla_{\text{numerical}} |_2 = 4.00 \times 10^{-12}$$</li>
+<li><strong>Hessian-Vector Products (Pearlmutter Trick)</strong>: Verified directional curvature without materializing full $H$:
+$$\left| H v - \frac{\nabla f(x + \epsilon v) - \nabla f(x - \epsilon v)}{2\epsilon} \right|_2 &lt; 10^{-7}$$</li>
+</ul>
+<hr />
+<h3>Track B: Discrete Optimization &amp; QUBO</h3>
+<h4>1. Problem Statement</h4>
+<p>Discrete optimization addresses combinatorial problems where decision variables are constrained to integer or binary domains. This track compares exact tree search, dynamic programming, and mathematical programming against greedy heuristics on the 0-1 Knapsack problem, and explores quadratic unconstrained binary optimization (QUBO) with Ising spin conversions.</p>
+<h4>2. Mathematical Formulation</h4>
+<ul>
+<li><strong>0-1 Knapsack ILP</strong>:
+$$\max \sum_{i=1}^n v_i x_i \quad \text{subject to } \sum_{i=1}^n w_i x_i \le W, \quad x_i \in {0, 1}$$</li>
+<li><strong>QUBO Mapping with Binary Slack Variables</strong>:
+To encode inequality $\sum w_i x_i \le W$, slack integer $s \in [0, W]$ is expanded into $K = \lfloor \log_2 W \rfloor + 1$ binary variables $s = \sum_{k=0}^{K-1} 2^k y_k$:
+$$H_{\text{QUBO}}(x, y) = - \sum_{i=1}^n v_i x_i + P \left( \sum_{i=1}^n w_i x_i + \sum_{k=0}^{K-1} 2^k y_k - W \right)^2$$
+where penalty multiplier $P &gt; \max_i v_i$ guarantees that any infeasible assignment incurs higher energy than the optimal feasible solution.</li>
+<li><strong>Ising Spin Transformation</strong>: Mapping binary $x_i \in {0, 1}$ to spin $s_i \in {-1, +1}$ via $x_i = \frac{1 - s_i}{2}$.</li>
+</ul>
+<h4>3. Empirical Benchmark Results</h4>
+<p>Benchmarked across 9 problem instances from small manual cases to $N = 200$ items:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Solver</th>
+  <th style="text-align:left">Paradigm</th>
+  <th style="text-align:center">Problem Scale</th>
+  <th style="text-align:center">Optimal Value</th>
+  <th style="text-align:center">Runtime (ms)</th>
+  <th style="text-align:center">Optimality Gap</th>
+  <th style="text-align:center">Pruned Nodes / States</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>Greedy Ratio</strong></td>
+  <td style="text-align:left">Heuristic ($v_i/w_i$)</td>
+  <td style="text-align:center">Handcrafted ($N=4$)</td>
+  <td style="text-align:center">80.0</td>
+  <td style="text-align:center">0.02 ms</td>
+  <td style="text-align:center"><strong>27.27% Gap</strong></td>
+  <td style="text-align:center">0 (Heuristic Trap)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Branch-and-Bound</strong></td>
+  <td style="text-align:left">Exact Tree Search</td>
+  <td style="text-align:center">$N = 15, W = 100$</td>
+  <td style="text-align:center"><strong>260.0</strong></td>
+  <td style="text-align:center">1.84 ms</td>
+  <td style="text-align:center"><strong>0.00%</strong></td>
+  <td style="text-align:center">87.4% Nodes Pruned</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Dynamic Programming</strong></td>
+  <td style="text-align:left">Exact 2D Backtracking</td>
+  <td style="text-align:center">$N = 15, W = 100$</td>
+  <td style="text-align:center"><strong>260.0</strong></td>
+  <td style="text-align:center">0.45 ms</td>
+  <td style="text-align:center"><strong>0.00%</strong></td>
+  <td style="text-align:center">$15 \times 100$ Table</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>SciPy HiGHS ILP</strong></td>
+  <td style="text-align:left">Exact Simplex Branch-Cut</td>
+  <td style="text-align:center">$N = 200, W = 1000$</td>
+  <td style="text-align:center"><strong>3,842.0</strong></td>
+  <td style="text-align:center"><strong>14.20 ms</strong></td>
+  <td style="text-align:center"><strong>0.00%</strong></td>
+  <td style="text-align:center">Continuous Relaxation Bound</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>QUBO Exhaustive</strong></td>
+  <td style="text-align:left">Quadratic Energy</td>
+  <td style="text-align:center">$N = 4$ + Slacks</td>
+  <td style="text-align:center"><strong>-80.0</strong></td>
+  <td style="text-align:center">0.85 ms</td>
+  <td style="text-align:center"><strong>0.00%</strong></td>
+  <td style="text-align:center">$2^{4+4} = 256$ States</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Ising Model</strong></td>
+  <td style="text-align:left">Spin Glass Energy</td>
+  <td style="text-align:center">$N = 4$ Spins</td>
+  <td style="text-align:center"><strong>-80.0</strong></td>
+  <td style="text-align:center">0.86 ms</td>
+  <td style="text-align:center"><strong>0.00%</strong></td>
+  <td style="text-align:center">Exact Energy Parity</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Track C: Quantum Optimization</h3>
+<h4>1. Problem Statement</h4>
+<p>Quantum optimization investigates variational hybrid algorithms executed on quantum processing units (QPUs). This track implements QAOA, VQE, analytical parameter-shift gradients, SPSA, and Fubini-Study Quantum Natural Gradient (QNG), and investigates hardware-induced barriers (Barren Plateaus, shot noise, depolarizing errors).</p>
+<h4>2. Mathematical Formulation</h4>
+<ul>
+<li><strong>QAOA Circuit ($p$ Layers)</strong>:
+$$|\gamma, \beta\rangle = \prod_{l=1}^p \left( e^{-i \beta_l \sum X_i} e^{-i \gamma_l C} \right) |+\rangle^{\otimes n}$$</li>
+<li><strong>Parameter-Shift Rule (Exact Analytical Circuit Gradient)</strong>:
+$$\frac{\partial \langle H \rangle}{\partial \theta_j} = \frac{\langle H \rangle_{\theta_j + \frac{\pi}{2}} - \langle H \rangle_{\theta_j - \frac{\pi}{2}}}{2}$$</li>
+<li><strong>Barren Plateau Gradient Variance Decay</strong>:
+$$\text{Var}_{\theta}\left[ \frac{\partial \langle H \rangle}{\partial \theta_j} \right] \in \mathcal{O}\left( 2^{-n} \right)$$</li>
+</ul>
+<h4>3. Empirical Benchmark Results</h4>
+<p>Evaluated using Qiskit 2.6.2 classical statevector and shot-noise simulation:</p>
+<ul>
+<li><strong>QAOA on 4-Node Cycle ($C_4$ Max-Cut)</strong>:<ul>
+<li>Depth $p=1$: Approximation ratio = <strong>$75.0%$</strong></li>
+<li>Depth $p=2$: Approximation ratio = <strong>$89.4%$</strong></li>
+<li>Depth $p=3$: Approximation ratio = <strong>$100.0%$</strong> (Exact ground state cut)</li>
+</ul>
+</li>
+<li><strong>VQE Ground State Energy Parity vs Exact Hermitian Diagonalization</strong>:<ul>
+<li>Transverse Field Ising Model (TFIM, 4 qubits): VQE Energy = <strong>$-4.2140$ Ha</strong> vs Exact = <strong>$-4.2341$ Ha</strong> ($0.47%$ error).</li>
+<li>Heisenberg XXZ Spin Chain (4 qubits): VQE Energy = <strong>$-3.8012$ Ha</strong> vs Exact = <strong>$-3.8514$ Ha</strong> ($1.30%$ error).</li>
+</ul>
+</li>
+<li><strong>Parameter-Shift Exactness</strong>:
+$$| \nabla_{\text{shift}} - \nabla_{\text{finite_diff}} |_2 = 3.86 \times 10^{-11}$$</li>
+<li><strong>SPSA vs Parameter-Shift Under Shot Noise</strong>: SPSA required only 2 circuit evaluations per step regardless of parameter dimension $D$, achieving a <strong>$23.2\times$ faster wall-clock optimization run</strong>.</li>
+<li><strong>Barren Plateau Empirical Verification</strong>: Tested across $n \in [2, 3, 4, 5, 6, 7]$ qubits; gradient variance decayed from $0.125$ ($n=2$) to $0.0019$ ($n=7$), confirming theoretical $2^{-n}$ exponential decay.</li>
+</ul>
+<hr />
+<h3>Track D: Submodular, Parallel and Distributed Optimization</h3>
+<h4>1. Problem Statement</h4>
+<p>Evaluates combinatorial set optimization with diminishing returns, multi-core parallel scaling, distributed client training with federated averaging, and multi-objective/multi-task gradient balancing.</p>
+<h4>2. Mathematical Formulation</h4>
+<ul>
+<li><strong>Submodular Diminishing Returns</strong>:
+$$f(A \cup {e}) - f(A) \ge f(B \cup {e}) - f(B) \quad \forall A \subseteq B, ; e \notin B$$
+Greedy selection achieves approximation factor:
+$$f(S_{\text{greedy}}) \ge \left( 1 - \frac{1}{e} \right) f(S^<em>) \approx 0.6321 \cdot f(S^</em>)$$</li>
+<li><strong>Amdahl's and Gustafson's Laws</strong>:
+$$\text{Amdahl: } S(P) = \frac{1}{s + \frac{1 - s}{P}}, \quad \text{Gustafson: } S(P) = P - s(P - 1)$$</li>
+<li><strong>Multiple Gradient Descent Algorithm (MGDA)</strong>:
+$$\min_{\alpha \in \Delta^m} \left| \sum_{i=1}^m \alpha_i \nabla f_i(x) \right|_2^2 \quad \text{s.t. } \sum \alpha_i = 1, ; \alpha_i \ge 0$$</li>
+<li><strong>GradNorm Dynamic Task Balancing</strong>:
+$$L_{\text{grad}}(w; t) = \sum_{i=1}^T \left| G_W^{(i)}(t) - \bar{G}_W(t) [r_i(t)]^\alpha \right|$$</li>
+</ul>
+<h4>3. Empirical Benchmark Results</h4>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Experiment</th>
+  <th style="text-align:left">Configuration</th>
+  <th style="text-align:left">Baseline Result</th>
+  <th style="text-align:left">Optimized Result</th>
+  <th style="text-align:center">Measured Gain / Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>Submodular Max Coverage</strong></td>
+  <td style="text-align:left">100 elements, $k=5$</td>
+  <td style="text-align:left">Random Coverage: 31</td>
+  <td style="text-align:left">Greedy: <strong>82</strong>, Exact: <strong>84</strong></td>
+  <td style="text-align:center"><strong>$2.65\times$ gain</strong> (97.6% of exact optimum; $&gt;63.2%$ bound)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Multiprocessing Scaling</strong></td>
+  <td style="text-align:left">8 cores on Windows</td>
+  <td style="text-align:left">Single Core: 7.84 s</td>
+  <td style="text-align:left">8 Cores: <strong>1.99 s</strong></td>
+  <td style="text-align:center"><strong>$3.94\times$ speedup</strong> ($E_P = 49.3%$, parity error $0.0$)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Amdahl's Regression Fit</strong></td>
+  <td style="text-align:left">$P \in [1, 2, 4, 8]$ cores</td>
+  <td style="text-align:left">Ideal Linear Scaling</td>
+  <td style="text-align:left">Fitted Serial Fraction: <strong>$\hat{s} = 14.36%$</strong></td>
+  <td style="text-align:center">$R^2 = 0.9973$, theoretical max speedup $6.96\times$</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Federated Learning (FedAvg)</strong></td>
+  <td style="text-align:left">10 clients, $R=25$ rounds</td>
+  <td style="text-align:left">Centralized: $0.0494$ loss</td>
+  <td style="text-align:left">IID: <strong>$0.0495$</strong> (100% acc) vs Non-IID drift: <strong>$0.0485$</strong></td>
+  <td style="text-align:center">132.8 KB payload/round; client drift documented</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>MGDA Pareto Descent</strong></td>
+  <td style="text-align:left">Conflicting quadratics</td>
+  <td style="text-align:left">Weighted Sum: bias</td>
+  <td style="text-align:left">$\alpha = [1.0, 0.0]$, $|\mathbf{g}^*| \le 10^{-5}$</td>
+  <td style="text-align:center">Converged to Pareto front boundary at $(1.0, 0.0)$</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>GradNorm Multi-Task</strong></td>
+  <td style="text-align:left">2-task shared MLP</td>
+  <td style="text-align:left">Equal Weights: $L_2 = 0.384$</td>
+  <td style="text-align:left">GradNorm: $w = [0.65, 1.35], L_2 = \mathbf{0.330}$</td>
+  <td style="text-align:center">Harder task error reduced by <strong>$14.1%$</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Track E: Railway Route and Transfer Optimization (Main Real-Process Case Study)</h3>
+<h4>1. Problem Statement</h4>
+<p>Passenger rail journeys operate over discrete timetable connections with mandatory station transfer buffers ($\Delta_{\text{min}} \in [10, 20]$ min). Passengers experience severe disutility from platform waiting times and train changes. This case study optimizes a regional railway network across 28 stations, 551 elementary timetable connections, and 10 service corridors.</p>
+<h4>2. Mathematical Formulation</h4>
+<ul>
+<li><strong>Decision Variables</strong>: $x_c \in {0, 1}$ (connection $c$ traversed), $y_{c_1, c_2} \in {0, 1}$ (transfer between $c_1$ and $c_2$).</li>
+<li><strong>Objective Function</strong>:
+$$\min Z = \alpha \sum_{c \in C} \tau(c) x_c + \beta \sum_{(c_1, c_2) \in T} w(c_1, c_2) y_{c_1, c_2} + \gamma \sum_{(c_1, c_2) \in T} \delta_{\text{srv}}(c_1, c_2) y_{c_1, c_2}$$
+with weights $\alpha = 1.0, \beta = 1.5, \gamma = 30.0$.</li>
+<li><strong>Constraints</strong>: Flow conservation at all stations, connection linking ($\sum y = x$), station transfer buffer enforcement ($\text{dep}(c_2) \ge \text{arr}(c_1) + \Delta_{\text{min}}$), query departure time ($\text{dep}(c) \ge t_{\text{query}}$), and maximum transfers ($\le 4$).</li>
+</ul>
+<h4>3. Empirical 20-Query Benchmark Results</h4>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Metric</th>
+  <th style="text-align:center">Time-Dependent Dijkstra (Baseline)</th>
+  <th style="text-align:center">Greedy Railway Optimizer (Heuristic)</th>
+  <th style="text-align:center">Exact HiGHS ILP (Exact Solver)</th>
+  <th style="text-align:center">Best Performer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>Optimized Objective</strong></td>
+  <td style="text-align:center">Arrival Timestamp ($\min T_{\text{arr}}$)</td>
+  <td style="text-align:center">Step-wise Score ($\min \text{score}$)</td>
+  <td style="text-align:center">Multi-Objective Cost ($\min Z$)</td>
+  <td style="text-align:center">Task-Dependent</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Optimality Guarantee</strong></td>
+  <td style="text-align:center">Optimal for Arrival Time ($T_{\text{arr}}$)</td>
+  <td style="text-align:center">Heuristic</td>
+  <td style="text-align:center"><strong>Globally Proven Optimal for $Z$</strong></td>
+  <td style="text-align:center"><strong>ILP (for $Z$), Dijkstra (for $T_{\text{arr}}$)</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Mean Execution Latency</strong></td>
+  <td style="text-align:center"><strong>0.276 ms</strong></td>
+  <td style="text-align:center">2.044 ms</td>
+  <td style="text-align:center">547.285 ms</td>
+  <td style="text-align:center"><strong>Dijkstra</strong> (1,980x vs ILP)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Mean Journey Duration</strong></td>
+  <td style="text-align:center">273.9 min</td>
+  <td style="text-align:center">277.3 min</td>
+  <td style="text-align:center"><strong>246.9 min</strong></td>
+  <td style="text-align:center"><strong>ILP</strong> (-27.0 min saving)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Mean Transfer Waiting</strong></td>
+  <td style="text-align:center">56.0 min</td>
+  <td style="text-align:center">48.9 min</td>
+  <td style="text-align:center"><strong>30.9 min</strong></td>
+  <td style="text-align:center"><strong>ILP</strong> (-25.1 min saving)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Mean Number of Transfers</strong></td>
+  <td style="text-align:center">0.95</td>
+  <td style="text-align:center">0.70</td>
+  <td style="text-align:center"><strong>0.60</strong></td>
+  <td style="text-align:center"><strong>ILP</strong> (-37% transfers)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Mean Multi-Obj Cost ($Z$)</strong></td>
+  <td style="text-align:center">323.9</td>
+  <td style="text-align:center">315.2</td>
+  <td style="text-align:center"><strong>273.1</strong></td>
+  <td style="text-align:center"><strong>ILP</strong> (-15.7% lower cost)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Mean Optimality Gap (vs $Z^*$)</strong></td>
+  <td style="text-align:center">20.58%</td>
+  <td style="text-align:center">15.81%</td>
+  <td style="text-align:center"><strong>0.00% (Reference)</strong></td>
+  <td style="text-align:center"><strong>ILP</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Earliest-Arrival Optimality</strong></td>
+  <td style="text-align:center"><strong>100.0% (20 / 20)</strong></td>
+  <td style="text-align:center">75.0% (15 / 20)</td>
+  <td style="text-align:center"><strong>100.0% (20 / 20)</strong></td>
+  <td style="text-align:center"><strong>Dijkstra &amp; ILP</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Objective Reconciliation</strong>: Dijkstra is <strong>100% optimal for arrival time</strong>, but incurs a 20.58% gap under generalized cost $Z$ because it aggressively boards the earliest departing train without penalizing intermediate transfer dwells (&quot;hurry up and wait&quot;).</li>
+</ul>
+<hr />
+<h3>Track F: Compiler Optimization</h3>
+<h4>1. Problem Statement</h4>
+<p>Evaluates code size reduction and execution speedup on intermediate representations (3AC) through five classical compiler passes run to fixed-point convergence, combined with Binary Integer Linear Programming (BILP) for budget-constrained pass selection.</p>
+<h4>2. Mathematical Formulation &amp; Compiler Passes</h4>
+<ol>
+<li><strong>Constant Folding (CF)</strong>: Evaluates binary operations on literal constants at compile time ($3 + 5 \to 8$).</li>
+<li><strong>Constant Propagation (CP)</strong>: Replaces variable uses with known constants along reaching definition paths.</li>
+<li><strong>Strength Reduction (SR)</strong>: Replaces expensive arithmetic operations with cheaper equivalents ($x \times 2 \to x + x, x \times 0 \to 0$).</li>
+<li><strong>Common Subexpression Elimination (CSE)</strong>: Reuses previously computed values within basic blocks ($t_1 = a + b; t_2 = a + b \to t_2 = t_1$).</li>
+<li><strong>Dead Code Elimination (DCE)</strong>: Eliminates assignments to variables whose values are never subsequently read.</li>
+<li><strong>Pass Selection BILP Model</strong>:
+$$\max_{x \in {0, 1}^m} \sum_{i=1}^m \left( w_{\text{rt}} B_i^{\text{rt}} + w_{\text{sz}} B_i^{\text{sz}} - w_{\text{cmp}} C_i^{\text{cmp}} \right) x_i \quad \text{s.t. } \sum_{i=1}^m C_i^{\text{cmp}} x_i \le C_{\text{budget}}, \quad x_{\text{CF}} \le x_{\text{CP}}$$</li>
+</ol>
+<h4>3. Empirical Benchmark Results</h4>
+<p>Evaluated across 5 benchmark programs executing on the cycle-accurate 3AC Virtual Machine:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Benchmark Program</th>
+  <th style="text-align:center">Unopt IR Instructions</th>
+  <th style="text-align:center">Opt IR Instructions</th>
+  <th style="text-align:center">IR Size Reduction (%)</th>
+  <th style="text-align:center">Dynamic VM Cycles Before</th>
+  <th style="text-align:center">Dynamic VM Cycles After</th>
+  <th style="text-align:center">VM Cycle Reduction (%)</th>
+  <th style="text-align:center">VM Execution Speedup</th>
+  <th style="text-align:center">Output Parity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><code>arithmetic_heavy</code></td>
+  <td style="text-align:center">20</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center"><strong>95.00%</strong></td>
+  <td style="text-align:center">20</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center"><strong>95.00%</strong></td>
+  <td style="text-align:center"><strong>$24.24\times$</strong></td>
+  <td style="text-align:center"><strong>100% Match</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><code>repeated_expressions</code></td>
+  <td style="text-align:center">22</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center"><strong>95.45%</strong></td>
+  <td style="text-align:center">22</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center"><strong>95.45%</strong></td>
+  <td style="text-align:center"><strong>$22.21\times$</strong></td>
+  <td style="text-align:center"><strong>100% Match</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><code>dead_assignments</code></td>
+  <td style="text-align:center">16</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center"><strong>68.75%</strong></td>
+  <td style="text-align:center">13</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center"><strong>61.54%</strong></td>
+  <td style="text-align:center"><strong>$3.99\times$</strong></td>
+  <td style="text-align:center"><strong>100% Match</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><code>loop_heavy</code></td>
+  <td style="text-align:center">22</td>
+  <td style="text-align:center">19</td>
+  <td style="text-align:center"><strong>13.64%</strong></td>
+  <td style="text-align:center">3,408</td>
+  <td style="text-align:center">2,808</td>
+  <td style="text-align:center"><strong>17.61%</strong></td>
+  <td style="text-align:center"><strong>$1.40\times$</strong></td>
+  <td style="text-align:center"><strong>100% Match</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><code>combined_pipeline</code></td>
+  <td style="text-align:center">28</td>
+  <td style="text-align:center">23</td>
+  <td style="text-align:center"><strong>17.86%</strong></td>
+  <td style="text-align:center">1,912</td>
+  <td style="text-align:center">1,610</td>
+  <td style="text-align:center"><strong>15.79%</strong></td>
+  <td style="text-align:center"><strong>$1.31\times$</strong></td>
+  <td style="text-align:center"><strong>100% Match</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>BILP Pass Selection Monotonicity</strong>: Verified across budgets $C_{\text{budget}} \in [2.0, 11.0]$: optimal objective score monotonically increases ($11.60 \to 27.30 \to 38.80 \to 55.90 \to 67.40$) matching exhaustive search with <strong>0.00% optimality gap</strong>.</li>
+<li><strong>Virtual Machine vs. Native CPU Execution</strong>: VM cycles represent dynamic virtual machine 3AC instruction execution steps, which are distinct from native machine binary clock cycles.</li>
+</ul>
+<hr />
+<h3>Track G: xv6 Operating-System Feature Modification &amp; Optimization</h3>
+<h4>1. Problem Statement</h4>
+<p>The official MIT xv6 teaching operating system lacks per-process CPU time accounting. Without CPU time accounting, the OS scheduler cannot compute thread utilization, enforce fair-share scheduling, or report resource usage to user space.</p>
+<h4>2. Kernel Modification &amp; System Call Design</h4>
+<ul>
+<li><strong>Process Structure Extension (<code>kernel/proc.h</code>)</strong>:
+Added <code>uint64 cputime;</code> to <code>struct proc</code>. Initialized to 0 in <code>allocproc()</code> and reset in <code>freeproc()</code>.</li>
+<li><strong>Hardware Timer Trap Instrumentation (<code>kernel/trap.c</code>)</strong>:
+In both <code>usertrap()</code> and <code>kerneltrap()</code>, charged timer ticks strictly to the currently executing process upon device timer interrupts (<code>which_dev == 2</code>):<pre><code class="language-c">if (which_dev == 2) {
+  p-&gt;cputime++;
+  yield();
+}
+</code></pre>
+</li>
+<li><strong>New System Call (<code>sys_getcputime</code>, syscall 23)</strong>:
+Exposed <code>getcputime()</code> returning <code>uint64</code> with process lock synchronization (<code>acquire(&amp;p-&gt;lock)</code>).</li>
+</ul>
+<h4>3. Empirical Workload Benchmark Results</h4>
+<p>Evaluated under <code>qemu-system-riscv64</code> (3 SMP cores):</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Workload Scenario</th>
+  <th style="text-align:left">Nature of Computation</th>
+  <th style="text-align:center">Measured Process CPU Ticks</th>
+  <th style="text-align:center">Measured Wall-Clock Ticks</th>
+  <th style="text-align:center">Measured CPU Duty Cycle</th>
+  <th style="text-align:center">Validation Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>CPU-Intensive Workload</strong></td>
+  <td style="text-align:left">Continuous compute loop ($10^7$ iterations)</td>
+  <td style="text-align:center">48 ticks</td>
+  <td style="text-align:center">48 ticks</td>
+  <td style="text-align:center"><strong>100.0%</strong></td>
+  <td style="text-align:center">Monotonicity Verified</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Short Burst Workload</strong></td>
+  <td style="text-align:left">Periodic compute with sleep delays</td>
+  <td style="text-align:center">12 ticks</td>
+  <td style="text-align:center">36 ticks</td>
+  <td style="text-align:center"><strong>33.3%</strong></td>
+  <td style="text-align:center">Quantization Bound</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Sleeping Process Isolation</strong></td>
+  <td style="text-align:left">Thread asleep via <code>sleep(10)</code></td>
+  <td style="text-align:center"><strong>0 ticks</strong></td>
+  <td style="text-align:center">10 ticks</td>
+  <td style="text-align:center"><strong>0.0%</strong></td>
+  <td style="text-align:center"><strong>Zero Sleeping Leakage</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Concurrent SMP Workload</strong></td>
+  <td style="text-align:left">4 parallel compute processes across 3 CPUs</td>
+  <td style="text-align:center">48 ticks each</td>
+  <td style="text-align:center">103 total wall ticks</td>
+  <td style="text-align:center"><strong>$1.87\times$ Multi-Core Speedup</strong></td>
+  <td style="text-align:center">Process Isolation Passed</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Honest Test Qualification</strong>: Baseline xv6 passed the complete <code>usertests</code> suite. On the modified kernel, targeted <code>test_cputime</code> passed 100% (5/5 checks), and the first 29 intensive stress tests passed before hitting the 45-second test runner timeout at test 30 (<code>sharedfd</code>).</li>
+</ul>
+<hr />
+<h3>Track H: DBMS Query Optimization</h3>
+<h4>1. Problem Statement</h4>
+<p>Evaluates the Index Selection Problem (ISP) under a hard secondary index storage budget constraint ($S_{\max} = 3.0$ MB) on a realistic 7-table railway reservation SQLite database (179,760 rows, 9.46 MB).</p>
+<h4>2. Mathematical Formulation</h4>
+<ul>
+<li><strong>Index Selection Knapsack Model</strong>:
+$$\max \sum_{q=1}^Q \sum_{i \in \mathcal{I}<em>q} b</em>{q,i} x_{q,i} \quad \text{s.t. } \sum_{i=1}^M s_i y_i \le S_{\max}, \quad x_{q,i} \le y_i, \quad \sum_{i \in \mathcal{I}<em>q} x</em>{q,i} \le 1$$</li>
+<li>Formulated with linear coupling constraints and solved using <code>scipy.optimize.milp</code> (HiGHS solver).</li>
+</ul>
+<h4>3. Empirical Benchmark Results</h4>
+<p>Evaluated across an 8-query workload (Q1 to Q8) comparing Baseline (no secondary indexes), Greedy selection, and Exact ILP selection:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Query ID</th>
+  <th style="text-align:left">Description / Nature</th>
+  <th style="text-align:center">Rows Returned</th>
+  <th style="text-align:center">Baseline Latency (ms)</th>
+  <th style="text-align:center">Greedy Latency (ms)</th>
+  <th style="text-align:center">ILP Latency (ms)</th>
+  <th style="text-align:center">Greedy Speedup</th>
+  <th style="text-align:center">ILP Speedup</th>
+  <th style="text-align:center">SHA-256 Result Parity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>Q1</strong></td>
+  <td style="text-align:left">Confirmed Bookings in Range</td>
+  <td style="text-align:center">4,713</td>
+  <td style="text-align:center">7.724 ms</td>
+  <td style="text-align:center">6.951 ms</td>
+  <td style="text-align:center"><strong>7.016 ms</strong></td>
+  <td style="text-align:center"><strong>1.11x</strong></td>
+  <td style="text-align:center"><strong>1.10x</strong></td>
+  <td style="text-align:center"><strong>100% MATCH</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Q2</strong></td>
+  <td style="text-align:left">Passenger Manifest for Date</td>
+  <td style="text-align:center">841</td>
+  <td style="text-align:center">11.291 ms</td>
+  <td style="text-align:center">11.104 ms</td>
+  <td style="text-align:center">12.705 ms</td>
+  <td style="text-align:center">1.02x</td>
+  <td style="text-align:center">0.89x</td>
+  <td style="text-align:center"><strong>100% MATCH</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Q3</strong></td>
+  <td style="text-align:left">Train Revenue Aggregation</td>
+  <td style="text-align:center">20</td>
+  <td style="text-align:center">17.110 ms</td>
+  <td style="text-align:center">16.779 ms</td>
+  <td style="text-align:center">19.655 ms</td>
+  <td style="text-align:center">1.02x</td>
+  <td style="text-align:center">0.87x</td>
+  <td style="text-align:center"><strong>100% MATCH</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Q4</strong></td>
+  <td style="text-align:left">Morning Departures</td>
+  <td style="text-align:center">38</td>
+  <td style="text-align:center">0.285 ms</td>
+  <td style="text-align:center"><strong>0.124 ms</strong></td>
+  <td style="text-align:center">0.297 ms</td>
+  <td style="text-align:center"><strong>2.30x</strong></td>
+  <td style="text-align:center">0.96x</td>
+  <td style="text-align:center"><strong>100% MATCH</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Q5</strong></td>
+  <td style="text-align:left">High-Fare Payment Methods</td>
+  <td style="text-align:center">4</td>
+  <td style="text-align:center">10.899 ms</td>
+  <td style="text-align:center">10.566 ms</td>
+  <td style="text-align:center"><strong>10.401 ms</strong></td>
+  <td style="text-align:center">1.03x</td>
+  <td style="text-align:center"><strong>1.05x</strong></td>
+  <td style="text-align:center"><strong>100% MATCH</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Q6</strong></td>
+  <td style="text-align:left">Premium Tier Bookings</td>
+  <td style="text-align:center">50</td>
+  <td style="text-align:center">16.542 ms</td>
+  <td style="text-align:center"><strong>14.416 ms</strong></td>
+  <td style="text-align:center">16.595 ms</td>
+  <td style="text-align:center"><strong>1.15x</strong></td>
+  <td style="text-align:center">1.00x</td>
+  <td style="text-align:center"><strong>100% MATCH</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Q7</strong></td>
+  <td style="text-align:left">Monthly Demographics Scan</td>
+  <td style="text-align:center">120</td>
+  <td style="text-align:center">22.946 ms</td>
+  <td style="text-align:center">23.340 ms</td>
+  <td style="text-align:center">24.389 ms</td>
+  <td style="text-align:center">0.98x</td>
+  <td style="text-align:center">0.94x</td>
+  <td style="text-align:center"><strong>100% MATCH</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Q8</strong></td>
+  <td style="text-align:left">Transactional PNR Lookup</td>
+  <td style="text-align:center">1</td>
+  <td style="text-align:center">1.263 ms</td>
+  <td style="text-align:center">1.281 ms</td>
+  <td style="text-align:center"><strong>0.106 ms</strong></td>
+  <td style="text-align:center">0.99x</td>
+  <td style="text-align:center"><strong>11.92x</strong></td>
+  <td style="text-align:center"><strong>100% MATCH</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Sum of Query Means</strong>: Baseline = <strong>88.060 ms</strong> (90.85 QPS), Greedy = <strong>84.561 ms</strong> (94.61 QPS, 4.0% faster overall), ILP = <strong>91.164 ms</strong> (87.75 QPS).</li>
+<li><strong>The Greedy Trap</strong>: At budget 3.0 MB, Greedy picked <code>IDX_02</code> (1.5 MB), <code>IDX_09</code> (0.8 MB), and was blocked from picking <code>IDX_07</code> (1.4 MB). ILP selected <code>IDX_07</code> directly, achieving an authentic <strong>6.92% benefit score advantage</strong> and an <strong>11.92x physical speedup on transactional query Q8</strong>.</li>
+<li><strong>Scan Jitter Insight</strong>: On unindexed table scans across 180,000 rows (Q2, Q3, Q7), run-to-run CPU and OS cache jitter added $+5.5$ ms of variance during the ILP evaluation pass, illustrating real-world system noise on unindexed table scans.</li>
+</ul>
+<hr />
+<h3>Track I: Quantum Algorithms and Quantum Machine Learning</h3>
+<h4>1. Problem Statement</h4>
+<p>Investigates foundational gate-based quantum algorithms, reversibility, quantum phase estimation, Shor's factoring, and supervised Quantum Machine Learning versus classical machine learning.</p>
+<h4>2. Implementation Overview</h4>
+<ul>
+<li><strong>Manual Elementary Gate Construction</strong>: Bernstein-Vazirani and Grover's search circuits were built gate-by-gate using elementary quantum gates ($H, X, CX, CZ, CCX$) with gate count tracking.</li>
+<li><strong>QFT Reversibility</strong>: Built Quantum Fourier Transform and Inverse QFT circuits.</li>
+<li><strong>Shor's Factoring</strong>: Implemented order finding and continued fractions for $N=15$ ($a=7$).</li>
+<li><strong>Quantum Variational Classifier (VQC)</strong>: <code>ZZFeatureMap</code> (2 qubits) + <code>RealAmplitudes</code> (reps=2, 6 parameters) trained via COBYLA on Iris dataset.</li>
+</ul>
+<h4>3. Empirical Benchmark Results</h4>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Algorithm / Experiment</th>
+  <th style="text-align:center">Qubits</th>
+  <th style="text-align:center">Circuit Depth</th>
+  <th style="text-align:center">Key Metric</th>
+  <th style="text-align:center">Measured Result</th>
+  <th style="text-align:center">Theoretical / Ground Truth Parity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>Deutsch-Jozsa</strong></td>
+  <td style="text-align:center">3</td>
+  <td style="text-align:center">5</td>
+  <td style="text-align:center">Oracle Classification</td>
+  <td style="text-align:center">Constant $\to$ 100% <code>'000'</code>, Balanced $\to$ 0%</td>
+  <td style="text-align:center">Deterministic single-query classification</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Bernstein-Vazirani</strong></td>
+  <td style="text-align:center">4</td>
+  <td style="text-align:center">6</td>
+  <td style="text-align:center">Secret String Recovery</td>
+  <td style="text-align:center">Measured <code>'1101'</code> with <strong>100.0% probability</strong></td>
+  <td style="text-align:center">Recovered on single oracle query</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Grover Search ($N=4$)</strong></td>
+  <td style="text-align:center">2</td>
+  <td style="text-align:center">8</td>
+  <td style="text-align:center">Target Measurement ($R=1$)</td>
+  <td style="text-align:center">Measured <code>'10'</code> with <strong>100.0% probability</strong></td>
+  <td style="text-align:center">Optimal rotation angle ($30^\circ \to 90^\circ$)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Grover Search ($N=8$)</strong></td>
+  <td style="text-align:center">3</td>
+  <td style="text-align:center">16</td>
+  <td style="text-align:center">Target Measurement ($R=2$)</td>
+  <td style="text-align:center">Measured <code>'101'</code> with <strong>94.43% probability</strong></td>
+  <td style="text-align:center">Over-rotates if $R &gt; 2$ ($P \to 25%$)</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>QFT Reversibility</strong></td>
+  <td style="text-align:center">4</td>
+  <td style="text-align:center">22</td>
+  <td style="text-align:center">Operator Norm Error</td>
+  <td style="text-align:center">$|U_{\text{IQFT}} U_{\text{QFT}} - I|_2 = \mathbf{6.96 \times 10^{-16}}$</td>
+  <td style="text-align:center">Exact machine epsilon precision</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Quantum Phase Estimation</strong></td>
+  <td style="text-align:center">4</td>
+  <td style="text-align:center">18</td>
+  <td style="text-align:center">Dyadic Phase Estimation</td>
+  <td style="text-align:center">Measured phase $\theta = \mathbf{0.375}$ (3/8)</td>
+  <td style="text-align:center">Exact match with known unitary eigenvalue</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Shor's Factoring ($N=15$)</strong></td>
+  <td style="text-align:center">8</td>
+  <td style="text-align:center">45</td>
+  <td style="text-align:center">Prime Factor Extraction</td>
+  <td style="text-align:center">Extracted factors: <strong>$[3, 5]$</strong> ($3 \times 5 = 15$)</td>
+  <td style="text-align:center">Period $r=4$ verified via continued fractions</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Classical Logistic Reg</strong></td>
+  <td style="text-align:center">-</td>
+  <td style="text-align:center">-</td>
+  <td style="text-align:center">Iris Test Accuracy / Time</td>
+  <td style="text-align:center"><strong>100.0% Accuracy</strong>, <strong>0.022 seconds</strong></td>
+  <td style="text-align:center">Classical baseline reference</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Quantum VQC (Simulator)</strong></td>
+  <td style="text-align:center">2</td>
+  <td style="text-align:center">12</td>
+  <td style="text-align:center">Iris Test Accuracy / Time</td>
+  <td style="text-align:center"><strong>93.3% Accuracy</strong>, <strong>6.215 seconds</strong></td>
+  <td style="text-align:center"><strong>$282.5\times$ Classical Simulation Overhead</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>Track J: Real-World Codebase Optimization</h3>
+<h4>1. Problem Statement</h4>
+<p>Optimizes an authentic $\ge 1,000$-line software engineering system modeling an enterprise Workflow DAG Scheduling and Resource Allocation Engine (akin to Apache Airflow, Prefect, and Ray Workflows).</p>
+<h4>2. Profiling Bottleneck Identification (<code>cProfile</code>)</h4>
+<p>Profiling the baseline on 250 tasks revealed that <strong>99.04% of total scheduling execution time</strong> was consumed by two functions:</p>
+<ul>
+<li><code>_collect_all_descendants</code> (52.3% of time, 31,375 calls)</li>
+<li><code>_collect_all_ancestors</code> (46.7% of time, 31,375 calls)</li>
+<li>List <code>pop</code> was executed 889,992 times and dictionary queries 236,053 times solely to run repeated BFS traversals from scratch.</li>
+</ul>
+<h4>3. Chapter 6 Optimization Architecture</h4>
+<ol>
+<li><strong>Backward Dynamic Programming for Critical Path Potentials</strong>:
+$$V(i) = d_i + \max_{j \in \text{Children}(i)} V(j), \quad V(\text{leaf}) = d_{\text{leaf}}$$
+Evaluated in reverse topological order in a single $O(V+E)$ pass. Priority queries become $O(1)$ lookups.</li>
+<li><strong>Incremental In-Degree Tracking</strong>:
+Decrements child in-degrees strictly when parents complete ($O(E)$ total).</li>
+<li><strong>Priority-Queue Event Scheduling</strong>:
+Binary min-heap ordered by $(-p_i, -V(i), i)$ and worker timeline heap of size $W$, reducing complexity to $O((V+E)\log V)$.</li>
+</ol>
+<h4>4. Multi-Scale Empirical Benchmark Results</h4>
+<p>Benchmarked across 4 problem scales with 1 warm-up + multiple measured repetitions:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">Scale</th>
+  <th style="text-align:center">Tasks ($V$)</th>
+  <th style="text-align:center">Edges ($E$)</th>
+  <th style="text-align:center">Baseline Mean Latency</th>
+  <th style="text-align:center">Optimized Mean Latency</th>
+  <th style="text-align:center">Empirical Speedup</th>
+  <th style="text-align:center">Peak RAM Base</th>
+  <th style="text-align:center">Peak RAM Opt</th>
+  <th style="text-align:center">Schedule Validity</th>
+  <th style="text-align:center">Makespan Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center"><strong>Small</strong></td>
+  <td style="text-align:center">50</td>
+  <td style="text-align:center">157</td>
+  <td style="text-align:center"><strong>0.001684 s</strong></td>
+  <td style="text-align:center"><strong>0.000134 s</strong></td>
+  <td style="text-align:center"><strong>$12.54\times$</strong></td>
+  <td style="text-align:center">16.26 KB</td>
+  <td style="text-align:center">15.67 KB</td>
+  <td style="text-align:center"><strong>100% Valid (0 err)</strong></td>
+  <td style="text-align:center">-14.84% makespan</td>
+</tr>
+<tr>
+  <td style="text-align:center"><strong>Medium</strong></td>
+  <td style="text-align:center">250</td>
+  <td style="text-align:center">1,564</td>
+  <td style="text-align:center"><strong>0.088873 s</strong></td>
+  <td style="text-align:center"><strong>0.000675 s</strong></td>
+  <td style="text-align:center"><strong>$131.72\times$</strong></td>
+  <td style="text-align:center">67.96 KB</td>
+  <td style="text-align:center">71.56 KB</td>
+  <td style="text-align:center"><strong>100% Valid (0 err)</strong></td>
+  <td style="text-align:center">-3.90% makespan</td>
+</tr>
+<tr>
+  <td style="text-align:center"><strong>Large</strong></td>
+  <td style="text-align:center">1,000</td>
+  <td style="text-align:center">8,118</td>
+  <td style="text-align:center"><strong>3.958761 s</strong></td>
+  <td style="text-align:center"><strong>0.003462 s</strong></td>
+  <td style="text-align:center"><strong>$1,143.39\times$</strong></td>
+  <td style="text-align:center">267.46 KB</td>
+  <td style="text-align:center">290.71 KB</td>
+  <td style="text-align:center"><strong>100% Valid (0 err)</strong></td>
+  <td style="text-align:center">-1.91% makespan</td>
+</tr>
+<tr>
+  <td style="text-align:center"><strong>XLarge</strong></td>
+  <td style="text-align:center">2,500</td>
+  <td style="text-align:center">22,919</td>
+  <td style="text-align:center"><strong>79.771658 s</strong></td>
+  <td style="text-align:center"><strong>0.009713 s</strong></td>
+  <td style="text-align:center"><strong>$8,212.89\times$</strong></td>
+  <td style="text-align:center">803.15 KB</td>
+  <td style="text-align:center">657.08 KB</td>
+  <td style="text-align:center"><strong>100% Valid (0 err)</strong></td>
+  <td style="text-align:center">-2.70% makespan</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Super-Linear Scaling</strong>: Speedup scales as $\Theta(V^2 / \log V)$, matching theoretical predictions.</li>
+<li><strong>Makespan Improvement</strong>: The Chapter 6 DP scheduler achieved <strong>$1.91% - 14.84%$ shorter makespans</strong> because true critical-path potentials unblock downstream bottleneck tasks earlier.</li>
+</ul>
+<hr />
+<h2>5. Cross-Track Synthesis and Comparative Observations</h2>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Dimension</th>
+  <th style="text-align:left">Continuous (Track A)</th>
+  <th style="text-align:left">Discrete (Tracks B, E, H)</th>
+  <th style="text-align:left">Quantum (Tracks C, I)</th>
+  <th style="text-align:left">Distributed (Track D)</th>
+  <th style="text-align:left">Systems (Tracks F, G, J)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>Decision Space</strong></td>
+  <td style="text-align:left">Continuous $\mathbb{R}^d$</td>
+  <td style="text-align:left">Discrete ${0, 1}^n$</td>
+  <td style="text-align:left">Hilbert Space $\mathbb{C}^{2^n}$</td>
+  <td style="text-align:left">Parameter tensors $\mathbb{R}^D$</td>
+  <td style="text-align:left">Graph structures &amp; IR</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Dominant Challenge</strong></td>
+  <td style="text-align:left">Ill-conditioning &amp; valleys</td>
+  <td style="text-align:left">Combinatorial state explosion</td>
+  <td style="text-align:left">Barren plateaus &amp; noise</td>
+  <td style="text-align:left">Amdahl serial fraction</td>
+  <td style="text-align:left">Cache locality &amp; traversals</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Best Technique</strong></td>
+  <td style="text-align:left">Adam / Spectral Newton</td>
+  <td style="text-align:left">HiGHS Branch-and-Cut ILP</td>
+  <td style="text-align:left">Multi-depth QAOA / VQE</td>
+  <td style="text-align:left">Multiprocessing &amp; GradNorm</td>
+  <td style="text-align:left">DP Memoization / Min-Heaps</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Observed Speedup</strong></td>
+  <td style="text-align:left">$100\times$ faster convergence</td>
+  <td style="text-align:left">Optimal at $N=200$ (14 ms)</td>
+  <td style="text-align:left">Quadratic oracle advantage</td>
+  <td style="text-align:left">$3.94\times$ on 8 CPU cores</td>
+  <td style="text-align:left">$8,212.9\times$ speedup on DAG</td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Key Failure Mode</strong></td>
+  <td style="text-align:left">Oscillation on ravines</td>
+  <td style="text-align:left">Greedy knapsack traps (27%)</td>
+  <td style="text-align:left">Exponential CPU simulation</td>
+  <td style="text-align:left">Client drift on non-IID</td>
+  <td style="text-align:left">$O(V^3)$ reachability loops</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. AI Governance and Vibe-Coding Traceability</h2>
+<h3>6.1 AI Tools Register</h3>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">Tool Name</th>
+  <th style="text-align:left">Model &amp; Engine</th>
+  <th style="text-align:left">Active Dates</th>
+  <th style="text-align:left">Scope of Work</th>
+  <th style="text-align:center">Current Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left"><strong>Antigravity AI</strong></td>
+  <td style="text-align:left">Gemini 3.8 Flash High / Pro</td>
+  <td style="text-align:left">Oct 30 – Nov 14, 2026</td>
+  <td style="text-align:left">All 10 Tracks (A to J), Governance &amp; Documentation</td>
+  <td style="text-align:center"><strong>Active &amp; Verified</strong></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>Claude</strong></td>
+  <td style="text-align:left">Claude 3.7 Sonnet</td>
+  <td style="text-align:left">Scheduled Protocol</td>
+  <td style="text-align:left">Track E Comparative Formulation Protocol</td>
+  <td style="text-align:center"><em>Pending Live Execution</em></td>
+</tr>
+<tr>
+  <td style="text-align:left"><strong>GitHub Copilot</strong></td>
+  <td style="text-align:left">GPT-4o / Codex Engine</td>
+  <td style="text-align:left">Scheduled Protocol</td>
+  <td style="text-align:left">In-editor code autocompletion protocol</td>
+  <td style="text-align:center"><em>Pending Live Execution</em></td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 Key AI Failures Logged and Corrected (from <code>prompts/failure_log.md</code>)</h3>
+<ul>
+<li><strong>Case 15 (Track H)</strong>: Synthetic data generator hardcoded sample sizes ($15 \le \text{stops} \le 30$) when generating mini-test fixtures with only 10 stations, triggering <code>ValueError: Sample larger than population</code>. <em>Fix</em>: Dynamically clamped sample sizes based on station count.</li>
+<li><strong>Case 16 (Track I)</strong>: In Grover's search, using continuous rounding <code>round((pi/4)*sqrt(N))</code> rounded $1.57$ up to $2$ iterations for $N=4$, over-rotating the state vector past the target state and reducing success probability from 100% to 25%. <em>Fix</em>: Implemented strict floor bound $\lfloor \frac{\pi}{4}\sqrt{N} \rfloor$.</li>
+<li><strong>Case 17 (Track J)</strong>: Missing <code>Tuple</code> typing import in <code>workflow_models.py</code> triggered a <code>NameError</code> during import under Python 3.13 strict namespace validation. <em>Fix</em>: Added <code>Tuple</code> to typing imports and standardized dynamic in-degree method calls.</li>
+</ul>
+<hr />
+<h2>7. Answers to the Ten Compulsory Final Assignment Questions</h2>
+<p>All ten questions from Section 11 of the official specification are answered in complete technical detail in <strong><a href="#harmful-link"><code>docs/FINAL_ASSIGNMENT_QUESTIONS.md</code></a></strong>. Key summaries:</p>
+<ol>
+<li><strong>Process Chosen</strong>: Passenger rail route and transfer optimization (Track E) on a 28-station timetable network; demonstrated that earliest-arrival heuristics board early shuttles with excessive transfer dwell (&quot;hurry up and wait&quot;).</li>
+<li><strong>Formulation</strong>: Binary Integer Linear Program (BILP) minimizing composite cost $Z = \alpha \cdot \text{travel} + \beta \cdot \text{wait} + \gamma \cdot \text{transfers}$ subject to flow conservation and station platform transfer buffers.</li>
+<li><strong>Chapter 6 Methods</strong>: Applied continuous first/second-order optimizers (Track A), discrete ILP/DP/B&amp;B (Track B), QAOA/VQE (Track C), submodular greedy/Amdahl (Track D), compiler BILP (Track F), and DP memoization (Track J).</li>
+<li><strong>Baseline Comparisons</strong>: ILP saved 27.0 min duration and 37% transfers in Track E; DP scheduler delivered $8,212.89\times$ speedup in Track J; HiGHS index selection delivered $11.92\times$ speedup on query Q8 in Track H.</li>
+<li><strong>Trade-Offs &amp; Limitations</strong>: Dijkstra runs in 0.28 ms but suffers a 20.58% optimality gap under generalized cost; quantum simulation on classical CPUs incurs a $282.5\times$ slowdown; unindexed table scans suffer run-to-run OS cache jitter.</li>
+<li><strong>Correctness Evidence</strong>: 102 automated tests passing 100%; finite-difference gradient checks ($4.00 \times 10^{-12}$); SHA-256 database query parity; QFT reversibility to machine precision ($&lt; 10^{-15}$).</li>
+<li><strong>Adaptability</strong>: For national rail networks, combine RAPTOR corridor pruning with localized ILP; for streaming DAGs, maintain dynamic critical-path potentials via online topological updates.</li>
+<li><strong>Systems Tracks (F, G, H)</strong>: Mini-compiler 5-pass fixed-point convergence (100% semantic parity); xv6 per-process CPU accounting with timer interrupt trap instrumentation; DBMS index selection knapsack model.</li>
+<li><strong>Quantum &amp; Parallel Limits</strong>: Grover offers quadratic oracle query advantage; classical simulation on CPUs scales exponentially; multiprocessing parallel speedup reached $3.94\times$ bounded by Amdahl serial fraction $\hat{s} = 14.36%$.</li>
+<li><strong>AI Tools &amp; Errors</strong>: Documented 17 genuine failure cases with verified root causes and engineering fixes in <code>prompts/failure_log.md</code>.</li>
+</ol>
+<hr />
+<h2>8. Conclusion</h2>
+<p>Assignment 8 demonstrates that optimization is an empirical science that transforms real-world and simulated software systems. By formulating processes with mathematical rigor, profiling systems to isolate true bottlenecks, and applying Chapter 6 optimization paradigms, dramatic performance gains were achieved across all ten tracks with 100% correctness preservation.</p>
+<hr />
+<h2>9. References and Reproducibility Instructions</h2>
+<h3>Master Regression Test Command</h3>
+<pre><code class="language-bash">python scripts/run_all_tests.py
+</code></pre>
+<p><em>Expected Output</em>: <code>CONSOLIDATED TOTAL: 102 Tests | 102 Passed | 0 Failed | 100% PASS</code></p>
+<h3>Master Benchmark Runner Command</h3>
+<pre><code class="language-bash">python scripts/run_all_benchmarks.py
+</code></pre>
+<h3>Key Documentation References</h3>
+<ul>
+<li><strong>Compliance Audit</strong>: <a href="#harmful-link"><code>docs/FINAL_ASSIGNMENT_COMPLIANCE_AUDIT.md</code></a></li>
+<li><strong>Demonstration Guide</strong>: <a href="#harmful-link"><code>report/DEMONSTRATION_GUIDE.md</code></a></li>
+<li><strong>Submission Checklist</strong>: <a href="#harmful-link"><code>docs/FINAL_SUBMISSION_CHECKLIST.md</code></a></li>
+<li><strong>Final Submission Report</strong>: <a href="#harmful-link"><code>docs/DAY_14_FINAL_SUBMISSION_REPORT.md</code></a></li>
+</ul>
+
+</body>
+</html>
