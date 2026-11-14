@@ -12,7 +12,8 @@
 This repository houses the complete empirical deliverables for **Assignment 8: Optimize Anything (14-Day Vibe-Coding Challenge)**. The challenge approaches optimization not merely as code implementation, but as an applied science: discovering inefficiencies, translating processes into formal mathematical formulations (decision variables, objective functions, constraints), applying exact and heuristic optimization techniques from Chapter 6, and proving measurable gains through rigorous, reproducible experimentation.
 
 All ten tracks (**Tracks A to J**) are compulsory and structured as focused, verifiable experiments:
-* **Track A**: Continuous Optimization (First-order, second-order, curvature approximations, landscape topology).
+* **Track A**: **Continuous Optimization** (First-order, second-order, curvature approximations, landscape topology).  
+  * *Status*: **Complete (Day 4)** — Implemented 8 first-order optimizers (GD, SGD, Mini-batch, Momentum, NAG, AdaGrad, RMSProp, Adam) and 2 second-order optimizers (spectral Levenberg-Marquardt Newton, Gauss-Newton); decoupled 2-layer MLP backpropagation verified against finite differences to $4.00 \times 10^{-12}$ error; evaluated across 5 landscapes (Convex, Strongly Convex, Rastrigin, Rosenbrock, NLLS); step-size sensitivity sweep and stochastic noise variance reduction ($\mathcal{O}(\sigma^2/B)$) verified; 11/11 unit tests passing (100%), 6 publication-ready plots generated in `track_a_continuous_optimization/plots/`, and 16 academic viva Q&As documented.
 * **Track B**: Discrete Optimization (Combinatorial selection, ILP, Branch-and-Bound, DP, QUBO/Ising formulation).
 * **Track C**: Quantum Optimization (QAOA, VQE, PQCs, parameter-shift, SPSA, QNG, barren plateaus, noise).
 * **Track D**: Submodular, Parallel & Distributed Optimization (Diminishing returns, work stealing, Amdahl/Gustafson, FedAvg, MGDA/GradNorm).

@@ -1,0 +1,73 @@
+Landscape,Optimizer,LearningRate,FinalLoss,Iterations,Converged,Diverged
+"Convex Quadratic","Batch GD",0.0001,1.001728e+02,400,False,False
+"Convex Quadratic","Batch GD",0.001,1.322461e+00,400,False,False
+"Convex Quadratic","Batch GD",0.005,-2.502861e-01,400,False,False
+"Convex Quadratic","Batch GD",0.01,-3.128779e-01,400,False,False
+"Convex Quadratic","Batch GD",0.05,-3.140103e-01,245,True,False
+"Convex Quadratic","Batch GD",0.1,1.000000e+08,400,False,True
+"Convex Quadratic","Batch GD",0.2,1.000000e+08,400,False,True
+"Convex Quadratic","Batch GD",0.5,1.000000e+08,400,False,True
+"Convex Quadratic","Batch GD",1.0,1.000000e+08,400,False,True
+"Convex Quadratic","Momentum",0.0001,1.316945e+00,400,False,False
+"Convex Quadratic","Momentum",0.001,-3.134303e-01,400,False,False
+"Convex Quadratic","Momentum",0.005,-3.140103e-01,292,True,False
+"Convex Quadratic","Momentum",0.01,-3.140103e-01,295,True,False
+"Convex Quadratic","Momentum",0.05,-3.140103e-01,290,True,False
+"Convex Quadratic","Momentum",0.1,-3.140103e-01,305,True,False
+"Convex Quadratic","Momentum",0.2,1.000000e+08,400,False,True
+"Convex Quadratic","Momentum",0.5,1.000000e+08,400,False,True
+"Convex Quadratic","Momentum",1.0,1.000000e+08,400,False,True
+"Convex Quadratic","RMSProp",0.0001,1.000000e+08,400,False,True
+"Convex Quadratic","RMSProp",0.001,1.000000e+08,400,False,True
+"Convex Quadratic","RMSProp",0.005,1.000000e+08,400,False,True
+"Convex Quadratic","RMSProp",0.01,1.000000e+08,400,False,True
+"Convex Quadratic","RMSProp",0.05,1.000000e+08,400,False,True
+"Convex Quadratic","RMSProp",0.1,1.000000e+08,400,False,True
+"Convex Quadratic","RMSProp",0.2,1.000000e+08,400,False,True
+"Convex Quadratic","RMSProp",0.5,1.000000e+08,400,False,True
+"Convex Quadratic","RMSProp",1.0,1.000000e+08,400,False,True
+"Convex Quadratic","Adam",0.0001,1.000000e+08,400,False,True
+"Convex Quadratic","Adam",0.001,1.000000e+08,400,False,True
+"Convex Quadratic","Adam",0.005,1.000000e+08,400,False,True
+"Convex Quadratic","Adam",0.01,1.000000e+08,400,False,True
+"Convex Quadratic","Adam",0.05,1.000000e+08,400,False,True
+"Convex Quadratic","Adam",0.1,1.000000e+08,400,False,True
+"Convex Quadratic","Adam",0.2,1.000000e+08,400,False,True
+"Convex Quadratic","Adam",0.5,1.000000e+08,400,False,True
+"Convex Quadratic","Adam",1.0,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Batch GD",0.0001,4.012178e+00,400,False,False
+"Rosenbrock (Valley)","Batch GD",0.001,2.710881e+00,400,False,False
+"Rosenbrock (Valley)","Batch GD",0.005,5.075879e-01,400,False,False
+"Rosenbrock (Valley)","Batch GD",0.01,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Batch GD",0.05,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Batch GD",0.1,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Batch GD",0.2,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Batch GD",0.5,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Batch GD",1.0,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Momentum",0.0001,2.617322e+00,400,False,False
+"Rosenbrock (Valley)","Momentum",0.001,4.533149e-03,400,False,False
+"Rosenbrock (Valley)","Momentum",0.005,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Momentum",0.01,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Momentum",0.05,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Momentum",0.1,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Momentum",0.2,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Momentum",0.5,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Momentum",1.0,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","RMSProp",0.0001,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","RMSProp",0.001,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","RMSProp",0.005,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","RMSProp",0.01,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","RMSProp",0.05,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","RMSProp",0.1,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","RMSProp",0.2,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","RMSProp",0.5,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","RMSProp",1.0,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Adam",0.0001,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Adam",0.001,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Adam",0.005,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Adam",0.01,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Adam",0.05,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Adam",0.1,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Adam",0.2,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Adam",0.5,1.000000e+08,400,False,True
+"Rosenbrock (Valley)","Adam",1.0,1.000000e+08,400,False,True

@@ -1,0 +1,647 @@
+{
+  "learning_rates": [
+    0.0001,
+    0.001,
+    0.005,
+    0.01,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "sweeps": {
+    "Convex Quadratic": {
+      "Batch GD": [
+        {
+          "lr": 0.0001,
+          "final_loss": 100.17278843797178,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 57.682517645789986
+        },
+        {
+          "lr": 0.001,
+          "final_loss": 1.3224609296299825,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 2.050022639913497
+        },
+        {
+          "lr": 0.005,
+          "final_loss": -0.2502861078968086,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 0.3569990961954227
+        },
+        {
+          "lr": 0.01,
+          "final_loss": -0.31287789708097785,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 0.047589666061880316
+        },
+        {
+          "lr": 0.05,
+          "final_loss": -0.3140102851916079,
+          "iterations": 245,
+          "converged": true,
+          "diverged": false,
+          "final_grad_norm": 9.727349245256262e-06
+        },
+        {
+          "lr": 0.1,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.2,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.5,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 1.0,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        }
+      ],
+      "Momentum": [
+        {
+          "lr": 0.0001,
+          "final_loss": 1.3169450525560915,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 1.9544966610394354
+        },
+        {
+          "lr": 0.001,
+          "final_loss": -0.3134303088867306,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 0.034058078401112836
+        },
+        {
+          "lr": 0.005,
+          "final_loss": -0.31401028523803726,
+          "iterations": 292,
+          "converged": true,
+          "diverged": false,
+          "final_grad_norm": 5.397416824359214e-06
+        },
+        {
+          "lr": 0.01,
+          "final_loss": -0.31401028523673713,
+          "iterations": 295,
+          "converged": true,
+          "diverged": false,
+          "final_grad_norm": 9.77515704991715e-06
+        },
+        {
+          "lr": 0.05,
+          "final_loss": -0.31401028523687863,
+          "iterations": 290,
+          "converged": true,
+          "diverged": false,
+          "final_grad_norm": 8.124940333062118e-06
+        },
+        {
+          "lr": 0.1,
+          "final_loss": -0.314010285236831,
+          "iterations": 305,
+          "converged": true,
+          "diverged": false,
+          "final_grad_norm": 8.753606249301083e-06
+        },
+        {
+          "lr": 0.2,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.5,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 1.0,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        }
+      ],
+      "RMSProp": [
+        {
+          "lr": 0.0001,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.001,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.005,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.01,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.05,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.1,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.2,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.5,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 1.0,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        }
+      ],
+      "Adam": [
+        {
+          "lr": 0.0001,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.001,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.005,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.01,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.05,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.1,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.2,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.5,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 1.0,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        }
+      ]
+    },
+    "Rosenbrock (Valley)": {
+      "Batch GD": [
+        {
+          "lr": 0.0001,
+          "final_loss": 4.0121777546629485,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 1.7880797201538168
+        },
+        {
+          "lr": 0.001,
+          "final_loss": 2.7108809171018606,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 2.0160046811768937
+        },
+        {
+          "lr": 0.005,
+          "final_loss": 0.5075878702423755,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 16.774864441000336
+        },
+        {
+          "lr": 0.01,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.05,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.1,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.2,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.5,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 1.0,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        }
+      ],
+      "Momentum": [
+        {
+          "lr": 0.0001,
+          "final_loss": 2.61732185649927,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 2.0369899876588495
+        },
+        {
+          "lr": 0.001,
+          "final_loss": 0.004533148909263676,
+          "iterations": 400,
+          "converged": false,
+          "diverged": false,
+          "final_grad_norm": 0.06356499110144419
+        },
+        {
+          "lr": 0.005,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.01,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.05,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.1,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.2,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 0.5,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        },
+        {
+          "lr": 1.0,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0
+        }
+      ],
+      "RMSProp": [
+        {
+          "lr": 0.0001,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.001,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.005,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.01,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.05,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.1,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.2,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 0.5,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        },
+        {
+          "lr": 1.0,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "RMSProp.__init__() got an unexpected keyword argument 'beta'"
+        }
+      ],
+      "Adam": [
+        {
+          "lr": 0.0001,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.001,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.005,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.01,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.05,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.1,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.2,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 0.5,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        },
+        {
+          "lr": 1.0,
+          "final_loss": 100000000.0,
+          "iterations": 400,
+          "converged": false,
+          "diverged": true,
+          "final_grad_norm": 100000000.0,
+          "error": "Adam.__init__() got an unexpected keyword argument 'epsilon'"
+        }
+      ]
+    }
+  }
+}

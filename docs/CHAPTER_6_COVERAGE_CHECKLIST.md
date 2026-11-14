@@ -12,28 +12,28 @@ Every method, algorithm, and theoretical concept taught in Chapter 6 is explicit
 
 | Chapter 6 Syllabus Topic | Sub-topics / Required Coverage | Track | Target Module / Script | Verification & Test Method | Target Deliverable / Metric |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Foundations of ML Optimization** | ML as optimization (parameters, loss, regularization) | Track A | `track_a_continuous/ml_foundations.py` | Loss curve minimization on linear/logistic models | Training loss, L1/L2 regularization weight decay |
-| | Continuous vs. Discrete optimization landscapes | Track A & B | `track_a_continuous/` & `track_b_discrete/` | Objective landscape grid evaluation | Smooth vs. combinatorial step comparison |
-| | Convex vs. Non-convex landscapes | Track A | `track_a_continuous/landscapes.py` | Hessian positive-definiteness check | Eigenvalues, condition number |
-| | Local minima, global minima, saddle points | Track A | `track_a_continuous/landscapes.py` | Analytical stationary point classification | Contour plots & convergence paths from diverse inits |
+| **Foundations of ML Optimization** | ML as optimization (parameters, loss, regularization) | Track A | `track_a_continuous_optimization/src/neural_net.py` | Loss curve minimization on linear/logistic models | Training loss, L1/L2 regularization weight decay |
+| | Continuous vs. Discrete optimization landscapes | Track A & B | `track_a_continuous_optimization/src/landscapes.py` | Objective landscape grid evaluation | Smooth vs. combinatorial step comparison |
+| | Convex vs. Non-convex landscapes | Track A | `track_a_continuous_optimization/src/landscapes.py` | Hessian positive-definiteness check | Eigenvalues, condition number |
+| | Local minima, global minima, saddle points | Track A | `track_a_continuous_optimization/src/landscapes.py` | Analytical stationary point classification | Contour plots & convergence paths from diverse inits |
 | | Quantum computing concepts & role in QML | Track C & I | `track_c_quantum_opt/` & `track_i_quantum_algos/` | State vector fidelity and cost expectation | Variational energy vs. parameter angle |
-| **Continuous Optimization** | Gradient Descent (GD, batch) | Track A | `track_a_continuous/optimizers.py` | Convergence test on quadratic benchmark | Loss vs. iteration, wall-clock time |
-| | Stochastic Gradient Descent (SGD) | Track A | `track_a_continuous/optimizers.py` | Convergence with mini-batches on noisy loss | Variance across batches, final objective |
-| | Mini-batch SGD | Track A | `track_a_continuous/optimizers.py` | Batch size scaling ($B \in [1, 16, 64, 256]$) | Epoch runtime vs. gradient variance |
-| | Momentum Optimizer | Track A | `track_a_continuous/optimizers.py` | Ravine / ill-conditioned valley traversal | Oscillation damping comparison |
-| | Nesterov Accelerated Gradient (NAG) | Track A | `track_a_continuous/optimizers.py` | Convergence on ill-conditioned quadratics | Look-ahead gradient trajectory check |
-| | AdaGrad | Track A | `track_a_continuous/optimizers.py` | Sparse feature optimization | Accumulator decay and step-size adaptation |
-| | RMSProp | Track A | `track_a_continuous/optimizers.py` | Non-stationary non-convex benchmark | Moving average gradient scaling |
-| | Adam | Track A | `track_a_continuous/optimizers.py` | Benchmark against Rosenbrock & MLP loss | First & second moment bias correction verification |
-| | Second-Order: Newton's Method | Track A | `track_a_continuous/second_order.py` | Exact Hessian inversion on quadratic | Quadratic convergence rate ($\mathcal{O}(\epsilon^2)$) |
-| | Second-Order: Gauss-Newton | Track A | `track_a_continuous/second_order.py` | Non-linear least squares fit | Jacobian outer product $J^T J$ approximation |
-| | Backpropagation (decoupled from optimizer) | Track A | `track_a_continuous/backprop.py` | Finite-difference numerical gradient check | $\| \nabla_{\text{analytical}} - \nabla_{\text{numerical}} \|_2 < 10^{-6}$ |
-| | Curvature Approximations: Fisher Information | Track A | `track_a_continuous/curvature.py` | Empirical Fisher vs. true Hessian | Trace and eigenvalue spectral error |
-| | Curvature Approximations: Diagonal / Low-Rank | Track A | `track_a_continuous/curvature.py` | Memory footprint and inversion time | Storage reduction vs. curvature fidelity |
-| | Curvature Approximations: Hessian-Vector Products | Track A | `track_a_continuous/curvature.py` | Pearlmutter trick / finite-difference HVP | $\| H v - \frac{\nabla(x + \epsilon v) - \nabla(x)}{\epsilon} \|$ |
-| | Convergence: Convex vs. Strongly Convex vs. Non-Convex | Track A | `track_a_continuous/convergence_study.py` | Theoretical rate check ($\mathcal{O}(1/k)$, $\mathcal{O}(e^{-ck})$) | Log-linear convergence plots |
-| | Step-size and optimizer tuning | Track A | `track_a_continuous/tuning.py` | Learning rate grid sweep ($\eta \in [10^{-4}, 1.0]$) | Hyperparameter sensitivity surface |
-| | Noisy objectives | Track A | `track_a_continuous/noisy_opt.py` | Additive Gaussian & uniform gradient noise | Robustness and asymptotic error bounds |
+| **Continuous Optimization** | Gradient Descent (GD, batch) | Track A | `track_a_continuous_optimization/src/optimizers.py` | Convergence test on quadratic benchmark | Loss vs. iteration, wall-clock time |
+| | Stochastic Gradient Descent (SGD) | Track A | `track_a_continuous_optimization/src/optimizers.py` | Convergence with mini-batches on noisy loss | Variance across batches, final objective |
+| | Mini-batch SGD | Track A | `track_a_continuous_optimization/src/optimizers.py` | Batch size scaling ($B \in [1, 4, 16, 64]$) | Epoch runtime vs. gradient variance |
+| | Momentum Optimizer | Track A | `track_a_continuous_optimization/src/optimizers.py` | Ravine / ill-conditioned valley traversal | Oscillation damping comparison |
+| | Nesterov Accelerated Gradient (NAG) | Track A | `track_a_continuous_optimization/src/optimizers.py` | Convergence on ill-conditioned quadratics | Look-ahead gradient trajectory check |
+| | AdaGrad | Track A | `track_a_continuous_optimization/src/optimizers.py` | Sparse feature optimization | Accumulator decay and step-size adaptation |
+| | RMSProp | Track A | `track_a_continuous_optimization/src/optimizers.py` | Non-stationary non-convex benchmark | Moving average gradient scaling |
+| | Adam | Track A | `track_a_continuous_optimization/src/optimizers.py` | Benchmark against Rosenbrock & MLP loss | First & second moment bias correction verification |
+| | Second-Order: Newton's Method | Track A | `track_a_continuous_optimization/src/second_order.py` | Exact Hessian inversion on quadratic | Quadratic convergence rate ($\mathcal{O}(\epsilon^2)$) |
+| | Second-Order: Gauss-Newton | Track A | `track_a_continuous_optimization/src/second_order.py` | Non-linear least squares fit | Jacobian outer product $J^T J$ approximation |
+| | Backpropagation (decoupled from optimizer) | Track A | `track_a_continuous_optimization/src/neural_net.py` | Finite-difference numerical gradient check | $\| \nabla_{\text{analytical}} - \nabla_{\text{numerical}} \|_2 = 4.00 \times 10^{-12}$ |
+| | Curvature Approximations: Fisher Information | Track A | `track_a_continuous_optimization/src/curvature.py` | Empirical Fisher vs. true Hessian | Trace and eigenvalue spectral error |
+| | Curvature Approximations: Diagonal / Low-Rank | Track A | `track_a_continuous_optimization/src/curvature.py` | Memory footprint and inversion time | Storage reduction vs. curvature fidelity |
+| | Curvature Approximations: Hessian-Vector Products | Track A | `track_a_continuous_optimization/src/curvature.py` | Pearlmutter trick / finite-difference HVP | $\| H v - \frac{\nabla(x + \epsilon v) - \nabla(x - \epsilon v)}{2\epsilon} \|$ |
+| | Convergence: Convex vs. Strongly Convex vs. Non-Convex | Track A | `track_a_continuous_optimization/experiments/run_landscape_comparison.py` | Theoretical rate check ($\mathcal{O}(1/k)$, $\mathcal{O}(e^{-ck})$) | Log-linear convergence plots |
+| | Step-size and optimizer tuning | Track A | `track_a_continuous_optimization/experiments/run_sensitivity_study.py` | Learning rate grid sweep ($\eta \in [10^{-4}, 1.0]$) | Hyperparameter sensitivity surface |
+| | Noisy objectives | Track A | `track_a_continuous_optimization/experiments/run_noisy_study.py` | Additive Gaussian gradient noise | Robustness and asymptotic error bounds |
 | **Discrete Optimization** | Greedy Methods | Track B | `track_b_discrete/greedy_solver.py` | Suboptimal trap verification | Approximation ratio vs. exact optimum |
 | | Integer Linear Programming (ILP) | Track B | `track_b_discrete/ilp_solver.py` | Exact solver via HiGHS (`scipy.optimize.milp`) | Optimal objective, execution time, relaxation gap |
 | | Branch-and-Bound | Track B | `track_b_discrete/branch_and_bound.py` | Custom B&B tree search with LP relaxation bounds | Tree depth, pruned nodes count |
@@ -68,7 +68,7 @@ Every method, algorithm, and theoretical concept taught in Chapter 6 is explicit
 
 | Track | Primary Objective | Baseline Method | Optimized Method(s) | Correctness Verification |
 | :--- | :--- | :--- | :--- | :--- |
-| **Track A** | Continuous optimization comparisons | Standard Gradient Descent | Adam, Newton, Gauss-Newton, NAG, RMSProp | Decoupled backprop finite-difference check |
+| **Track A** | Continuous optimization comparisons | Standard Gradient Descent | Adam, Newton, Gauss-Newton, NAG, RMSProp | **VERIFIED COMPLETE**: 11/11 unit tests passing, 8 first-order + 2 second-order optimizers, 5 landscapes, decoupled 2-layer MLP backpropagation (gradient check error $4.00 \times 10^{-12}$), 6 publication plots, 16 viva Q&As |
 | **Track B** | Combinatorial optimization & QUBO | Naive Greedy Selection | Branch-and-Bound, ILP, QUBO Ising model | Exact brute-force comparison on small graphs |
 | **Track C** | Quantum optimization on QUBO | Classical Exact / Greedy | QAOA ($p=1, 2$), VQE, QNG | Statevector simulation vs. analytical minimum |
 | **Track D** | Submodular, parallel, distributed | Single-thread static run | Work-stealing multiprocessing, FedAvg, MGDA | Bound check $(1 - 1/e)$, convergence to centralized |

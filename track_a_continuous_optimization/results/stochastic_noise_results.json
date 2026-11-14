@@ -1,0 +1,94 @@
+{
+  "noise_levels": [
+    0.0,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "batch_sizes": [
+    1,
+    4,
+    16,
+    64
+  ],
+  "noise_sweep": [
+    {
+      "noise_std": 0.0,
+      "mean_final_loss": -1.2880305082153067,
+      "std_final_loss": 7.006176040102567e-08,
+      "mean_grad_norm": 0.010383155590333457,
+      "std_grad_norm": 6.6669514669315564e-06
+    },
+    {
+      "noise_std": 0.05,
+      "mean_final_loss": -1.287998809316201,
+      "std_final_loss": 4.358179654015257e-05,
+      "mean_grad_norm": 0.01599263758059693,
+      "std_grad_norm": 0.005052518890688717
+    },
+    {
+      "noise_std": 0.1,
+      "mean_final_loss": -1.2879392269976888,
+      "std_final_loss": 0.00010490234067375496,
+      "mean_grad_norm": 0.02454531453187029,
+      "std_grad_norm": 0.011133610729873893
+    },
+    {
+      "noise_std": 0.25,
+      "mean_final_loss": -1.2875933935883535,
+      "std_final_loss": 0.00039926873098650834,
+      "mean_grad_norm": 0.053993654696460634,
+      "std_grad_norm": 0.027856777015916125
+    },
+    {
+      "noise_std": 0.5,
+      "mean_final_loss": -1.2864600497267977,
+      "std_final_loss": 0.001264380304403393,
+      "mean_grad_norm": 0.10536090035107115,
+      "std_grad_norm": 0.05443755188600399
+    },
+    {
+      "noise_std": 1.0,
+      "mean_final_loss": -1.2821047813311943,
+      "std_final_loss": 0.004408376955789059,
+      "mean_grad_norm": 0.20897789283978066,
+      "std_grad_norm": 0.10727125447543857
+    }
+  ],
+  "batch_sweep": [
+    {
+      "batch_size": 1,
+      "theoretical_var": 0.25,
+      "empirical_var": 0.25505240977459753,
+      "mean_final_loss": -1.2861512319557047,
+      "std_final_loss": 0.0011037765019387086,
+      "mean_grad_norm": 0.1396188462893025
+    },
+    {
+      "batch_size": 4,
+      "theoretical_var": 0.0625,
+      "empirical_var": 0.06655421054092511,
+      "mean_final_loss": -1.2875903824595736,
+      "std_final_loss": 0.00030042338675730903,
+      "mean_grad_norm": 0.06995498783503827
+    },
+    {
+      "batch_size": 16,
+      "theoretical_var": 0.015625,
+      "empirical_var": 0.01571695477002669,
+      "mean_final_loss": -1.2879502604700104,
+      "std_final_loss": 8.95101452590028e-05,
+      "mean_grad_norm": 0.035282038224730215
+    },
+    {
+      "batch_size": 64,
+      "theoretical_var": 0.00390625,
+      "empirical_var": 0.004076586301052636,
+      "mean_final_loss": -1.288040275164855,
+      "std_final_loss": 3.0806460389604244e-05,
+      "mean_grad_norm": 0.01824491364764933
+    }
+  ]
+}

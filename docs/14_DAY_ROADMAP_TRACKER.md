@@ -86,12 +86,17 @@
   * [ ] Verify stock QEMU boot and execution of `usertests` in WSL2 Ubuntu.
 
 ### Phase 2: Days 4–7 — Core Chapter 6 Methods Implementation
-* [ ] **Track A (Continuous)**:
-  * [ ] Implement decoupled backpropagation module.
-  * [ ] Implement GD, SGD, Mini-batch SGD, Momentum, NAG, AdaGrad, RMSProp, Adam.
-  * [ ] Implement Newton's method and Gauss-Newton for non-linear regression.
-  * [ ] Implement curvature approximations: Fisher Information Matrix, diagonal approximation, Hessian-vector products.
-  * [ ] Benchmark on convex quadratic vs non-convex (saddle point / local minima) landscapes.
+* [x] **Day 4: Track A (Continuous Optimization)**:
+  * [x] Implement decoupled backpropagation module with numerical finite-difference verification (error $4.00 \times 10^{-12}$).
+  * [x] Implement 8 first-order optimizers: GD, SGD, Mini-batch SGD, Momentum, NAG, AdaGrad, RMSProp, Adam.
+  * [x] Implement 2 second-order optimizers: Damped Newton's Method (with Levenberg-Marquardt spectral regularisation) and Gauss-Newton for non-linear least squares.
+  * [x] Implement curvature approximations: Empirical Fisher Information Matrix vs NLL Hessian, low-rank BFGS update, Pearlmutter Hessian-Vector Products (HVP).
+  * [x] Benchmark across 5 landscapes: Convex Quadratic, Strongly Convex, Rastrigin (Multimodal), Rosenbrock (Valley), Non-Linear Least Squares.
+  * [x] Conduct step-size sensitivity sweep across $\eta \in [10^{-4}, 1.0]$.
+  * [x] Conduct stochastic noise analysis & mini-batch variance reduction verifying $\mathcal{O}(\sigma^2 / B)$ scaling.
+  * [x] Generate 6 publication-ready figures in `track_a_continuous_optimization/plots/`.
+  * [x] Author comprehensive documentation (`methodology.md`, `experimental_analysis.md`, `viva_questions.md` with 16 Q&As, `README.md`).
+  * [x] Complete automated unit test suite with 100% pass rate (11/11 tests passing).
 * [ ] **Track B (Discrete & QUBO)**:
   * [ ] Implement Greedy combinatorial solver, Branch-and-Bound, and Dynamic Programming.
   * [ ] Implement ILP solver using SciPy HiGHS.

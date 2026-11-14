@@ -1,0 +1,5 @@
+Optimizer,LearningRate,MaxIters,InitialLoss,FinalLoss,Accuracy
+Batch GD,0.2,1000,0.262864,0.123648,50.0%
+Momentum,0.1,1000,0.262864,0.000000,100.0%
+RMSProp,0.02,1000,0.262864,0.000805,100.0%
+Adam,0.05,1000,0.262864,0.000000,100.0%
