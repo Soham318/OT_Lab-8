@@ -91,9 +91,12 @@ The user directed the agent to complete Day 9 of the 14-Day Challenge by impleme
      - Worker 1 (30k iters): 3 ticks
      - Worker 2 (45k iters): 4 ticks
      - Worker 3 (60k iters): 6 ticks
-   - Total Worker CPU Time: **15 ticks** in **8 wall ticks** (**$1.87\times$ parallel speedup**).
+   - Total Worker CPU Time: **15 ticks** in **8 wall ticks** (aggregate CPU-tick-to-wall-tick ratio of **$1.87$** on 3 SMP cores).
 4. **Syscall Validation Suite (`test_cputime`)**:
    - All 5 checks passed cleanly, including verification that sleeping via `pause(10)` charged **0 CPU ticks**.
+5. **Regression `usertests` Status**:
+   - Baseline passed full suite (`ALL TESTS PASSED`).
+   - Modified kernel `usertests -q` timed out at the 45-second test runner limit at test 30 (`sharedfd`), having passed all 29 preceding stress tests; targeted preemption (`preempt`) and fork tests (`forkforkfork`) passed cleanly.
 
 ---
 

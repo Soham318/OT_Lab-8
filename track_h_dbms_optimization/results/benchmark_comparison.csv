@@ -1,0 +1,9 @@
+Query_ID,Query_Name,Baseline_Mean_ms,Greedy_Mean_ms,ILP_Mean_ms,Greedy_Speedup,ILP_Speedup,Baseline_Index,Greedy_Index,ILP_Index
+Q1,Active Confirmed Bookings in Date Range,7.724,6.951,7.016,1.11,1.1,False,True,True
+Q2,Passenger Manifest for Date,11.291,11.104,12.705,1.02,0.89,False,False,False
+Q3,Train Revenue & Booking Aggregation,17.11,16.779,19.655,1.02,0.87,False,False,False
+Q4,Station Morning Departures,0.285,0.124,0.297,2.3,0.96,False,True,False
+Q5,Payment Method Summary for High-Fare Bookings,10.899,10.566,10.401,1.03,1.05,False,False,False
+Q6,Premium Tier Passenger Bookings,16.542,14.416,16.595,1.15,1.0,False,True,False
+Q7,Monthly Class Demographics & Occupancy,22.946,23.34,24.389,0.98,0.94,False,False,False
+Q8,Transactional PNR Itinerary & Payment Lookup,1.263,1.281,0.106,0.99,11.92,True,True,True

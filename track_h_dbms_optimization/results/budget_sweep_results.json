@@ -1,0 +1,502 @@
+[
+  {
+    "budget_mb": 1.0,
+    "greedy": {
+      "indexes": [
+        "IDX_09"
+      ],
+      "score": 1425.0,
+      "storage_mb": 0.8,
+      "runtime_ms": 0.045
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_09"
+      ],
+      "score": 1425.0,
+      "storage_mb": 0.8,
+      "runtime_ms": 16.629
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_09"
+      ],
+      "score": 1425.0,
+      "storage_mb": 0.8,
+      "runtime_ms": 1.958
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 1.5,
+    "greedy": {
+      "indexes": [
+        "IDX_02"
+      ],
+      "score": 4655.0,
+      "storage_mb": 1.5,
+      "runtime_ms": 0.077
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02"
+      ],
+      "score": 4655.0,
+      "storage_mb": 1.5,
+      "runtime_ms": 9.822
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02"
+      ],
+      "score": 4655.0,
+      "storage_mb": 1.5,
+      "runtime_ms": 2.183
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 2.0,
+    "greedy": {
+      "indexes": [
+        "IDX_02"
+      ],
+      "score": 4655.0,
+      "storage_mb": 1.5,
+      "runtime_ms": 0.095
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02"
+      ],
+      "score": 4655.0,
+      "storage_mb": 1.5,
+      "runtime_ms": 8.315
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02"
+      ],
+      "score": 4655.0,
+      "storage_mb": 1.5,
+      "runtime_ms": 1.544
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 2.5,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_09"
+      ],
+      "score": 6080.0,
+      "storage_mb": 2.3,
+      "runtime_ms": 0.069
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02",
+        "IDX_09"
+      ],
+      "score": 6080.0,
+      "storage_mb": 2.3,
+      "runtime_ms": 6.959
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02",
+        "IDX_09"
+      ],
+      "score": 6080.0,
+      "storage_mb": 2.3,
+      "runtime_ms": 1.552
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 3.0,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_09",
+        "IDX_10"
+      ],
+      "score": 6520.0,
+      "storage_mb": 2.9,
+      "runtime_ms": 0.115
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02",
+        "IDX_07"
+      ],
+      "score": 7005.0,
+      "storage_mb": 2.9,
+      "runtime_ms": 8.421
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02",
+        "IDX_07"
+      ],
+      "score": 7005.0,
+      "storage_mb": 2.9,
+      "runtime_ms": 1.665
+    },
+    "optimality_gap_pct": 6.92,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 3.5,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_03",
+        "IDX_09"
+      ],
+      "score": 7920.0,
+      "storage_mb": 3.5,
+      "runtime_ms": 0.145
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02",
+        "IDX_03",
+        "IDX_09"
+      ],
+      "score": 7920.0,
+      "storage_mb": 3.5,
+      "runtime_ms": 7.177
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02",
+        "IDX_03",
+        "IDX_09"
+      ],
+      "score": 7920.0,
+      "storage_mb": 3.5,
+      "runtime_ms": 1.759
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 4.0,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 8430.0,
+      "storage_mb": 3.7,
+      "runtime_ms": 0.112
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 8430.0,
+      "storage_mb": 3.7,
+      "runtime_ms": 5.748
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 8430.0,
+      "storage_mb": 3.7,
+      "runtime_ms": 2.033
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 4.5,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_07",
+        "IDX_09",
+        "IDX_10"
+      ],
+      "score": 8870.0,
+      "storage_mb": 4.3,
+      "runtime_ms": 0.137
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02",
+        "IDX_07",
+        "IDX_09",
+        "IDX_10"
+      ],
+      "score": 8870.0,
+      "storage_mb": 4.3,
+      "runtime_ms": 8.194
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02",
+        "IDX_07",
+        "IDX_09",
+        "IDX_10"
+      ],
+      "score": 8870.0,
+      "storage_mb": 4.3,
+      "runtime_ms": 2.725
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 5.0,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 9530.0,
+      "storage_mb": 4.9,
+      "runtime_ms": 0.179
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 9530.0,
+      "storage_mb": 4.9,
+      "runtime_ms": 16.652
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 9530.0,
+      "storage_mb": 4.9,
+      "runtime_ms": 3.19
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 5.5,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_07",
+        "IDX_09",
+        "IDX_10"
+      ],
+      "score": 9970.0,
+      "storage_mb": 5.5,
+      "runtime_ms": 0.175
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_07",
+        "IDX_09",
+        "IDX_10"
+      ],
+      "score": 9970.0,
+      "storage_mb": 5.5,
+      "runtime_ms": 14.264
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_07",
+        "IDX_09",
+        "IDX_10"
+      ],
+      "score": 9970.0,
+      "storage_mb": 5.5,
+      "runtime_ms": 4.511
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 6.0,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_07",
+        "IDX_09",
+        "IDX_10"
+      ],
+      "score": 9970.0,
+      "storage_mb": 5.5,
+      "runtime_ms": 0.267
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_07",
+        "IDX_09",
+        "IDX_10"
+      ],
+      "score": 9970.0,
+      "storage_mb": 5.5,
+      "runtime_ms": 10.911
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_07",
+        "IDX_09",
+        "IDX_10"
+      ],
+      "score": 9970.0,
+      "storage_mb": 5.5,
+      "runtime_ms": 3.608
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 7.0,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_05",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 11060.0,
+      "storage_mb": 6.5,
+      "runtime_ms": 0.266
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02",
+        "IDX_05",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 11060.0,
+      "storage_mb": 6.5,
+      "runtime_ms": 9.005
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02",
+        "IDX_05",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 11060.0,
+      "storage_mb": 6.5,
+      "runtime_ms": 4.954
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 8.0,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_05",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 12160.0,
+      "storage_mb": 7.7,
+      "runtime_ms": 0.194
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_05",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 12160.0,
+      "storage_mb": 7.7,
+      "runtime_ms": 13.503
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_05",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 12160.0,
+      "storage_mb": 7.7,
+      "runtime_ms": 6.682
+    },
+    "optimality_gap_pct": 0.0,
+    "ilp_verified_exact": true
+  },
+  {
+    "budget_mb": 10.0,
+    "greedy": {
+      "indexes": [
+        "IDX_02",
+        "IDX_04",
+        "IDX_05",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 12160.0,
+      "storage_mb": 7.7,
+      "runtime_ms": 0.242
+    },
+    "ilp": {
+      "indexes": [
+        "IDX_01",
+        "IDX_04",
+        "IDX_05",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 13035.0,
+      "storage_mb": 8.6,
+      "runtime_ms": 5.395
+    },
+    "exhaustive": {
+      "indexes": [
+        "IDX_01",
+        "IDX_04",
+        "IDX_05",
+        "IDX_07",
+        "IDX_09"
+      ],
+      "score": 13035.0,
+      "storage_mb": 8.6,
+      "runtime_ms": 10.83
+    },
+    "optimality_gap_pct": 6.71,
+    "ilp_verified_exact": true
+  }
+]

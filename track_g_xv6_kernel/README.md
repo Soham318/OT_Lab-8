@@ -19,7 +19,7 @@ Track G implements **per-process CPU runtime accounting** in the MIT xv6-riscv o
 5. **Three Workloads**:
    - `cpu_workload`: Compute-heavy integer hashing measuring active CPU duty cycle ($100\%$).
    - `short_workload`: Sub-quantum burst benchmark demonstrating timer quantization ($0$ ticks for $<1$ ms tasks).
-   - `conc_workload`: 4-process concurrent benchmark demonstrating SMP timesharing ($1.87\times$ multi-core speedup on 3 cores).
+   - `conc_workload`: 4-process concurrent benchmark demonstrating SMP timesharing ($1.87$ aggregate CPU-to-wall ratio on 3 cores).
 6. **Regression Invariance**: Verified that baseline `usertests` pass without regression.
 7. **Complete Documentation & Patch**: Provided full architecture analysis, experimental evaluation, 16 viva Q&As, publication plots, and standalone git patch (`patches/0001_cputime_accounting.patch`).
 
@@ -108,6 +108,6 @@ python -m unittest discover -s track_g_xv6_kernel/tests -v
 
 1. **Active Compute Tracking**: A compute-bound task running uninterrupted achieves **$100\%$ CPU duty cycle** (`cputime == uptime`).
 2. **Sleeping Process Isolation**: Calling `pause(10)` causes 10 wall-clock ticks to elapse, but **$0$ CPU ticks** are charged to the process, proving sleeping processes do not accumulate CPU time.
-3. **SMP Parallelism**: In `conc_workload`, 4 worker processes across 3 cores accumulated 15 CPU ticks within 8 wall-clock ticks, demonstrating a **$1.87\times$ parallel execution speedup**.
+3. **SMP Parallelism**: In `conc_workload`, 4 worker processes across 3 cores accumulated 15 CPU ticks within 8 wall-clock ticks, demonstrating an aggregate CPU-tick-to-wall-tick ratio of **$1.87$** on 3 SMP cores.
 4. **Quantization Limit**: Tasks completing in $< 1$ ms register $0$ ticks due to the 100 ms periodic timer interval.
 

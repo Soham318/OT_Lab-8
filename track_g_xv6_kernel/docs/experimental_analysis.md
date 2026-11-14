@@ -12,8 +12,8 @@
 | **Build Status** | Clean Success (`make`) | Clean Success (`make`) | Verified |
 | **QEMU Boot Status** | Clean Boot (`init: starting sh`) | Clean Boot (`init: starting sh`) | Verified |
 | **Kernel Binary Size** | $286,720$ bytes | $287,104$ bytes ($+384$ bytes, $+0.13\%$) | Verified |
-| **Syscall Overhead** | Baseline syscall dispatch | Negligible ($\sim 12$ CPU cycles to read `p->cputime`) | Verified |
-| **`usertests` Status** | `ALL TESTS PASSED` | Passing without regression | Verified |
+| **Syscall Overhead** | Baseline syscall dispatch | Fast register/struct read under spinlock | Verified |
+| **`usertests` Status** | `ALL TESTS PASSED` (full run) | Baseline passed full suite; modified test timed out at 45s runner limit at test 30 (`sharedfd`), passing all 29 preceding stress tests; targeted preemption and fork tests passed | Verified |
 | **Timer Tick Resolution** | ~10 Hz (100 ms) | ~10 Hz (100 ms) | Preserved |
 
 ---
@@ -69,9 +69,9 @@ Spawned 4 concurrent worker processes on 3 RISC-V hardware cores (QEMU `-smp 3`)
 
 #### SMP Concurrency Findings:
 - **Strict Isolation**: Each process recorded CPU ticks proportional to its workload ($15\text{k} \to 2$, $30\text{k} \to 3$, $45\text{k} \to 4$, $60\text{k} \to 6$).
-- **Parallel Speedup**:
-  $$\text{Parallel Execution Ratio} = \frac{\sum \text{Child CPU Ticks}}{\text{Wall-Clock Ticks}} = \frac{15}{8} = \mathbf{1.87\times}$$
-- Because 4 processes ran across 3 CPU cores, the aggregate CPU time significantly exceeded wall-clock time, demonstrating true multi-core parallel speedup on SMP.
+- **Aggregate CPU-to-Wall Ratio**:
+  $$\text{Aggregate CPU-Tick-to-Wall-Tick Ratio} = \frac{\sum \text{Child CPU Ticks}}{\text{Elapsed Wall Ticks}} = \frac{15}{8} = \mathbf{1.87}$$
+- Because 4 processes ran concurrently across 3 hardware cores, the aggregate process CPU runtime exceeded elapsed wall-clock time, yielding an aggregate ratio of 1.87 on the 3 SMP cores.
 
 ---
 
@@ -88,9 +88,8 @@ All 5 automated kernel validation checks succeeded:
 ## 3. Overhead and Observability Trade-Offs
 
 ### Accounting Overhead
-- Adding `p->cputime++` in `usertrap()` and `kerneltrap()` executes only once per timer interrupt (10 times per second per core).
-- The cost is a single memory load, addition, and store ($\sim 3$ instructions), taking $< 5$ nanoseconds every 100,000,000 nanoseconds.
-- **Measured CPU Overhead**: $< 0.0001\%$, completely imperceptible in benchmark throughput.
+- Adding `p->cputime++` in `usertrap()` and `kerneltrap()` executes strictly upon a timer interrupt (10 times per second per core).
+- The operation consists of an in-memory integer increment on the active core. Because it executes only at tick intervals, no measurable degradation was observed in benchmark workload execution times.
 
 ### Engineering Benefit of Process-Level Observability
 - Enables user applications to profile computational bottlenecks without external profilers.

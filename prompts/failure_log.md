@@ -209,12 +209,26 @@
 
 The following entries are reserved templates and will be populated upon encountering actual bugs during algorithm implementation:
 
-### [PENDING TEMPLATE] Case 15: Track H — Relational DBMS Query Plan Cache Contention
-* **Status**: Awaiting Track H implementation.
-* **Target Issue**: Audit for unindexed table scan cost models, query optimizer plan misestimates, or SQLite index lock contention.
-* **Observed Output**: *(To be recorded upon actual run)*
-* **Verified Fix**: *(To be recorded)*
-* **Lesson Learned**: *(To be recorded)*
+### Case 15: Track H — Random Sample Population Bound & SQLite 3.38+ Plan Detail Mismatch
+* **Date**: November 14, 2026
+* **Context**: Synthetic dataset generation for unit test fixtures and SQLite `EXPLAIN QUERY PLAN` plan operator detection.
+* **Initial AI Action / Command**:
+  1. In `src/data_generator.py`, sampled train stop sequences using static bounds: `stops_count = rng.randint(15, 30); selected_stations = rng.sample(range(1, num_stations + 1), stops_count)`.
+  2. In `src/benchmark_runner.py`, checked for full table scan operators using: `uses_scan = any("SCAN TABLE" in r[3] for r in rows)`.
+* **Observed Error Encountered**:
+  ```text
+  1. ValueError: Sample larger than population or is negative
+     at data_generator.py line 74: selected_stations = rng.sample(...)
+  2. AssertionError: False is not true
+     at test_dbms_optimization.py line 150: self.assertTrue(uses_scan)
+  ```
+* **Root Cause**:
+  1. When unit tests invoked `populate_database()` with a miniature scaling factor (`scale_factor = 0.05`), `num_stations` scaled down to 10 stations. The hardcoded sample size ($15 \le \text{stops} \le 30$) exceeded the total available population (10), violating `random.sample()` preconditions.
+  2. SQLite 3.38+ altered the default query plan textual detail format from `SCAN TABLE <tablename>` to `SCAN <tablename>`. Consequently, matching on `"SCAN TABLE"` silently returned False.
+* **Verified Fix**:
+  1. Clamped `stops_count` dynamically: `max_possible_stops = min(30, num_stations); min_possible_stops = min(5, max_possible_stops); stops_count = rng.randint(min_possible_stops, max_possible_stops)`.
+  2. Updated query plan parsing to inspect `SCAN ` and `INDEX` substrings, correctly detecting both legacy and modern SQLite plan opcodes.
+* **Engineering Lesson**: Synthetic generators must scale all dependent sampling bounds proportionally to population scale factors. When parsing database explain outputs, inspect canonical tokens (`SCAN `, `INDEX`) rather than rigid multi-word strings across database engine revisions.
 
 ---
 
