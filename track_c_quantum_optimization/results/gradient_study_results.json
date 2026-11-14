@@ -1,0 +1,142 @@
+{
+  "num_qubits": 3,
+  "num_parameters": 12,
+  "mean_gradient_rel_error": 3.862520677786386e-11,
+  "point_evaluations": [
+    {
+      "point_id": 0,
+      "norm_parameter_shift": 1.37015,
+      "norm_finite_diff": 1.37015,
+      "l2_difference": 0.0,
+      "relative_error": 0.0
+    },
+    {
+      "point_id": 1,
+      "norm_parameter_shift": 1.59299,
+      "norm_finite_diff": 1.59299,
+      "l2_difference": 0.0,
+      "relative_error": 0.0
+    },
+    {
+      "point_id": 2,
+      "norm_parameter_shift": 0.963153,
+      "norm_finite_diff": 0.963153,
+      "l2_difference": 0.0,
+      "relative_error": 0.0
+    },
+    {
+      "point_id": 3,
+      "norm_parameter_shift": 1.466563,
+      "norm_finite_diff": 1.466563,
+      "l2_difference": 0.0,
+      "relative_error": 0.0
+    },
+    {
+      "point_id": 4,
+      "norm_parameter_shift": 0.579271,
+      "norm_finite_diff": 0.579271,
+      "l2_difference": 0.0,
+      "relative_error": 0.0
+    },
+    {
+      "point_id": 5,
+      "norm_parameter_shift": 0.88868,
+      "norm_finite_diff": 0.88868,
+      "l2_difference": 0.0,
+      "relative_error": 0.0
+    },
+    {
+      "point_id": 6,
+      "norm_parameter_shift": 1.675196,
+      "norm_finite_diff": 1.675196,
+      "l2_difference": 0.0,
+      "relative_error": 0.0
+    },
+    {
+      "point_id": 7,
+      "norm_parameter_shift": 1.159005,
+      "norm_finite_diff": 1.159005,
+      "l2_difference": 0.0,
+      "relative_error": 0.0
+    },
+    {
+      "point_id": 8,
+      "norm_parameter_shift": 1.455852,
+      "norm_finite_diff": 1.455852,
+      "l2_difference": 0.0,
+      "relative_error": 0.0
+    },
+    {
+      "point_id": 9,
+      "norm_parameter_shift": 1.439786,
+      "norm_finite_diff": 1.439786,
+      "l2_difference": 0.0,
+      "relative_error": 0.0
+    }
+  ],
+  "noisy_optimization": {
+    "initial_energy": -0.047876,
+    "spsa_final_energy": -1.924585,
+    "spsa_runtime_ms": 146.82,
+    "spsa_circuit_evals": 200,
+    "gd_final_energy": -2.060345,
+    "gd_runtime_ms": 3404.95,
+    "gd_circuit_evals": 2400,
+    "spsa_history": [
+      -0.055,
+      -0.3146,
+      -0.4862,
+      -0.7879,
+      -1.1771,
+      -1.3876,
+      -1.5557,
+      -1.6506,
+      -1.4896,
+      -1.6486,
+      -1.558,
+      -1.5494,
+      -1.6555,
+      -1.6629,
+      -1.6523,
+      -1.8718,
+      -1.7758,
+      -1.8175,
+      -1.7399,
+      -1.8167,
+      -1.8887,
+      -1.8657,
+      -1.8998,
+      -1.7613,
+      -2.0051,
+      -1.8887
+    ],
+    "gd_history": [
+      -0.1276,
+      -0.4107,
+      -0.5885,
+      -0.8275,
+      -1.1704,
+      -1.3828,
+      -1.477,
+      -1.6487,
+      -1.777,
+      -1.8246,
+      -1.854,
+      -1.9584,
+      -2.0083,
+      -2.0597,
+      -1.921,
+      -2.0237,
+      -2.0138,
+      -1.9368,
+      -2.0725,
+      -2.1191,
+      -2.0174,
+      -1.9753,
+      -1.983,
+      -2.1237,
+      -1.9965,
+      -2.0826
+    ]
+  }
+}

@@ -53,9 +53,29 @@ class QUBOKnapsackSolver:
     Uses classical exhaustive enumeration on small instances for theoretical verification.
     """
 
-    def __init__(self, penalty_multiplier: float = 2.0, name: str = "QUBO Solver (Classical Exhaustive)"):
+    def __init__(self, penalty_multiplier: float = 2.0, use_universal_bound: bool = False, name: str = "QUBO Solver (Classical Exhaustive)"):
         self.penalty_multiplier = penalty_multiplier
+        self.use_universal_bound = use_universal_bound
         self.name = name
+
+    @staticmethod
+    def compute_penalty_bounds(problem: KnapsackProblem) -> Dict[str, float]:
+        """
+        Derives penalty bounds for QUBO constraint enforcement:
+          1. Local Marginal Bound: P_local = max_i(v_i).
+             Guarantees that adding a single item exceeding capacity by >= 1 unit
+             is penalized more than that item's individual value. (Heuristic lower bound).
+          2. Globally Sufficient Universal Bound: P_universal = sum_i(v_i).
+             Guarantees that NO subset of items (even in the worst-case simultaneous swap)
+             can achieve a value gain exceeding the quadratic penalty for a minimum integer
+             violation of delta >= 1.
+        """
+        max_v = float(np.max(problem.values))
+        sum_v = float(np.sum(problem.values))
+        return {
+            "local_marginal_bound": max_v,
+            "universal_sufficient_bound": sum_v
+        }
 
     def build_qubo_matrix(self, problem: KnapsackProblem) -> Tuple[np.ndarray, float, List[int], float]:
         """
@@ -85,9 +105,9 @@ class QUBOKnapsackSolver:
         a[n:] = slack_weights
 
         # Penalty coefficient selection:
-        # P must be strictly greater than max(v_i) to penalize violation beyond any item gain
-        max_v = float(np.max(problem.values))
-        P = self.penalty_multiplier * max_v
+        bounds = self.compute_penalty_bounds(problem)
+        base_bound = bounds["universal_sufficient_bound"] if self.use_universal_bound else bounds["local_marginal_bound"]
+        P = self.penalty_multiplier * base_bound
 
         # Expansion of P * (a^T z - W)^2 - v^T x
         # = P * ( sum_i a_i^2 z_i^2 + 2 sum_{i<j} a_i a_j z_i z_j - 2 W sum_i a_i z_i + W^2 ) - sum_i v_i z_i

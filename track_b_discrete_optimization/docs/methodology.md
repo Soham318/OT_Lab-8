@@ -152,10 +152,21 @@ Merging with the linear objective $-\sum_{i=1}^n v_i z_i$:
   $$C_0 = P W^2$$
 
 ### 6.3 Penalty Coefficient Selection Rule
-If $P$ is too small, an infeasible state that packs an extra item with value $v_k$ and exceeds capacity by $\delta \ge 1$ will incur penalty $P \delta^2 = P$. If $v_k > P$, the net energy decreases, corrupting the unconstrained minimum.
-Therefore, the penalty must strictly satisfy:
-$$P > \max_{1 \le i \le n} v_i$$
-Setting $P = \alpha \cdot \max_i v_i$ with $\alpha \ge 1.5$ guarantees that any constraint violation incurs an energy penalty exceeding any item profit, ensuring that the unconstrained global minimum of $H_{\text{QUBO}}$ is strictly feasible.
+The choice of penalty coefficient $P$ requires distinguishing between a **local marginal bound** and a **globally sufficient universal bound**:
+
+1. **Local Marginal Bound ($P > \max_{i} v_i$)**:
+   If an incumbent feasible solution is perturbed by adding a single excess item $k$ that violates capacity by $\delta \ge 1$ integer weight units, the penalty incurred is at least $P \cdot 1^2 = P$. For this single-item addition to increase energy (be rejected), we require $P > v_k$. Thus, $P > \max_{i} v_i$ is a necessary condition for local stability against single-item overpacking. However, on adversarial instances involving simultaneous item swaps, this local bound may be insufficient.
+
+2. **Globally Sufficient Universal Bound ($P > \sum_{i=1}^n v_i$)**:
+   Let $x_{\text{infeas}}$ be any infeasible subset ($\sum w_i x_i - W \ge 1$), and let $x_{\text{feas}}$ be any feasible subset.
+   The maximum possible value difference is strictly bounded by:
+   $$V(x_{\text{infeas}}) - V(x_{\text{feas}}) \le \sum_{i=1}^n v_i - 0 = \sum_{i=1}^n v_i$$
+   For any integer weights, the constraint violation is $\Delta \ge 1$, incurring quadratic penalty $P \Delta^2 \ge P$.
+   Therefore, setting:
+   $$P_{\text{universal}} > \sum_{i=1}^n v_i$$
+   provides a mathematically rigorous, universally sufficient guarantee that **no** infeasible state can ever possess lower energy than the empty set or the global discrete optimum.
+
+In our implementation, `QUBOKnapsackSolver` exposes both formulations, defaulting to the safe scaled factor $P = \alpha \cdot \text{bound}$.
 
 ### 6.4 Conversion to Transverse Ising Spin Model
 Ising spins take values $s_i \in \{-1, +1\}$.

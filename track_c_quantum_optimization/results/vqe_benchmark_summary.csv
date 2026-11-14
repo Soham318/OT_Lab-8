@@ -1,0 +1,5 @@
+Model,NumQubits,Layers,NumParams,VQEEnergy,ExactEnergy,AbsError,RelErrorPct,RuntimeMs,Iterations
+"TFIM (3 Qubits)",3,1,12,-2.994765,-3.009022,0.014257,0.4738,165.75,273
+"TFIM (4 Qubits)",4,1,16,-4.106379,-4.145561,0.039182,0.9451,4071.51,1292
+"Heisenberg-XXZ (3 Qubits)",3,1,12,-3.328427,-3.372281,0.043854,1.3004,1179.12,273
+"Heisenberg-XXZ (4 Qubits)",4,1,16,-5.162278,-5.424344,0.262066,4.8313,3399.96,629
