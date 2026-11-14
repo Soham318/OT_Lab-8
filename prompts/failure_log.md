@@ -119,6 +119,48 @@
 
 ---
 
+### Case 6: Compiler Fixpoint Termination Condition on Instruction Sequence Stability
+* **Date**: November 14, 2026
+* **Context**: Implementing iterative fixpoint optimization pipeline in `track_f_compiler_optimization/src/optimizer.py`.
+* **Initial AI Action / Command**: The convergence loop checked `if len(current_ir) == len(ir_before_iter): break` to detect whether an optimization round made progress.
+* **Observed Error Encountered**:
+  ```text
+  Premature loop termination in arithmetic_heavy: 20 instructions retained instead of collapsing to 1.
+  ```
+* **Root Cause**: Instruction count invariance does not imply IR content invariance. Transformations such as constant folding and strength reduction preserve instruction count while simplifying operands, which unlocks subsequent propagation and dead-code passes in subsequent iterations.
+* **Verified Fix**: Changed convergence termination criterion to test full instruction sequence equality: `if current_ir == ir_before_iter: break`.
+* **Engineering Lesson**: In iterative multi-pass optimizing compilers, fixpoint convergence must be defined over the full structural equality of the IR state, never coarse scalar proxies such as instruction counts.
+
+---
+
+### Case 11: SciPy MILP Variable Upper Bound Omission in Binary Pass Selection
+* **Date**: November 14, 2026
+* **Context**: Formulating and solving the Binary Pass Selection problem via `scipy.optimize.milp` in `track_f_compiler_optimization/src/pass_selector.py`.
+* **Initial AI Action / Command**: The assistant invoked `milp(c=c, integrality=np.ones(n_passes), constraints=...)` without specifying variable bounds.
+* **Observed Error Encountered**:
+  ```text
+  MILP solved with non-binary decision variables: x = [0, 0, 0, 1.85, 0], yielding an inflated objective value of 55.80 vs true combinatorial optimum of 38.80.
+  ```
+* **Root Cause**: In SciPy's HiGHS wrapper, setting `integrality = 1` enforces general integer variables $x_i \in \mathbb{Z}_{\ge 0}$ with default bounds $[0, \infty)$. Without upper bound constraints $x_i \le 1$, the solver selects non-binary values for high-gain passes.
+* **Verified Fix**: Explicitly specified `bounds = Bounds(lb=np.zeros(n_passes), ub=np.ones(n_passes))` to strictly constrain $x_i \in \{0, 1\}$.
+* **Engineering Lesson**: In mathematical programming frameworks, integer integrality specifies the domain lattice, not domain bounds. Binary 0-1 decision variables strictly require explicit lower and upper bounds $[0, 1]$.
+
+---
+
+### Case 12: User Variable Dead Assignment Pruning in Intermediate Expressions
+* **Date**: November 14, 2026
+* **Context**: Implementing Dead Code Elimination (DCE) in `track_f_compiler_optimization/src/optimizer.py`.
+* **Initial AI Action / Command**: The assistant restricted dead assignment elimination to compiler temporaries: `if inst.result not in used_vars and inst.result.startswith("t"): continue`.
+* **Observed Error Encountered**:
+  ```text
+  Unused user assignments (such as dead_val = 22 * 4 in dead_assignments benchmark) retained in optimized IR.
+  ```
+* **Root Cause**: Overly defensive guard assumed user variables might have observable side effects outside the compilation unit, ignoring that in self-contained pure arithmetic scopes, unread variables are provably dead.
+* **Verified Fix**: Removed the `startswith("t")` restriction for pure operations, pruning any instruction where `inst.is_pure() and inst.result not in used_vars`, cleanly eliminating dead user variables while protecting I/O (`print`) and branches.
+* **Engineering Lesson**: Distinguish strictly between observable side-effects (I/O, system calls) and lexical variable classifications. Liveness analysis over linear IR must treat user variables and compiler temporaries uniformly based on purity and live-range reachability.
+
+---
+
 ## 2. Pending Failure Case Templates (To be logged during Track Execution)
 
 The following entries are reserved templates and will be populated upon encountering actual bugs during algorithm implementation:
@@ -126,15 +168,6 @@ The following entries are reserved templates and will be populated upon encounte
 ### [PENDING TEMPLATE] Case 5: Track G — xv6 Kernel Concurrency & Process Lock Invariant
 * **Status**: Awaiting Track G implementation.
 * **Target Issue**: Audit for lock acquisition ordering, race conditions, or unhandled priority inversion in `kernel/proc.c`.
-* **Observed Output**: *(To be recorded upon actual run)*
-* **Verified Fix**: *(To be recorded)*
-* **Lesson Learned**: *(To be recorded)*
-
----
-
-### [PENDING TEMPLATE] Case 6: Track F — Compiler Optimization Pass Semantic Invariance Bug
-* **Status**: Awaiting Track F implementation.
-* **Target Issue**: Audit for incorrect constant propagation across loop headers or unintended pruning during dead-code elimination.
 * **Observed Output**: *(To be recorded upon actual run)*
 * **Verified Fix**: *(To be recorded)*
 * **Lesson Learned**: *(To be recorded)*

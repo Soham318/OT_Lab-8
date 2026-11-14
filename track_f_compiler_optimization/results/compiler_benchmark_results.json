@@ -1,0 +1,92 @@
+[
+  {
+    "name": "arithmetic_heavy",
+    "unoptimized_ir_count": 20,
+    "optimized_ir_count": 1,
+    "ir_reduction_count": 19,
+    "ir_reduction_pct": 95.0,
+    "unoptimized_steps": 20,
+    "optimized_steps": 1,
+    "step_reduction_pct": 95.0,
+    "unoptimized_time_ms": 0.0092,
+    "optimized_time_ms": 0.0004,
+    "runtime_speedup": 24.24,
+    "compile_overhead_ms": 0.266,
+    "output": [
+      2100
+    ],
+    "semantic_parity": true
+  },
+  {
+    "name": "repeated_expressions",
+    "unoptimized_ir_count": 22,
+    "optimized_ir_count": 1,
+    "ir_reduction_count": 21,
+    "ir_reduction_pct": 95.45,
+    "unoptimized_steps": 22,
+    "optimized_steps": 1,
+    "step_reduction_pct": 95.45,
+    "unoptimized_time_ms": 0.0093,
+    "optimized_time_ms": 0.0004,
+    "runtime_speedup": 22.21,
+    "compile_overhead_ms": 0.165,
+    "output": [
+      2067
+    ],
+    "semantic_parity": true
+  },
+  {
+    "name": "dead_assignments",
+    "unoptimized_ir_count": 16,
+    "optimized_ir_count": 5,
+    "ir_reduction_count": 11,
+    "ir_reduction_pct": 68.75,
+    "unoptimized_steps": 13,
+    "optimized_steps": 5,
+    "step_reduction_pct": 61.54,
+    "unoptimized_time_ms": 0.0057,
+    "optimized_time_ms": 0.0014,
+    "runtime_speedup": 3.99,
+    "compile_overhead_ms": 0.089,
+    "output": [
+      100
+    ],
+    "semantic_parity": true
+  },
+  {
+    "name": "loop_heavy",
+    "unoptimized_ir_count": 22,
+    "optimized_ir_count": 19,
+    "ir_reduction_count": 3,
+    "ir_reduction_pct": 13.64,
+    "unoptimized_steps": 3408,
+    "optimized_steps": 2808,
+    "step_reduction_pct": 17.61,
+    "unoptimized_time_ms": 1.2871,
+    "optimized_time_ms": 0.9168,
+    "runtime_speedup": 1.4,
+    "compile_overhead_ms": 0.169,
+    "output": [
+      131000
+    ],
+    "semantic_parity": true
+  },
+  {
+    "name": "combined_pipeline",
+    "unoptimized_ir_count": 28,
+    "optimized_ir_count": 23,
+    "ir_reduction_count": 5,
+    "ir_reduction_pct": 17.86,
+    "unoptimized_steps": 1912,
+    "optimized_steps": 1610,
+    "step_reduction_pct": 15.79,
+    "unoptimized_time_ms": 0.6789,
+    "optimized_time_ms": 0.5182,
+    "runtime_speedup": 1.31,
+    "compile_overhead_ms": 0.17,
+    "output": [
+      208000
+    ],
+    "semantic_parity": true
+  }
+]
