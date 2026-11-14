@@ -67,11 +67,19 @@
   * [x] Establish Git history and commit traceability standard.
   * [x] Audit failure logs: 4 genuine observed AI engineering issues documented; future cases reserved as pending templates.
   * [x] Audit AI tools register: Antigravity AI recorded as active; Claude and Copilot scheduled for subsequent phases.
-* [ ] **Days 2–3: Track E Formulation & Baseline**:
-  * [ ] Generate realistic railway timetable network dataset (`data/railway_network.json`).
-  * [ ] Implement Dijkstra shortest path static baseline.
-  * [ ] Formulate mathematical model (decision variables, multi-objective function, flow & buffer constraints).
-  * [ ] Clone `xv6-riscv` source tree into `track_g_xv6/` and verify stock QEMU boot.
+* [x] **Day 2: Track E Railway Dataset, Formulation, Baseline & Benchmarks**:
+  * [x] Generate realistic 28-station, 130-service, 551-connection timetable dataset (`data/railway_stations.csv`, `data/train_connections.csv`, `data/railway_network.json`).
+  * [x] Author comprehensive mathematical problem formulation (`track_e_case_study/docs/problem_formulation.md`).
+  * [x] Author dataset description and network corridor breakdown (`track_e_case_study/docs/dataset_description.md`).
+  * [x] Implement Time-Dependent Earliest-Arrival Dijkstra router with transfer buffer validation (`track_e_case_study/src/dijkstra_baseline.py`).
+  * [x] Implement Static Topological Dijkstra comparative baseline (`track_e_case_study/src/dijkstra_baseline.py`).
+  * [x] Implement automated test suite covering 9 operational scenarios (`track_e_case_study/tests/test_dijkstra_baseline.py`) — 100% pass.
+  * [x] Implement benchmarking suite and execute 10 query scenarios over 50 repetitions (`track_e_case_study/results/baseline_benchmark_results.json`).
+  * [x] Generate 3 publication-ready Matplotlib visualizations (topology, route highlight, time breakdown).
+  * [x] Author Track E documentation (`track_e_case_study/README.md`) and Day 2 prompt log.
+* [ ] **Day 3: xv6 RISC-V Stock Clone & Verification**:
+  * [ ] Clone `xv6-riscv` source tree into `track_g_xv6/`.
+  * [ ] Verify stock QEMU boot and execution of `usertests` in WSL2 Ubuntu.
 
 ### Phase 2: Days 4–7 — Core Chapter 6 Methods Implementation
 * [ ] **Track A (Continuous)**:

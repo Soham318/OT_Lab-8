@@ -16,7 +16,8 @@ All ten tracks (**Tracks A to J**) are compulsory and structured as focused, ver
 * **Track B**: Discrete Optimization (Combinatorial selection, ILP, Branch-and-Bound, DP, QUBO/Ising formulation).
 * **Track C**: Quantum Optimization (QAOA, VQE, PQCs, parameter-shift, SPSA, QNG, barren plateaus, noise).
 * **Track D**: Submodular, Parallel & Distributed Optimization (Diminishing returns, work stealing, Amdahl/Gustafson, FedAvg, MGDA/GradNorm).
-* **Track E (Main Case Study)**: **Railway Route and Transfer Optimization** (Multi-objective journey & transfer wait minimization via Binary ILP, Greedy heuristic, and Dijkstra baseline).
+* **Track E (Main Case Study)**: **Railway Route and Transfer Optimization** (Multi-objective journey & transfer wait minimization via Binary ILP, Greedy heuristic, and Dijkstra baseline).  
+  * *Status*: **Day 2 Complete** — 28-station timetable dataset generated (`data/`), mathematical formulation documented (`track_e_case_study/docs/`), Time-Dependent Earliest-Arrival Dijkstra baseline implemented, 9/9 automated tests passing, empirical benchmarks executed, and 3 publication-ready visualizations generated (`track_e_case_study/plots/`).
 * **Track F**: Compiler Optimization (Self-contained Lexer, Parser, IR, Code Generator, 4 optimization passes, and Chapter 6 optimization for register allocation).
 * **Track G**: xv6 Operating-System Optimization (RISC-V kernel scheduling / cache optimization under QEMU, benchmarked on 3 workloads, boot & `usertests` passing).
 * **Track H**: DBMS Optimization (Relational database query and index selection formulated as an ILP/Knapsack problem, benchmarked against default cost optimizer).
