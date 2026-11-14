@@ -1,0 +1,5 @@
+scale,tasks,edges,baseline_mean_time_s,baseline_median_time_s,baseline_std_time_s,baseline_peak_memory_kb,baseline_makespan,baseline_valid,optimized_mean_time_s,optimized_median_time_s,optimized_std_time_s,optimized_peak_memory_kb,optimized_makespan,optimized_valid,speedup_mean,speedup_median
+small,50,157,0.001684,0.001525,0.000341,16.26,263.1900,True,0.000134,0.000131,0.000018,15.67,224.1400,True,12.54,11.62
+medium,250,1564,0.088873,0.088088,0.001158,67.96,1209.8500,True,0.000675,0.000676,0.000006,71.56,1162.6500,True,131.72,130.23
+large,1000,8118,3.958761,3.823956,0.205181,267.46,4510.5300,True,0.003462,0.003478,0.000158,290.71,4424.1700,True,1143.39,1099.53
+xlarge,2500,22919,79.771658,49.595169,53.574612,803.15,11234.7500,True,0.009713,0.009800,0.000485,657.08,10931.6500,True,8212.89,5060.94

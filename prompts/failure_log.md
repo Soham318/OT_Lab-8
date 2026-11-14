@@ -251,3 +251,27 @@ The following entries are reserved templates and will be populated upon encounte
   1. Replaced `round()` with `math.floor()`: `iterations = max(1, math.floor((math.pi / 4.0) * math.sqrt(2**num_qubits)))`. This strictly selects $R = 1$ for $N = 4$ ($100.0\%$ target success) and $R = 2$ for $N = 8$ ($94.43\%$ target success).
   2. Updated `UnitaryGate` call to pass `label=f"*{a_power} mod {N}"`.
 * **Engineering Lesson**: Grover's search rotates the quantum state vector periodically in a 2D plane; rounding up can over-rotate past the target axis. Always use the mathematical lower floor bound $\lfloor \frac{\pi}{4}\sqrt{N/M} \rfloor$ for unstructured amplitude amplification.
+
+
+---
+
+### Case 17: Track J — Return Type Annotation Missing Typing Import & In-Degree Property Discrepancy
+* **Date**: November 14, 2026
+* **Context**: Initial execution of `src/profiler_runner.py` and `tests/test_codebase_optimization.py` for Track J workflow scheduling.
+* **Initial AI Action / Command**:
+  1. In `src/workflow_models.py`, annotated `validate_schedule_correctness(...) -> Tuple[bool, List[str]]` without importing `Tuple` from `typing`.
+  2. In `tests/test_codebase_optimization.py`, queried graph in-degree via attribute `dag.in_degree[4]`.
+* **Observed Error Encountered**:
+  ```text
+  1. NameError: name 'Tuple' is not defined
+     at workflow_models.py line 116: def validate_schedule_correctness(...) -> Tuple[bool, List[str]]:
+  2. AttributeError: 'WorkflowDAG' object has no attribute 'in_degree'
+     at test_codebase_optimization.py line 76: self.assertIn(dag.in_degree[4], [2])
+  ```
+* **Root Cause**:
+  1. In `src/workflow_models.py`, `Dict, List, Optional, Any` were imported from `typing`, but `Tuple` was omitted from the import declaration.
+  2. In `src/dag_parser.py`, node degrees are maintained via parent/child lists and queried via the method `dag.get_in_degrees()` to avoid stale cached states, rather than exposed as a raw property `in_degree`.
+* **Verified Fix**:
+  1. Added `Tuple` to typing imports in `src/workflow_models.py`.
+  2. Updated `test_02_dag_parser_topological_sort` to invoke `dag.get_in_degrees()[4]`.
+* **Engineering Lesson**: Python type annotations evaluated at module import time require strict namespace presence under Python 3.13; graph representation classes should expose consistent query interfaces to avoid attribute vs. method contract mismatches.

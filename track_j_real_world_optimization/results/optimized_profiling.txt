@@ -1,0 +1,28 @@
+         7629 function calls in 0.011 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.004    0.004    0.011    0.011 C:\Users\Soham Umesh Chavan\OT-8\OT_Lab-8\track_j_real_world_optimization\src\optimized_scheduler.py:63(schedule)
+        1    0.001    0.001    0.004    0.004 C:\Users\Soham Umesh Chavan\OT-8\OT_Lab-8\track_j_real_world_optimization\src\optimized_scheduler.py:42(_compute_memoized_critical_path_potentials)
+        1    0.001    0.001    0.002    0.002 C:\Users\Soham Umesh Chavan\OT-8\OT_Lab-8\track_j_real_world_optimization\src\dag_parser.py:71(get_topological_order)
+      738    0.001    0.000    0.001    0.000 {built-in method builtins.max}
+     1250    0.001    0.000    0.001    0.000 {method 'get' of 'dict' objects}
+      500    0.001    0.000    0.001    0.000 {built-in method _heapq.heappush}
+        2    0.000    0.000    0.001    0.000 C:\Users\Soham Umesh Chavan\OT-8\OT_Lab-8\track_j_real_world_optimization\src\dag_parser.py:59(get_in_degrees)
+      500    0.000    0.000    0.000    0.000 {built-in method _heapq.heappop}
+      497    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+      250    0.000    0.000    0.000    0.000 {method 'sort' of 'list' objects}
+      250    0.000    0.000    0.000    0.000 {method 'pop' of 'list' objects}
+     1318    0.000    0.000    0.000    0.000 C:\Users\Soham Umesh Chavan\OT-8\OT_Lab-8\track_j_real_world_optimization\src\optimized_scheduler.py:110(<genexpr>)
+     1311    0.000    0.000    0.000    0.000 C:\Users\Soham Umesh Chavan\OT-8\OT_Lab-8\track_j_real_world_optimization\src\optimized_scheduler.py:58(<genexpr>)
+      502    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+      250    0.000    0.000    0.000    0.000 <string>:2(__init__)
+      251    0.000    0.000    0.000    0.000 C:\Users\Soham Umesh Chavan\OT-8\OT_Lab-8\track_j_real_world_optimization\src\optimized_scheduler.py:137(<genexpr>)
+        1    0.000    0.000    0.000    0.000 {built-in method _heapq.heapify}
+        1    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 {built-in method time.perf_counter}
+        2    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+
+

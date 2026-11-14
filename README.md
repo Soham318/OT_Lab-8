@@ -100,7 +100,7 @@ OT_Lab-8/
 ├── track_g_xv6_kernel/                          # Track G: xv6 RISC-V Kernel Optimization
 ├── track_h_dbms_optimization/                   # Track H: Relational DBMS Index/Query Optimization
 ├── track_i_quantum_algorithms/                 # Track I: Quantum Algorithms & QML Advantage
-├── track_j_software_eng/                        # Track J: Software Engineering Optimization
+├── track_j_real_world_optimization/             # Track J: Real-World Enterprise Workflow DAG Optimization
 ├── data/                                        # Shared datasets (railway, benchmarks, queries)
 ├── scripts/                                     # Benchmark orchestration and verification scripts
 └── tests/                                       # Independent correctness test suites

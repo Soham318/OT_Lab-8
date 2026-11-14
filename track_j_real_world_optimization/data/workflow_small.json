@@ -1,0 +1,657 @@
+{
+  "name": "small_50t",
+  "tasks": [
+    {
+      "task_id": 1,
+      "name": "Task_L00_0001",
+      "duration": 29.5,
+      "cpu_demand": 1,
+      "memory_demand_mb": 1024.0,
+      "priority": 4,
+      "dependencies": []
+    },
+    {
+      "task_id": 2,
+      "name": "Task_L00_0002",
+      "duration": 11.6,
+      "cpu_demand": 4,
+      "memory_demand_mb": 256.0,
+      "priority": 9,
+      "dependencies": []
+    },
+    {
+      "task_id": 3,
+      "name": "Task_L00_0003",
+      "duration": 5.74,
+      "cpu_demand": 2,
+      "memory_demand_mb": 256.0,
+      "priority": 1,
+      "dependencies": []
+    },
+    {
+      "task_id": 4,
+      "name": "Task_L00_0004",
+      "duration": 6.03,
+      "cpu_demand": 1,
+      "memory_demand_mb": 256.0,
+      "priority": 9,
+      "dependencies": []
+    },
+    {
+      "task_id": 5,
+      "name": "Task_L00_0005",
+      "duration": 10.55,
+      "cpu_demand": 4,
+      "memory_demand_mb": 2048.0,
+      "priority": 4,
+      "dependencies": []
+    },
+    {
+      "task_id": 6,
+      "name": "Task_L01_0006",
+      "duration": 21.32,
+      "cpu_demand": 2,
+      "memory_demand_mb": 256.0,
+      "priority": 3,
+      "dependencies": [
+        4
+      ]
+    },
+    {
+      "task_id": 7,
+      "name": "Task_L01_0007",
+      "duration": 32.02,
+      "cpu_demand": 2,
+      "memory_demand_mb": 1024.0,
+      "priority": 3,
+      "dependencies": [
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "task_id": 8,
+      "name": "Task_L01_0008",
+      "duration": 11.26,
+      "cpu_demand": 2,
+      "memory_demand_mb": 256.0,
+      "priority": 2,
+      "dependencies": [
+        2
+      ]
+    },
+    {
+      "task_id": 9,
+      "name": "Task_L01_0009",
+      "duration": 18.34,
+      "cpu_demand": 2,
+      "memory_demand_mb": 1024.0,
+      "priority": 10,
+      "dependencies": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "task_id": 10,
+      "name": "Task_L01_0010",
+      "duration": 13.37,
+      "cpu_demand": 1,
+      "memory_demand_mb": 2048.0,
+      "priority": 9,
+      "dependencies": [
+        1,
+        5
+      ]
+    },
+    {
+      "task_id": 11,
+      "name": "Task_L01_0011",
+      "duration": 7.37,
+      "cpu_demand": 2,
+      "memory_demand_mb": 256.0,
+      "priority": 9,
+      "dependencies": [
+        4
+      ]
+    },
+    {
+      "task_id": 12,
+      "name": "Task_L01_0012",
+      "duration": 14.61,
+      "cpu_demand": 4,
+      "memory_demand_mb": 1024.0,
+      "priority": 10,
+      "dependencies": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "task_id": 13,
+      "name": "Task_L01_0013",
+      "duration": 10.27,
+      "cpu_demand": 1,
+      "memory_demand_mb": 256.0,
+      "priority": 4,
+      "dependencies": [
+        2,
+        4
+      ]
+    },
+    {
+      "task_id": 14,
+      "name": "Task_L01_0014",
+      "duration": 35.24,
+      "cpu_demand": 1,
+      "memory_demand_mb": 512.0,
+      "priority": 2,
+      "dependencies": [
+        4
+      ]
+    },
+    {
+      "task_id": 15,
+      "name": "Task_L02_0015",
+      "duration": 18.35,
+      "cpu_demand": 2,
+      "memory_demand_mb": 1024.0,
+      "priority": 3,
+      "dependencies": [
+        6,
+        7,
+        11
+      ]
+    },
+    {
+      "task_id": 16,
+      "name": "Task_L02_0016",
+      "duration": 17.92,
+      "cpu_demand": 1,
+      "memory_demand_mb": 1024.0,
+      "priority": 2,
+      "dependencies": [
+        7
+      ]
+    },
+    {
+      "task_id": 17,
+      "name": "Task_L02_0017",
+      "duration": 28.19,
+      "cpu_demand": 1,
+      "memory_demand_mb": 512.0,
+      "priority": 3,
+      "dependencies": [
+        6,
+        9,
+        14
+      ]
+    },
+    {
+      "task_id": 18,
+      "name": "Task_L02_0018",
+      "duration": 21.88,
+      "cpu_demand": 2,
+      "memory_demand_mb": 512.0,
+      "priority": 6,
+      "dependencies": [
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "task_id": 19,
+      "name": "Task_L02_0019",
+      "duration": 38.24,
+      "cpu_demand": 1,
+      "memory_demand_mb": 512.0,
+      "priority": 1,
+      "dependencies": [
+        8,
+        10,
+        13,
+        14
+      ]
+    },
+    {
+      "task_id": 20,
+      "name": "Task_L02_0020",
+      "duration": 36.62,
+      "cpu_demand": 2,
+      "memory_demand_mb": 1024.0,
+      "priority": 2,
+      "dependencies": [
+        6,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "task_id": 21,
+      "name": "Task_L02_0021",
+      "duration": 11.07,
+      "cpu_demand": 4,
+      "memory_demand_mb": 1024.0,
+      "priority": 4,
+      "dependencies": [
+        5,
+        7,
+        9,
+        10,
+        13
+      ]
+    },
+    {
+      "task_id": 22,
+      "name": "Task_L02_0022",
+      "duration": 30.18,
+      "cpu_demand": 2,
+      "memory_demand_mb": 2048.0,
+      "priority": 3,
+      "dependencies": [
+        6,
+        7,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "task_id": 23,
+      "name": "Task_L02_0023",
+      "duration": 13.39,
+      "cpu_demand": 1,
+      "memory_demand_mb": 1024.0,
+      "priority": 10,
+      "dependencies": [
+        9
+      ]
+    },
+    {
+      "task_id": 24,
+      "name": "Task_L02_0024",
+      "duration": 20.42,
+      "cpu_demand": 4,
+      "memory_demand_mb": 2048.0,
+      "priority": 6,
+      "dependencies": [
+        6,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "task_id": 25,
+      "name": "Task_L02_0025",
+      "duration": 11.43,
+      "cpu_demand": 1,
+      "memory_demand_mb": 2048.0,
+      "priority": 2,
+      "dependencies": [
+        10,
+        11,
+        12,
+        14
+      ]
+    },
+    {
+      "task_id": 26,
+      "name": "Task_L02_0026",
+      "duration": 34.5,
+      "cpu_demand": 1,
+      "memory_demand_mb": 512.0,
+      "priority": 3,
+      "dependencies": [
+        7,
+        13,
+        14
+      ]
+    },
+    {
+      "task_id": 27,
+      "name": "Task_L03_0027",
+      "duration": 36.06,
+      "cpu_demand": 2,
+      "memory_demand_mb": 256.0,
+      "priority": 7,
+      "dependencies": [
+        19,
+        20,
+        24
+      ]
+    },
+    {
+      "task_id": 28,
+      "name": "Task_L03_0028",
+      "duration": 18.41,
+      "cpu_demand": 2,
+      "memory_demand_mb": 1024.0,
+      "priority": 9,
+      "dependencies": [
+        14,
+        16,
+        17,
+        18,
+        21,
+        23,
+        24
+      ]
+    },
+    {
+      "task_id": 29,
+      "name": "Task_L03_0029",
+      "duration": 39.01,
+      "cpu_demand": 1,
+      "memory_demand_mb": 256.0,
+      "priority": 9,
+      "dependencies": [
+        16,
+        18,
+        22,
+        25
+      ]
+    },
+    {
+      "task_id": 30,
+      "name": "Task_L03_0030",
+      "duration": 34.29,
+      "cpu_demand": 4,
+      "memory_demand_mb": 1024.0,
+      "priority": 2,
+      "dependencies": [
+        17,
+        18,
+        25
+      ]
+    },
+    {
+      "task_id": 31,
+      "name": "Task_L03_0031",
+      "duration": 14.62,
+      "cpu_demand": 1,
+      "memory_demand_mb": 2048.0,
+      "priority": 1,
+      "dependencies": [
+        17,
+        19
+      ]
+    },
+    {
+      "task_id": 32,
+      "name": "Task_L03_0032",
+      "duration": 43.01,
+      "cpu_demand": 4,
+      "memory_demand_mb": 1024.0,
+      "priority": 9,
+      "dependencies": [
+        21,
+        25,
+        26
+      ]
+    },
+    {
+      "task_id": 33,
+      "name": "Task_L03_0033",
+      "duration": 34.76,
+      "cpu_demand": 4,
+      "memory_demand_mb": 256.0,
+      "priority": 5,
+      "dependencies": [
+        17,
+        18,
+        22,
+        24
+      ]
+    },
+    {
+      "task_id": 34,
+      "name": "Task_L03_0034",
+      "duration": 38.19,
+      "cpu_demand": 4,
+      "memory_demand_mb": 512.0,
+      "priority": 3,
+      "dependencies": [
+        15,
+        16,
+        17,
+        20,
+        24
+      ]
+    },
+    {
+      "task_id": 35,
+      "name": "Task_L03_0035",
+      "duration": 18.08,
+      "cpu_demand": 1,
+      "memory_demand_mb": 256.0,
+      "priority": 10,
+      "dependencies": [
+        17,
+        21
+      ]
+    },
+    {
+      "task_id": 36,
+      "name": "Task_L03_0036",
+      "duration": 15.94,
+      "cpu_demand": 1,
+      "memory_demand_mb": 256.0,
+      "priority": 6,
+      "dependencies": [
+        19,
+        20
+      ]
+    },
+    {
+      "task_id": 37,
+      "name": "Task_L03_0037",
+      "duration": 39.79,
+      "cpu_demand": 2,
+      "memory_demand_mb": 512.0,
+      "priority": 1,
+      "dependencies": [
+        15,
+        21,
+        24,
+        25
+      ]
+    },
+    {
+      "task_id": 38,
+      "name": "Task_L03_0038",
+      "duration": 12.36,
+      "cpu_demand": 4,
+      "memory_demand_mb": 256.0,
+      "priority": 2,
+      "dependencies": [
+        17,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26
+      ]
+    },
+    {
+      "task_id": 39,
+      "name": "Task_L04_0039",
+      "duration": 33.47,
+      "cpu_demand": 1,
+      "memory_demand_mb": 512.0,
+      "priority": 3,
+      "dependencies": [
+        34,
+        35,
+        36
+      ]
+    },
+    {
+      "task_id": 40,
+      "name": "Task_L04_0040",
+      "duration": 30.37,
+      "cpu_demand": 4,
+      "memory_demand_mb": 512.0,
+      "priority": 5,
+      "dependencies": [
+        27,
+        33
+      ]
+    },
+    {
+      "task_id": 41,
+      "name": "Task_L04_0041",
+      "duration": 24.69,
+      "cpu_demand": 4,
+      "memory_demand_mb": 2048.0,
+      "priority": 4,
+      "dependencies": [
+        32,
+        36,
+        37
+      ]
+    },
+    {
+      "task_id": 42,
+      "name": "Task_L04_0042",
+      "duration": 41.94,
+      "cpu_demand": 4,
+      "memory_demand_mb": 512.0,
+      "priority": 5,
+      "dependencies": [
+        17,
+        27,
+        29,
+        30,
+        31,
+        33,
+        35,
+        36,
+        38
+      ]
+    },
+    {
+      "task_id": 43,
+      "name": "Task_L04_0043",
+      "duration": 19.16,
+      "cpu_demand": 4,
+      "memory_demand_mb": 1024.0,
+      "priority": 8,
+      "dependencies": [
+        22,
+        26,
+        28,
+        29,
+        31,
+        35,
+        36
+      ]
+    },
+    {
+      "task_id": 44,
+      "name": "Task_L04_0044",
+      "duration": 40.68,
+      "cpu_demand": 2,
+      "memory_demand_mb": 256.0,
+      "priority": 4,
+      "dependencies": [
+        27,
+        28,
+        29,
+        31
+      ]
+    },
+    {
+      "task_id": 45,
+      "name": "Task_L04_0045",
+      "duration": 11.66,
+      "cpu_demand": 2,
+      "memory_demand_mb": 256.0,
+      "priority": 10,
+      "dependencies": [
+        29,
+        30,
+        31,
+        33,
+        34
+      ]
+    },
+    {
+      "task_id": 46,
+      "name": "Task_L04_0046",
+      "duration": 25.82,
+      "cpu_demand": 4,
+      "memory_demand_mb": 512.0,
+      "priority": 1,
+      "dependencies": [
+        29,
+        31,
+        32,
+        34
+      ]
+    },
+    {
+      "task_id": 47,
+      "name": "Task_L05_0047",
+      "duration": 5.05,
+      "cpu_demand": 4,
+      "memory_demand_mb": 256.0,
+      "priority": 4,
+      "dependencies": [
+        39,
+        40,
+        44,
+        45
+      ]
+    },
+    {
+      "task_id": 48,
+      "name": "Task_L05_0048",
+      "duration": 4.9,
+      "cpu_demand": 1,
+      "memory_demand_mb": 1024.0,
+      "priority": 2,
+      "dependencies": [
+        38,
+        43,
+        44
+      ]
+    },
+    {
+      "task_id": 49,
+      "name": "Task_L05_0049",
+      "duration": 24.11,
+      "cpu_demand": 2,
+      "memory_demand_mb": 2048.0,
+      "priority": 4,
+      "dependencies": [
+        41,
+        45
+      ]
+    },
+    {
+      "task_id": 50,
+      "name": "Task_L05_0050",
+      "duration": 25.19,
+      "cpu_demand": 4,
+      "memory_demand_mb": 2048.0,
+      "priority": 4,
+      "dependencies": [
+        30,
+        39,
+        41,
+        43
+      ]
+    }
+  ]
+}
