@@ -101,19 +101,16 @@ The user directed the agent to continue working in the existing repository with 
 
 *Note on dynamic loops*: In `loop_heavy` (200 loop iterations), eliminating 3 invariant instructions inside the loop body eliminated **600 dynamic execution cycles** (3,408 $\to$ 2,808 VM steps), demonstrating the compound value of static optimization inside iterative control structures.
 
-### B. BILP Pass Selection Results Across Budgets ($w_s = 0.6, w_c = 0.4$)
-| Budget $B$ (ms) | Selected Passes | Active Passes | Total Overhead (ms) | Total Score | Optimal Score (Brute Force) | Optimality Gap |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 2.0 | None | 0 | 0.000 | 0.000 | 0.000 | **0.00%** |
-| 3.0 | `constant_folding` | 1 | 2.500 | 8.800 | 8.800 | **0.00%** |
-| 4.0 | `constant_propagation` | 1 | 3.500 | 12.000 | 12.000 | **0.00%** |
-| 5.0 | `dce` | 1 | 4.500 | 14.600 | 14.600 | **0.00%** |
-| 6.0 | `constant_folding`, `constant_propagation` | 2 | 6.000 | 20.800 | 20.800 | **0.00%** |
-| 7.0 | `constant_folding`, `dce` | 2 | 7.000 | 23.400 | 23.400 | **0.00%** |
-| 8.0 | `constant_propagation`, `dce` | 2 | 8.000 | 26.600 | 26.600 | **0.00%** |
-| 9.0 | `constant_folding`, `cse` | 2 | 8.500 | 27.200 | 27.200 | **0.00%** |
-| 10.0 | `constant_propagation`, `cse` | 2 | 9.500 | 30.400 | 30.400 | **0.00%** |
-| 11.0 | `constant_folding`, `constant_propagation`, `strength_reduction` | 3 | 7.800 | 25.400 | 25.400 | **0.00%** |
+### B. BILP Pass Selection Results Across Budgets ($w_{\text{rt}} = 1.0, w_{\text{sz}} = 0.5, w_{\text{cmp}} = 0.2$)
+| Budget $C_{\text{budget}}$ | Selected Passes | Active Passes | Compile Cost | Net Objective Score | Optimal Score (Brute Force) | Optimality Gap |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| 2.0 | `CP` | 1 | 2.000 | 11.600 | 11.600 | **0.00%** |
+| 4.0 | `CF`, `CP` | 2 | 3.500 | 27.300 | 27.300 | **0.00%** |
+| 6.0 | `CF`, `CP`, `DCE` | 3 | 6.000 | 38.800 | 38.800 | **0.00%** |
+| 8.0 | `CF`, `CP`, `SR`, `CSE` | 4 | 8.000 | 55.900 | 55.900 | **0.00%** |
+| 11.0 | `CF`, `CP`, `SR`, `CSE`, `DCE` | 5 | 10.500 | 67.400 | 67.400 | **0.00%** |
+
+*Audit Correction Note*: An earlier draft in the prompt log mistakenly contained non-monotonic placeholder values (e.g. Budget 11.0 listing an incomplete subset with score 25.4). The table above reconciles directly with the empirical CSV data (`results/pass_selection_summary.csv`) and mathematical code (`src/pass_selector.py`), demonstrating monotonic improvement ($11.6 \to 27.3 \to 38.8 \to 55.9 \to 67.4$) as budget expands.
 
 The SciPy HiGHS MILP solver matched the exact combinatorial optimum with a **0.00% optimality gap** across all evaluated budgets.
 

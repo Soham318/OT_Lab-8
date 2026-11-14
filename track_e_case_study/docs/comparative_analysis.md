@@ -12,14 +12,15 @@ All three algorithms were evaluated over identical 28-station timetable data acr
 
 | Performance Metric | Time-Dependent Dijkstra (Baseline) | Greedy Railway Optimizer (Heuristic) | Exact ILP (HiGHS Solver) | Best Performer |
 | :--- | :--- | :--- | :--- | :--- |
-| **Optimality Guarantee** | Heuristic (Single Earliest-Arrival) | Heuristic (Myopic Multi-Objective) | **Globally Proven Optimal** | **ILP** |
+| **Optimized Objective** | Arrival Time Only ($\min T_{\text{arr}}$) | Step-wise Composite Score ($\min \text{score}$) | Multi-Objective Cost ($\min Z$) | Task-Dependent |
+| **Optimality Guarantee** | Optimal for Arrival Time ($T_{\text{arr}}$) | Heuristic (Myopic Multi-Objective) | **Globally Proven Optimal for $Z$** | **ILP (for $Z$), Dijkstra (for $T_{\text{arr}}$)** |
 | **Mean Execution Latency** | **0.276 ms** | 2.044 ms | 547.285 ms | **Dijkstra** (1980x vs ILP) |
 | **Mean Journey Duration** | 273.9 min | 277.3 min | **246.9 min** | **ILP** (-27.0 min saving) |
 | **Mean Transfer Waiting** | 56.0 min | 48.9 min | **30.9 min** | **ILP** (-25.1 min saving) |
 | **Mean Number of Transfers**| 0.95 | 0.70 | **0.60** | **ILP** (-37% transfers) |
 | **Mean Composite Cost ($Z$)**| 323.9 | 315.2 | **273.1** | **ILP** (-15.7% lower cost) |
-| **Mean Optimality Gap** | 20.58% | 15.81% | **0.00% (Reference)** | **ILP** |
-| **Proven Optimal Rate** | 0 / 20 | 0 / 20 | **20 / 20 (100%)** | **ILP** |
+| **Mean Multi-Obj Optimality Gap**| 20.58% (vs $Z^*$) | 15.81% (vs $Z^*$) | **0.00% (Reference)** | **ILP** |
+| **Earliest-Arrival Optimality**| **100.0% (20 / 20)** | 75.0% (15 / 20) | **100.0% (20 / 20)** | **Dijkstra & ILP** |
 
 ---
 
@@ -52,11 +53,16 @@ All three algorithms were evaluated over identical 28-station timetable data acr
 
 ## 3. In-Depth Engineering Insights & Trade-Offs
 
-### 3.1 Why Dijkstra Rushes and Suffers High Suboptimality Gaps
-Time-dependent earliest-arrival Dijkstra optimizes strictly for the earliest arrival timestamp at the destination, regardless of departure delay or number of transfers.
-* **The "Hurry Up and Wait" Phenomenon**: On query Q05 (`STN_11` to `STN_06`), Dijkstra boards the very first shuttle at 06:00, transfers at Dune Plains, and arrives at 09:53 (233 min duration). 
-* **The ILP Discovery**: Exact ILP discovers that by waiting at the origin until 07:00, the passenger can board the *Western Harbor Express* direct train, arriving at the exact same minute (09:53) with **0 transfers** and only **173 min duration**!
-* This accounts for the 64.2% optimality gap of Dijkstra on Q05.
+### 3.1 Objective Function Reconciliation: Earliest Arrival vs. Multi-Objective Cost
+A vital distinction must be made between what Dijkstra optimizes versus what ILP optimizes:
+- **Dijkstra Formulation**: Solves the Earliest Arrival Problem (EAP), minimizing solely the arrival timestamp:
+  $$\min T_{\text{arr}} \quad \text{subject to } T_{\text{dep}} \ge T_{\text{query}}$$
+  On this specific criterion, Dijkstra is **100% globally optimal** across all 20 benchmark queries (achieving the theoretical earliest arrival in every instance).
+- **ILP Formulation**: Solves the multi-objective journey optimization problem, minimizing composite generalized cost:
+  $$\min Z = \alpha \cdot \text{TravelTime} + \beta \cdot \text{WaitTime} + \gamma \cdot \text{Transfers}$$
+- **Reconciliation of the Optimality Gap**: The reported 20.58% optimality gap reflects Dijkstra's performance evaluated against the multi-objective metric $Z$, NOT failure to find an early arrival. Because Dijkstra treats waiting time and platform transfers as zero cost so long as arrival is minimized, it aggressively boards the earliest departing train. On queries like Q05 (`STN_11` $\to$ `STN_06`), Dijkstra boards at 06:00, transfers at Dune Plains, and arrives at 09:53 ($Z = 271.0$). ILP discovers that departing at 07:00 on the direct express arrives at the *exact same minute* (09:53) with 0 transfers and 60 minutes less duration ($Z = 165.0$). Thus, Dijkstra is optimal for pure arrival time, but suboptimal for passenger comfort and journey efficiency.
+
+### 3.2 The "Hurry Up and Wait" Phenomenon and Pathological Cases
 
 ### 3.2 Where Greedy Succeeds and Where It Fails
 * **Simple Corridors**: On 10 out of 20 queries (Q01, Q02, Q03, Q05, Q06, Q07, Q08, Q09, Q11, Q15, Q17, Q20), Greedy achieves an optimality gap of **0.0%**, finding the exact same optimal path as ILP in only **2.0 ms**.
